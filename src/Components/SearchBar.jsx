@@ -18,12 +18,13 @@ const SearchBar = () => {
   return (
     <div className={style.container}>
       <input
+        className={style.input}
         type='text'
         placeholder='Busca instrumentos...'
         value={term}
         onChange={handleInput}
         />
-      <select value={filter} onChange={handleFilter}>
+      <select className={style.filter} value={filter} onChange={handleFilter}>
         <option value="all">Todos</option>
         <option value="Guitarra">Guitarra</option>
         <option value="Bateria">Bateria</option>
