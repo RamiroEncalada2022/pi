@@ -1,18 +1,12 @@
-.container {
-  background-color: #fff;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999px;
-  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
-}
-
 .header {
     display: flex;
     justify-content: space-around;
-    align-items: center
-    
+    align-items: center;
+    background-color: #edfa02;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
   }
 
 .div {
@@ -21,3 +15,4 @@
     align-items: center
     
   }
+
