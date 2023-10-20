@@ -3,7 +3,10 @@ import style from './Styles/Footer.module.css'
 
 const Footer = () => {
   return (
-    <div className={style.container}>Footer</div>
+    <div className={style.container}>
+      <img ></img>
+      <p>Copyright 2023 - Digital House</p>
+    </div>
   )
 }
 
