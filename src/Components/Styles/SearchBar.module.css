@@ -1,4 +1,47 @@
 .container {
     background-color: rgb(127, 175, 134);
+    background-color: blanchedalmond;
     height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.input {
+    all:unset;
+    width: 350px;
+    background-color: rgb(224, 230, 155);
+
+    border-radius: 10px;
+    padding: 8px;
+    margin: 10px;
+}
+
+.filter{
+    all: unset;
+    padding: 8px;
+    border-radius: 3px;
+    background-color: rgb(245, 203, 151);
+    border-radius: 10px;
+    margin:10px;
+    color:#333;
+    width: 80px;
+}
+.searchButton{
+    all: unset;
+    padding: 8px;
+    border:1px solid rgb(95, 95, 95);
+    border-radius: 3px;
+    background-color: rgb(240, 183, 113);
+    border-radius: 10px;
+    margin:10px;
+    color:#333;
+    width: 80px;
+}
+
+.filter option {
+    background-color: bisque;
+    color: #333;
+    padding:20px;
+  }
