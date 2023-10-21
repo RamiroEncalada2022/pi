@@ -24,7 +24,7 @@ const Footer = () => {
     <div className={style.footer}>
       <img className= 'logo' src="./img/LogoSinfonia.png" alt="logo dh" />
       <FontAwesomeIcon icon={faCopyright} />
-      <br />
+    
 
 
       <p>   2023</p>
