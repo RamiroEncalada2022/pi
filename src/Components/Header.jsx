@@ -8,7 +8,7 @@ const Header = () => {
 
 			<div className={style.header}>
 				<div className={style.div}>
-					<Link to="/pi/src/Pages/Home.jsx">
+					<Link to="/">
 						<img className= 'logo' src="./img/LogoSinfonia.png" alt="logo dh" />
 					</Link>
 					<h1>Sinfonia</h1>

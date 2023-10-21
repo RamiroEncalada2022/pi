@@ -1,6 +1,9 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+
+
 
 const Detail = () => {
 
@@ -23,14 +26,12 @@ const Detail = () => {
 
   return (
     <div>
-        <h1>Instrumento: {instrumento.name} </h1>
+        <h1>{instrumento.name} </h1>
         <p> {instrumento.descripcion} </p>
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
-
+        {/*mapeo de array de imagenes*/}
+        <Link to="/">
+        <FontAwesomeIcon icon={faArrowLeft} style={{display:"flex", justifyContent: "end"}} />
+				</Link>    
     </div>
   )
 }
