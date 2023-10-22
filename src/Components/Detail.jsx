@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 
@@ -12,7 +13,7 @@ const Detail = () => {
 
   const params =useParams()
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un instrumento en especifico
-  const url = "https://xxxxxxx.com/instrumentos" + params.id
+  const url = "https://jsonplaceholder.typicode.com/photos/" + params.id
 
   useEffect(()=>{      
     fetch(url)
@@ -26,8 +27,8 @@ const Detail = () => {
 
   return (
     <div>
-        <h1>{instrumento.name} </h1>
-        <p> {instrumento.descripcion} </p>
+        <h1>{instrumento.title} </h1>
+        <img src={instrumento.url} alt="instrumento" width={' 100px'}  />
         {/*mapeo de array de imagenes*/}
         <Link to="/">
         <FontAwesomeIcon icon={faArrowLeft} style={{display:"flex", justifyContent: "end"}} />
