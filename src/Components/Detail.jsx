@@ -1,6 +1,8 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 const Detail = () => {
 
@@ -24,7 +26,10 @@ const Detail = () => {
   return (
     <div>
         <h1>{instrumento.title} </h1>
-        <img src={instrumento.url} alt="instrumento" width={' 100px'}  /> 
+        <img src={instrumento.url} alt="instrumento" width={' 100px'}  />
+        <Link to="/">
+        <FontAwesomeIcon icon={faArrowLeft} style={{display:"flex", justifyContent: "end"}} />
+				</Link>   
         
 
     </div>
