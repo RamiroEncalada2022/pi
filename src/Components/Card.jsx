@@ -38,7 +38,7 @@ const Card = ({ instrumento }) => {
     <div className="card">
         {/* En cada card deberan mostrar en name - username y el id */}
         
-        <img src={instrumento.url} alt="doctor" width={' 100px'}  />        
+        <img src={instrumento.url} alt="instrumento" width={' 100px'}  />        
         <Link to={`/Detail/${instrumento.id}`}>
         <h2>{instrumento.title}</h2>
         </Link>

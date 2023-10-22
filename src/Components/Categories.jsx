@@ -7,17 +7,41 @@ import Card from './Card'
 const Categories = () => {
 
   const {state}= useContextGlobal()
+
+  const instrumentosRandom = [];
+
+  
+     
+  for (let i = 0; i < state.instrumentos.length; i++) {
+
+    const random = [Math.round(Math.random()*state.instrumentos.length-1)]
+
+    const instrumentoRandom= state.instrumentos[random];
+
+    !(instrumentosRandom.includes(instrumentoRandom)) && instrumentosRandom.push(instrumentoRandom)
+
+  }; 
+    
+
   return (
+
     <div className={style.container}>
 
-     {(state.instrumentos.map(instrumento =><Card key = {instrumento.id} instrumento={instrumento}/>)).slice(0,10)}
+    {
+
+    instrumentosRandom.map((instrumento)=><Card key = {instrumento.id} instrumento={instrumento}/>).slice(0,10)}
 
 
+      
+  
+  
 
-    
-    
+
     </div>
+  
+  
   )
+
 }
 
 export default Categories

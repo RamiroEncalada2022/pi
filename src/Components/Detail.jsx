@@ -9,7 +9,7 @@ const Detail = () => {
 
   const params =useParams()
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un instrumento en especifico
-  const url = "https://xxxxxxx.com/instrumentos" + params.id
+  const url = "https://jsonplaceholder.typicode.com/photos/" + params.id
 
   useEffect(()=>{      
     fetch(url)
@@ -23,13 +23,9 @@ const Detail = () => {
 
   return (
     <div>
-        <h1>Instrumento: {instrumento.name} </h1>
-        <p> {instrumento.descripcion} </p>
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
+        <h1>{instrumento.title} </h1>
+        <img src={instrumento.url} alt="instrumento" width={' 100px'}  /> 
+        
 
     </div>
   )
