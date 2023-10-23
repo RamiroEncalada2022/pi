@@ -65,9 +65,14 @@ const Admin = () => {
         />
         <br />
         <input
-          type="file"
-          onChange={(e) => setImages([...images, URL.createObjectURL(e.target.files[0])])}
-        />
+  type="file"
+  onChange={(e) => {
+    const files = Array.from(e.target.files);
+    const newImages = files.map((file) => URL.createObjectURL(file));
+    setImages([...images, ...newImages]);
+  }}
+  multiple
+/>
         <br />
         <button type="submit">Agregar Producto</button>
       </form>
