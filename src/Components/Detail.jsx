@@ -29,7 +29,7 @@ const Detail = () => {
     <div>
         <h1>{instrumento.title} </h1>
         <img src={instrumento.url} alt="instrumento" width={' 100px'}  />
-        {/*mapeo de array de imagenes*/}
+        
         <Link to="/">
         <FontAwesomeIcon icon={faArrowLeft} style={{display:"flex", justifyContent: "end"}} />
 				</Link>    
