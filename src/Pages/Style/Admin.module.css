@@ -35,6 +35,7 @@
 .productList {
     display: flex;
     flex-direction: column-reverse;
+    align-items: center;
     list-style: none;
     flex-wrap: wrap;
     padding: 0;
@@ -71,7 +72,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: 40%;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 10px;

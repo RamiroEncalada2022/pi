@@ -1,4 +1,18 @@
-.container {
+
+
+.footer {
+    display: flex;
+    justify-content: start;
+    align-items: center;
     background-color: #88805d;
-    height: 13vh;
-}
+    height: 16vh;
+    width: 100%;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  .footer p {
+
+    font-weight: 500;
+  }
+
+
