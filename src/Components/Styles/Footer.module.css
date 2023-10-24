@@ -4,10 +4,11 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    background-color: #88805d;
+    background-color: #ebe1c5;
     height: 16vh;
     width: 100%;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+    font-family: 'Didact Gothic', sans-serif;
   }
 
   .footer p {

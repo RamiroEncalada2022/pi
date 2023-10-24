@@ -11,7 +11,7 @@ const Header = () => {
 					<Link to="/">
 						<img className= 'logo' src="./img/LogoSinfonia.png" alt="logo dh" />
 					</Link>
-					<h1>Sinfonia</h1>
+					<h1>Sinfonía</h1>
 				</div>
 
 				<div className={style.buttons}>

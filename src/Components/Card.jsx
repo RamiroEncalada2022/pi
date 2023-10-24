@@ -17,7 +17,7 @@ const Card = ({ instrumento }) => {
       <h2>{instrumento.name}</h2>
       </Link>
 
-      <h3>{instrumento.created}</h3>
+
 
     </div>
   );
