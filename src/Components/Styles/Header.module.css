@@ -4,14 +4,32 @@
     align-items: center;
     background-color: white;
     position: sticky;
+    z-index: 1;
     top: 0;
     width: 100%;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+    font-family: 'Didact Gothic', sans-serif;
   }
 
   .header h1 {
     color: #726d3e;
   }
+
+  .buttons{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+  }
+
+  .buttons button{
+    background-color: #f3edbd;
+    border: 1px solid rgb(36, 44, 1);
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+    font-family: 'Didact Gothic', sans-serif;
+  }
+
 
 .div {
     display: flex;

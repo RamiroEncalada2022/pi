@@ -9,9 +9,8 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 const Detail = () => {
 
     const [instrumento, setInstrumento] =useState({})
- 
-
-  const params =useParams()
+    
+    const params =useParams()
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un instrumento en especifico
   const url = "https://jsonplaceholder.typicode.com/photos/" + params.id
 
@@ -28,7 +27,12 @@ const Detail = () => {
   return (
     <div>
         <h1>{instrumento.title} </h1>
-        <img src={instrumento.url} alt="instrumento" width={' 100px'}  />
+        
+        <img src={instrumento.url} alt="instrumento" width={' 100px'} className='1' />
+        <img src={instrumento.url} alt="instrumento" width={' 100px'} className='2' />
+        <img src={instrumento.url} alt="instrumento" width={' 100px'} className='3' />
+        <img src={instrumento.url} alt="instrumento" width={' 100px'} className='4' />
+        <img src={instrumento.url} alt="instrumento" width={' 100px'} className='5' />
         
         <Link to="/">
         <FontAwesomeIcon icon={faArrowLeft} style={{display:"flex", justifyContent: "end"}} />

@@ -6,20 +6,23 @@ const Categories = () => {
   return (
     <div className={style.container}>
 
-      <div className='cuerda'>
-    
+      <div className={style.instrument}>
+      <h3>Instrumentos de cuerda</h3>
       <img className= 'chords' src="./img/cuerda.jpg" alt="cuerdas" ></img>
       </div>
-      <div className='percusion'>
-      
+
+      <div className={style.instrument}>
+      <h3>Instrumentos de percusión</h3>
       <img className= 'percu' src="./img/percusion.jpg" alt="percusion" ></img>
       </div>
-      <div className='viento'>
-      
+
+      <div className={style.instrument}>
+      <h3>Instrumentos de viento</h3>
       <img className= 'air' src="./img/viento.jpg" alt="viento" ></img>
       </div>
-      <div className='otros'>
-      
+
+      <div className={style.instrument}>
+      <h3>Otros</h3>
       <img className= 'others' src="./img/otros.jpg" alt="otros" ></img>
       </div>
     

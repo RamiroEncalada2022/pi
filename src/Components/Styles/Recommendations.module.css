@@ -1,39 +1,33 @@
 
 
 .container {
-    background-color: rgb(235, 180, 135);
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    background-color: rgb(247, 248, 167);
+   display: grid;
+   grid-template-columns: auto auto;
+   justify-content: space-around;
 
-}
- .container div{
-    background-color: white;
-    height: 600px;
-    width: 500px;
-    margin: 2%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    
- }
-
- .container div img{
-    height: 400px;
    
+   margin: 0 auto;
+   padding: 20px;
+}
+
+.container div {
+    margin: 10px;
+    background-color: rgb(255, 255, 255);
+    width: 500px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: auto ;
+    grid-gap: 5px;
+    place-content:center;
+    
+}
+
+.container img{
+    width: 250px;   
 }
 
 .container h2{
-    color: rgb(31, 32, 32);
-}
-
-.container h5{
-    color: rgb(62, 68, 68);
-}
-
-.container h3{
-    color: rgb(105, 114, 70);
+    color: rgb(31, 32, 32);  
+    font-family: 'Didact Gothic', sans-serif;
 }
