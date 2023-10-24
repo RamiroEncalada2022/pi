@@ -1,4 +1,39 @@
+
+
 .container {
     background-color: rgb(235, 180, 135);
-    height: 13vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+}
+ .container div{
+    background-color: white;
+    height: 600px;
+    width: 500px;
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    
+ }
+
+ .container div img{
+    height: 400px;
+   
+}
+
+.container h2{
+    color: rgb(31, 32, 32);
+}
+
+.container h5{
+    color: rgb(62, 68, 68);
+}
+
+.container h3{
+    color: rgb(105, 114, 70);
 }

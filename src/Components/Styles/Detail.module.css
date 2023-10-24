@@ -1,0 +1,18 @@
+.detail {
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: "center"
+}
+
+.detail h1 {
+
+    display: flex;
+    justify-content: start;
+}
+
+
+
+
+
