@@ -11,13 +11,13 @@ const Card = ({ instrumento }) => {
   return (
     <div className="card">
              
-      <img src={instrumento.url} alt="instrumento" width={' 100px'}  /> 
+      <img src={instrumento.image} alt="instrumento" width={' 100px'}  /> 
 
       <Link to={`/Detail/${instrumento.id}`}>
-      <h2>{instrumento.title}</h2>
+      <h2>{instrumento.name}</h2>
       </Link>
 
-      <h3>{instrumento.albumId}</h3>
+      <h3>{instrumento.created}</h3>
 
     </div>
   );
