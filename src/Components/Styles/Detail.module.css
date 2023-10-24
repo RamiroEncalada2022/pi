@@ -13,6 +13,24 @@
 }
 
 
+.detail div{
+    background-color: white;
+    height: 600px;
+    width: 500px;
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    
+ }
+
+ .detail div img{
+    height: 400px;
+   
+}
+
 
 
 

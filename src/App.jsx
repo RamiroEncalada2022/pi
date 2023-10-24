@@ -6,21 +6,23 @@ import Home from './Pages/Home'
 import Detail from "./Components/Detail"
 
 import { Route, Routes } from 'react-router-dom'
+import ListaProductos from './Components/ListaProductos'
 
 function App() {
 
 
   return (
     <>
-    <Header/>
+      <Header />
 
-    <Routes>
-      <Route path="/" element={<Home/>}/>
-     <Route path="/Detail/:id" element={<Detail/>}/>
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Detail/:id" element={<Detail />} />
+        <Route path="/ListaProductos" element={<ListaProductos />} />
+      </Routes>
 
-    <Footer/>
-      
+      <Footer />
+
     </>
   )
 }
