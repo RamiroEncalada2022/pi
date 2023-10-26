@@ -94,14 +94,15 @@ const SearchBar = () => {
 
   return (
     <div className={style.container}>
-      <h2>Busca entre los cientos de instrumentos que tenemos para ti:</h2>
-      <div>
+      <div className= {style.div1}>
+      <h2>Busca entre los cientos de instrumentos que tenemos:</h2>
         <input
           className={style.input}
           type='text'
           placeholder='🔍   Buscar productos...   '
           value={term}
           onChange={handleInput}
+          
           />
         <label htmlFor="tipo">Tipo: </label>
         <select className={style.filter} value={filterTipo} onChange={handleFilterTipo} id='tipo'>

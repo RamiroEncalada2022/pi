@@ -16,4 +16,15 @@
     font-weight: 500;
   }
 
+  @media(max-width:900px){
+.footer{height: 80px;
+}
+.footer img{
+
+  height: 100%;
+}
+
+  
+  }
+
 

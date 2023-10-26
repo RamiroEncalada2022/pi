@@ -7,7 +7,7 @@ const Header = () => {
 	return (
 
 			<div className={style.header}>
-				<div className={style.div}>
+				<div className={style.divHeader}>
 					<Link to="/">
 						<img className= 'logo' src="./img/LogoSinfonia.png" alt="logo dh" />
 					</Link>

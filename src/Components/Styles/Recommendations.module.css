@@ -31,3 +31,47 @@
     color: rgb(31, 32, 32);  
     font-family: 'Didact Gothic', sans-serif;
 }
+
+@media(max-width:1000px){
+    .container div{
+        display: grid;
+        grid-template-columns:auto ;
+        width: 90%;
+        place-items: center;
+        grid-gap: 20px;
+}
+}
+
+@media(max-width:900px){
+    
+    
+    .container div{
+        grid-template-columns: auto ;
+        width: 200px;
+        display: grid auto;
+
+    }
+
+    .container img{
+        width: 150px;
+    } 
+}
+@media(max-width:560px){
+
+    .container div{
+            display: grid;
+            grid-template-columns:auto ;
+            width: 40%;
+            place-items: center;
+            grid-gap: 5px;
+    }
+
+}
+
+@media(max-width:470px){
+
+    
+}
+
+
+

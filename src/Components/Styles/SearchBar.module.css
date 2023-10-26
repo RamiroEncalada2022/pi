@@ -8,11 +8,11 @@
     font-family: 'Didact Gothic', sans-serif;
 }
 
+
 .input {
     all:unset;
     width: 350px;
     background-color: rgb(255, 255, 255);
-
     border-radius: 10px;
     padding: 8px;
     margin: 10px;
@@ -50,3 +50,47 @@
   .container h2{
     font-family: 'Didact Gothic', sans-serif;
   }
+
+  @media(max-width:900px){
+    .container{
+        width: 100%;
+        padding-bottom: 1%;
+        padding-top: 1%;
+        display: grid;
+        place-items: center;   
+    }
+
+    .container .div1{
+        width: 50%;
+        display:grid;
+        place-items: center;
+        padding: 0;    
+    }
+
+    .input{
+        width: 70%;    
+    }
+
+    .container label{
+        display: none;
+    }
+
+    .container select {
+        display: none;
+    }
+  }
+
+  @media(max-width:620px){
+
+    .container .div1{
+        width: 90%;
+    }
+  }
+
+  @media(max-width:360px){
+
+    .container {
+        height: 400px;
+    }
+  }
+

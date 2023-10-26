@@ -39,5 +39,51 @@
 
 }
 
+@media(max-width:1000px){
+    .container{
+        display: grid;
+        grid-template-columns:auto auto ;
+}
+
+@media(max-width:900px){ 
+    
+    } 
+
+     .container{
+        display: grid;
+        grid-template-columns:auto auto ;
+        height: 10%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        grid-row-gap:60%;
+    }
+
+    .container div{
+        height: 10%;
+        width: 250px;
+
+    } 
+
+    .container img{
+        display: none;
+    
+    }
+}
+
+
+@media(max-width:620px){
+    .container{
+        display: grid;
+        grid-template-columns: auto;
+        height: 200px;
+        grid-row-gap: 5%;
+        place-items: center;
+        padding-bottom: 0%;
+        
+}
+
+
+} 
+
  
 

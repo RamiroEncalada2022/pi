@@ -29,15 +29,14 @@ export const ContextProvider = ({ children }) => {
   const [state, dispatch]= useReducer(reducer, initialState)
 
   useEffect(()=>{      
-    fetch("https://rickandmortyapi.com/api/character")
+    fetch("http://localhost:8080/producto")
     .then((response) => 
-       response.json())
+      response.json())
     .then((data)=> {      
       console.log(data)
-      dispatch({type: "GET_INSTRUMENTOS", payload: data.results })
+      dispatch({type: "GET_INSTRUMENTOS", payload: data })
     })
   }, [])
-
 
   return (
     <ContextGlobal.Provider value={{state, dispatch}}>

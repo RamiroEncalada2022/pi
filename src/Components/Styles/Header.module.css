@@ -31,10 +31,40 @@
   }
 
 
-.div {
+.divHeader {
     display: flex;
     justify-content: space-between;
     align-items: center
     
+  }
+
+  @media(max-width:680px){
+
+    .buttons{
+      display: grid;
+      grid-template-columns: auto;
+    }
+
+    .divHeader{
+      display: grid;
+      grid-template-columns: auto;
+      place-items: center;
+
+    }
+
+    .divHeader img{
+      padding-bottom: 0;
+    }
+
+    .divHeader h1{
+      margin-top: 0;
+    }
+  }
+
+  @media(max-width:400px){
+
+    .buttons button {
+      width: 100px;
+    }
   }
 
