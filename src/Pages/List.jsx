@@ -1,35 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
+import { useContextGlobal } from '../Components/utils/global.context'
 import axios from 'axios';
+import styles from './Style/List.module.css'
 import { Link } from 'react-router-dom';
-import styles from './Style/List.module.css';
 
 const List = () => {
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      /* ----------------------------- Api a modificar ---------------------------- */
-      const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-      setItems(response.data);
-    } catch (error) {
-      console.error('Se produjo el error:', error);
-    }
-  };
+  const { state, dispatch } = useContextGlobal(); // Uso del contexto
 
   const handleDelete = async (id) => {
     if (window.confirm('¿Confirma que desea eliminar el producto?')) {
       try {
-
-              /* ----------------------------- Api a modificar ---------------------------- */
         await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
-
-        /* -------------------- Busca y elimina el id de la lista ------------------- */
-        const updatedItems = items.filter(item => item.id !== id);
-        setItems(updatedItems);
+        dispatch({ type: 'DELETE_INSTRUMENTO', payload: id }); // Actualizar el estado mediante el contexto con instrumentos2
       } catch (error) {
         console.error('Error al eliminar el elemento:', error);
       }
@@ -48,7 +30,7 @@ const List = () => {
           <div className={styles.tableColumnName}>Nombre</div>
           <div className={styles.tableColumnActions}>Acciones</div>
         </div>
-        {items.map((item) => (
+        {state.instrumentos2.map((item) => (
           <div className={styles.tableRow} key={item.id}>
             <div className={styles.tableColumnId}>{item.id}</div>
             <div className={styles.tableColumnName}>{item.title}</div>
