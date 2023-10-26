@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 
 
 const Admin = () => {
+  //En la pantalla de admin debe obtenerse la lista de productos, de aqui al entrar en list solo exhibir.
+  // Debe cargarse aqui con context ya que si se entra en agregar producto debe haber una comprobacion de si el producto ya existe.
+
+
 
   const [isMobile, setIsMobile] = useState(false);
 
