@@ -35,45 +35,26 @@ const Detail = () => {
 			<div className={style.flex}>
         <div className={style.big}>
           <img
-            src={instrumento.url}
-            alt="instrumento"
-            width={" 100px"}
+            src={instrumento.url} alt="instrumento" width={" 100px"}
           />
         </div>
 				
         <div className={style.small}>
           <div>
-            <img
-              src={instrumento.url}
-              alt="instrumento"
-              width={" 100px"}
-              
-            />
-            <img
-              src={instrumento.url}
-              alt="instrumento"
-              width={" 100px"}
-              
-            />
-          </div>
-          <div className={style.smallOne}>
-            <img
-              src={instrumento.url}
-              alt="instrumento"
-              width={" 100px"}
-              
-            />
-            <img
-              src={instrumento.url}
-              alt="instrumento"
-              width={" 100px"}
-                          />
-          </div>
+          <img src={instrumento.url} alt="instrumento"/>
+          <img src={instrumento.url} alt="instrumento"/> 
+
+          <img src={instrumento.url} alt="instrumento"/>
+          <img src={instrumento.url} alt="instrumento"/>
+        </div>
           
         </div>
 			</div>
 
-      <p>{instrumento.description}</p>
+      
+      <div className= {style.descript}>
+        <p>{instrumento.description} DESCRIPCION</p>
+      </div>
 		</div>
 	);
 };
