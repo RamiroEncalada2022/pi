@@ -1,5 +1,36 @@
+.flex {
+	display: flex;
+	align-items: center;
+	justify-items: start;
+   justify-content: center;
+	margin: 100px;
+}
 
+.big {
 
+	/* width: 100%; */
+}
 
+.small {
+   display: flex;
+   flex-direction: column;
+} 
 
+.arrow{
+   margin-left: 5px;
+   
 
+}
+
+a{
+   display: flex;
+   justify-content: end;
+   width: auto;
+   margin-right: 100px;
+}
+
+.title{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}

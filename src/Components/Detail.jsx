@@ -1,44 +1,81 @@
-import React from 'react'
-import { useParams, Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-
-
+import React from "react";
+import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import style from "./Styles/Detail.module.css";
 
 const Detail = () => {
+	const [instrumento, setInstrumento] = useState({});
 
-    const [instrumento, setInstrumento] =useState({})
-    
-    const params =useParams()
-  // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un instrumento en especifico
-  const url = "https://jsonplaceholder.typicode.com/photos/" + params.id
+	const params = useParams();
+	// Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un instrumento en especifico
+	const url = "https://jsonplaceholder.typicode.com/photos/" + params.id;
 
-  useEffect(()=>{      
-    fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      setInstrumento(data)
-    })
+	useEffect(() => {
+		fetch(url)
+			.then((response) => response.json())
+			.then((data) => {
+				setInstrumento(data);
+			});
+	}, []);
 
-  }, [])
-
-
-  return (
-    <div>
+	return (
+		<div>
+      <div className={style.title}>
         <h1>{instrumento.title} </h1>
-        
-        <img src={instrumento.url} alt="instrumento" width={' 100px'} className='1' />
-        <img src={instrumento.url} alt="instrumento" width={' 100px'} className='2' />
-        <img src={instrumento.url} alt="instrumento" width={' 100px'} className='3' />
-        <img src={instrumento.url} alt="instrumento" width={' 100px'} className='4' />
-        <img src={instrumento.url} alt="instrumento" width={' 100px'} className='5' />
-        
-        <Link to="/">
-        <FontAwesomeIcon icon={faArrowLeft} style={{display:"flex", justifyContent: "end"}} />
-				</Link>    
-    </div>
-  )
-}
+        <Link to="/" >
+          <FontAwesomeIcon
+            icon={faArrowLeft}
+            className={style.arrow}
+          />
+        </Link>
+      </div>
 
-export default Detail
+			<div className={style.flex}>
+        <div className={style.big}>
+          <img
+            src={instrumento.url}
+            alt="instrumento"
+            width={" 100px"}
+          />
+        </div>
+				
+        <div className={style.small}>
+          <div>
+            <img
+              src={instrumento.url}
+              alt="instrumento"
+              width={" 100px"}
+              
+            />
+            <img
+              src={instrumento.url}
+              alt="instrumento"
+              width={" 100px"}
+              
+            />
+          </div>
+          <div className={style.smallOne}>
+            <img
+              src={instrumento.url}
+              alt="instrumento"
+              width={" 100px"}
+              
+            />
+            <img
+              src={instrumento.url}
+              alt="instrumento"
+              width={" 100px"}
+                          />
+          </div>
+          
+        </div>
+			</div>
+
+      <p>{instrumento.description}</p>
+		</div>
+	);
+};
+
+export default Detail;

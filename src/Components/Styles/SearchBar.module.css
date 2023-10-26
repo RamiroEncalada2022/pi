@@ -1,4 +1,6 @@
 .container {
+    background-color: rgb(127, 175, 134);
+    background-color: blanchedalmond;
     background-color: #ED834E;
     height: 30vh;
     display: flex;
