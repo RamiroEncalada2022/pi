@@ -9,6 +9,7 @@ const Card = ({ instrumento }) => {
   const {state, dispatch} = useContextGlobal()
 
   return (
+    
     <div className="card">
              
       <img src={instrumento.image} alt="instrumento" width={' 100px'}  /> 

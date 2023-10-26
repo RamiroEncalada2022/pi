@@ -1,11 +1,13 @@
 import React from 'react'
 import style from "./Styles/Recommendations.module.css"
 import { useContextGlobal } from './utils/global.context'
+import { Link } from 'react-router-dom'
 import Card from "./Card"
 
 const Recommendations = () => {
 
   const { state } = useContextGlobal()
+  console.log(state)
 
   const instrumentosRandom = [];
 
@@ -24,7 +26,15 @@ const Recommendations = () => {
         instrumentosRandom.map((instrumento) => <Card key={instrumento.id} instrumento={instrumento} />).slice(0, 10)
       }
 
+      <Link to="/ListaInstrumentos">
+
+      
+
+
+
       <button onClick={() => handleClick()} className="border-2 mt-4 bg-slate-600 text-white p-2">Lista Completa</button>
+
+      </Link>
 
 
 
