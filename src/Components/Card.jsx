@@ -14,7 +14,7 @@ const Card = ({ instrumento }) => {
       <img src={instrumento.image} alt="instrumento" width={' 100px'}  /> 
 
       <Link to={`/Detail/${instrumento.id}`}>
-      <h2>{instrumento.name}</h2>
+      <h2>{instrumento.nombre}</h2>
       </Link>
 
 

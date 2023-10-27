@@ -20,7 +20,7 @@ function reducer(state, action){
       return {...state, instrumentos2: action.payload};
     case 'DELETE_INSTRUMENTO':{
         const updatedInstrumentos = state.instrumentos2.filter(
-          (instrumento) => instrumento.id !== action.payload
+          (instrumento2) => instrumento2.id !== action.payload
         );
         return { ...state, instrumentos2: updatedInstrumentos };} //verificar que no falle
     case 'ADD_INSTRUMENTO':
@@ -40,10 +40,12 @@ export const ContextProvider = ({ children }) => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://rickandmortyapi.com/api/character');
-      dispatch({ type: "GET_INSTRUMENTOS", payload: response.data.results });
-      const response2 = await axios.get('https://jsonplaceholder.typicode.com/posts');
+      //const response = await axios.get('https://rickandmortyapi.com/api/character');
+      //dispatch({ type: "GET_INSTRUMENTOS", payload: response.data.results });
+      //const response2 = await axios.get('https://jsonplaceholder.typicode.com/posts');
+      const response2 = await axios.get('http://localhost:8080/producto')
       dispatch({ type: "GET_INSTRUMENTOS_2", payload: response2.data });
+      console.log("Daots del back:")
       console.log(response2.data)
     } catch (error) {
       console.error('Se produjo el error:', error);
