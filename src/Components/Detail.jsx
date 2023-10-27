@@ -9,8 +9,6 @@ import ModalGalery from "./ModalGalery";
 const Detail = () => {
 	const [instrumento, setInstrumento] = useState({});
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
 	const params = useParams();
 	// Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un instrumento en especifico
 	const url = "https://jsonplaceholder.typicode.com/photos/" + params.id;
@@ -25,59 +23,51 @@ const Detail = () => {
 
 	return (
 		<div>
-      <div className={style.title}>
-        <h1>{instrumento.title} </h1>
-        <Link to="/" >
-          <FontAwesomeIcon
-            icon={faArrowLeft}
-            className={style.arrow}
-          />
-        </Link>
-      </div>
-
-			<div className={style.flex}>
-        <div className={style.big}>
-          <img
-            src={instrumento.url}
-            alt="instrumento"
-            width={" 100px"}
-          />
-        </div>
-				
-        <div className={style.small}>
-          <div>
-            <img
-              src={instrumento.url}
-              alt="instrumento"
-              width={" 100px"}
-              
-            />
-            <img
-              src={instrumento.url}
-              alt="instrumento"
-              width={" 100px"}
-              
-            />
-          </div>
-          <div className={style.smallOne}>
-            <img
-              src={instrumento.url}
-              alt="instrumento"
-              width={" 100px"}
-              
-            />
-            <img
-              src={instrumento.url}
-              alt="instrumento"
-              width={" 100px"}
-                          />
-          </div>
-          <button onClick={() => setIsModalOpen(true)}>Ver más</button>
-      <ModalGalery isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)} />
-        </div>
+			<div className={style.title}>
+				<h1>{instrumento.title} </h1>
+				<Link to="/">
+					<FontAwesomeIcon icon={faArrowLeft} className={style.arrow} />
+				</Link>
 			</div>
 
-      <p>{instrumento.description}</p>
+			<div className={style.flex}>
+				<div className={style.big}>
+					<img src={instrumento.url} alt="instrumento" width={" 100px"} />
+				</div>
+
+				<div className={style.small}>
+					<div>
+						<img
+							src={instrumento.url}
+							alt="instrumento"
+							width={" 100px"}
+						/>
+						<img
+							src={instrumento.url}
+							alt="instrumento"
+							width={" 100px"}
+						/>
+					</div>
+					<div className={style.smallOne}>
+						<img
+							src={instrumento.url}
+							alt="instrumento"
+							width={" 100px"}
+						/>
+						<img
+							src={instrumento.url}
+							alt="instrumento"
+							width={" 100px"}
+						/>
+					</div>
+				</div>
+			</div>
+			<div>
+				{/* <button onClick={() => setIsModalOpen(true)}>Ver más</button> */}
+				<ModalGalery />
+			</div>
+
+			<p>{instrumento.description}</p>
 		</div>
 	);
 };
