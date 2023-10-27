@@ -27,7 +27,7 @@ const Recommendations = () => {
 
       <Link to="/ListaInstrumentos">
 
-        <button className="border-2 mt-4 bg-slate-600 text-white p-2">Lista Completa</button>
+        <button className>Lista Completa</button>
 
       </Link>
 
