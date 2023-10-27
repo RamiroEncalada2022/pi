@@ -1,14 +1,8 @@
-
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import style from './Pages/Style/Admin.module.css';
 
 const Admin = () => {
-  //En la pantalla de admin debe obtenerse la lista de productos, de aqui al entrar en list solo exhibir.
-  // Debe cargarse aqui con context ya que si se entra en agregar producto debe haber una comprobacion de si el producto ya existe.
-
-
-
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -19,17 +13,25 @@ const Admin = () => {
   return (
     <>
       {isMobile ? (
-        <div style={{ background: 'yellow', padding: '10px', marginBottom: '10px' }}>
+        <div className={style.warning}>
           ¡Advertencia! Estás accediendo desde un dispositivo móvil.
         </div>
       ) : (
-      <div>
-      <h1>Panel de administrador</h1>
+        <div className={style.container}>
+          <div className={style.title}>
+            <h1>Panel de administrador</h1>
+          </div>
 
-      <Link to='/admin/list'><button>Lista de productos</button></Link>
-      <Link to='/admin/addProduct'><button>Agregar productos</button></Link>
-      <p>Para hacer espacio...</p>
-      </div>
+          <div className={style.buttonContainer}>
+          <Link to='/admin/list' className={`${style.button} ${style.firstButton}`}>
+              Lista de productos
+            </Link>
+
+            <Link to='/admin/addProduct' className={`${style.button} ${style.secondButton}`}>
+              Agregar productos
+            </Link>
+          </div>
+        </div>
       )}
     </>
   );
