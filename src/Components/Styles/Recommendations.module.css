@@ -5,15 +5,17 @@
    display: grid;
    grid-template-columns: auto auto;
    justify-content: space-around;
-
-   
    margin: 0 auto;
    padding: 20px;
 }
 
+
+
 .container div {
     margin: 10px;
     background-color: rgb(255, 255, 255);
+    border: 1px solid #ffffff;
+    border-radius: 10px;
     width: 500px;
     height: 300px;
     display: grid;
@@ -25,22 +27,50 @@
 
 .container img{
     width: 250px;   
+    
 }
+
 
 .container h2{
     color: rgb(31, 32, 32);  
     font-family: 'Didact Gothic', sans-serif;
+    
+    
 }
 
-@media(max-width:1000px){
-    .container div{
-        display: grid;
-        grid-template-columns:auto ;
-        width: 90%;
-        place-items: center;
-        grid-gap: 20px;
-}
-}
+
+
+@media (max-width: 1000px) {
+    .container {
+      display: grid;
+      grid-template-columns: auto auto;
+      width: 100%;
+      padding: 0%;
+
+      
+    }
+  
+    .container div {
+      margin: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+      width: 400px;
+      height: 300px;
+      display: grid;
+      grid-template-columns: auto;
+      grid-gap: 5px;
+      place-items: center;
+      /* Alineación de elementos al centro */
+      justify-content: center; /* Centrar horizontalmente */
+      align-items: center; /* Centrar verticalmente */
+    }
+
+    h2{
+        margin: 0%;
+    }
+
+  }
+
 
 @media(max-width:900px){
     
@@ -49,6 +79,8 @@
         grid-template-columns: auto ;
         width: 200px;
         display: grid auto;
+        border: 1px solid #ffffff;
+        border-radius: 10px;
 
     }
 
@@ -59,14 +91,28 @@
 @media(max-width:560px){
 
     .container div{
-            display: grid;
-            grid-template-columns:auto ;
-            width: 40%;
-            place-items: center;
-            grid-gap: 5px;
+        display: grid;
+        place-items: center; /* Centra horizontal y verticalmente */
+        gap: 10px;
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ffffff;
+        border-radius: 10px;
+        width: 200px;
+    }
+    .container img{
+        max-width: 100%;
+        height: auto;
+        }
+    .container h2{
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+            
     }
 
-}
+   
+
 
 @media(max-width:470px){
 

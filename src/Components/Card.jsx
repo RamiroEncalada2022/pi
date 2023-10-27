@@ -8,6 +8,11 @@ const Card = ({ instrumento }) => {
 
   const {state, dispatch} = useContextGlobal()
 
+  const primerInstrumento = state.instrumentos[0];
+
+// Imprime el objeto en la consola para inspeccionar su estructura
+console.log(primerInstrumento);
+
   return (
     <div className="card">
              
