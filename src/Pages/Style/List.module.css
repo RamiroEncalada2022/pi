@@ -1,0 +1,46 @@
+  .backLink {
+    margin-bottom: 20px;
+    display: block;
+  }
+  
+  .tableContainer {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .tableRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .tableColumnId {
+    flex: 1;
+  }
+  
+  .tableColumnName {
+    flex: 2;
+    font-weight: bold;
+  }
+  
+  .tableColumnActions {
+    flex: 1;
+  }
+  
+  .deleteButton {
+    background-color: red;
+    color: white;
+  }
+
+  .backButton{
+    all: unset;
+    padding: 5px;
+    border:1px solid rgb(95, 95, 95);
+    border-radius: 3px;
+    background-color: rgb(245, 187, 116);
+    border-radius: 10px;
+    margin:10px;
+    color:#333;
+    width: 80px;
+}
+  
