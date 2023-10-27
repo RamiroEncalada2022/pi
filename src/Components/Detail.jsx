@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import style from "./Styles/Detail.module.css";
+import ModalGalery from "./ModalGalery";
 
 const Detail = () => {
 	const [instrumento, setInstrumento] = useState({});
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const params = useParams();
 	// Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un instrumento en especifico
@@ -69,7 +72,8 @@ const Detail = () => {
               width={" 100px"}
                           />
           </div>
-          
+          <button onClick={() => setIsModalOpen(true)}>Ver más</button>
+      <ModalGalery isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)} />
         </div>
 			</div>
 
