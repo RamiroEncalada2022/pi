@@ -24,11 +24,12 @@ const AddProduct = () => {
 
   const handlePost = () => {
     const data = {
-      name: productName,
-      price: productPrice, // Ajusta esto por descripción para el backend, en este caso es lo que usamo de la api 
+      nombre: productName,
+      descripcion: productPrice, // Ajusta esto por descripción para el backend, en este caso es lo que usamo de la api
+      imagenes: productImages 
     };
 
-    axios.post('https://jsonplaceholder.typicode.com/posts', data, {
+    axios.post('http://localhost:8080/producto/registrar', data, {
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
@@ -46,7 +47,7 @@ const AddProduct = () => {
   return (
     <div className={styles.container}>
       <input className={styles.text} type="text" value={productName} onChange={handleProductNameChange} placeholder="Nombre del producto" />
-      <input className={styles.text} type="number" value={productPrice} onChange={handleProductPriceChange} placeholder="Precio del producto" />
+      <input className={styles.text} type="text" value={productPrice} onChange={handleProductPriceChange} placeholder="Descripcion del producto" />
       <input type="file" multiple onChange={handleImageChange} />
       <button onClick={handlePost}>Agregar producto</button>
     </div>

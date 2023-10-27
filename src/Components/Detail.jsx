@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import style from "./Styles/Detail.module.css";
+import ModalGalery from "./ModalGalery";
 
 const Detail = () => {
 	const [instrumento, setInstrumento] = useState({});
@@ -22,39 +23,59 @@ const Detail = () => {
 
 	return (
 		<div>
-      <div className={style.title}>
-        <h1>{instrumento.title} </h1>
-        <Link to="/" >
-          <FontAwesomeIcon
-            icon={faArrowLeft}
-            className={style.arrow}
-          />
-        </Link>
-      </div>
+			<div className={style.title}>
+				<h1>{instrumento.title} </h1>
+				<Link to="/">
+					<FontAwesomeIcon icon={faArrowLeft} className={style.arrow} />
+				</Link>
+			</div>
 
 			<div className={style.flex}>
         <div className={style.big}>
           <img
-            src={instrumento.url} alt="instrumento" width={" 100px"}
+            src={instrumento.url}
+            alt="instrumento"
+            width={" 100px"}
           />
         </div>
 				
         <div className={style.small}>
           <div>
-          <img src={instrumento.url} alt="instrumento"/>
-          <img src={instrumento.url} alt="instrumento"/> 
-
-          <img src={instrumento.url} alt="instrumento"/>
-          <img src={instrumento.url} alt="instrumento"/>
-        </div>
+            <img
+              src={instrumento.url}
+              alt="instrumento"
+              width={" 100px"}
+              
+            />
+            <img
+              src={instrumento.url}
+              alt="instrumento"
+              width={" 100px"}
+              
+            />
+          </div>
+          <div className={style.smallOne}>
+            <img
+              src={instrumento.url}
+              alt="instrumento"
+              width={" 100px"}
+              
+            />
+            <img
+              src={instrumento.url}
+              alt="instrumento"
+              width={" 100px"}
+                          />
+          </div>
           
         </div>
 			</div>
+			<div>
+				{/* <button onClick={() => setIsModalOpen(true)}>Ver más</button> */}
+				<ModalGalery />
+			</div>
 
-      
-      <div className= {style.descript}>
-        <p>{instrumento.description} DESCRIPCION</p>
-      </div>
+      <p>{instrumento.description}</p>
 		</div>
 	);
 };
