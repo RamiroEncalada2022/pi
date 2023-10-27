@@ -1,0 +1,12 @@
+.noPage {
+    background-color: red
+}
+
+.disabled {
+    cursor: not-allowed;
+    background-color: rgb(250, 246, 246) !important;
+    pointer-events:none;
+    color: white;
+    border-radius: 0%;
+
+}
