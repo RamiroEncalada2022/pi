@@ -75,7 +75,7 @@ const Detail = () => {
 				<ModalGalery />
 			</div>
 
-      <p>{instrumento.description}</p>
+      <p className={style.descript}>{instrumento.description}DESCRIPCION</p>
 		</div>
 	);
 };

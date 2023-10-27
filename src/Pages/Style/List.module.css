@@ -2,6 +2,14 @@
     margin-bottom: 20px;
     display: block;
   }
+
+  h2{
+    font-family: 'Didact Gothic', sans-serif;
+  }
+
+  div{
+    font-family: 'Didact Gothic', sans-serif;
+  }
   
   .tableContainer {
     border: 1px solid #ccc;
@@ -21,6 +29,7 @@
   .tableColumnName {
     flex: 2;
     font-weight: bold;
+    font-family: 'Didact Gothic', sans-serif;
   }
   
   .tableColumnActions {
@@ -30,6 +39,7 @@
   .deleteButton {
     background-color: red;
     color: white;
+    font-family: 'Didact Gothic', sans-serif;
   }
 
   .backButton{
