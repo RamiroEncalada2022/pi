@@ -3,62 +3,60 @@
     text-align: center;
     margin-top: 20px;
     font-family: 'Didact Gothic', sans-serif;
+}
 
-  }
-  
-  .title {
+.title {
     margin-bottom: 20px;
-  }
-  
-  .title h1 {
+}
+
+.title h1 {
     font-size: 2em;
     margin: 0;
-  }
-  
-  .buttonContainer {
+}
+
+.buttonContainer {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-    margin-left: 100px;
-  }
-  
-  .button-container a {
+}
+
+.button-container a {
     text-decoration: none;
     margin-right: 10px;
-  }
-  
-  .button {
+}
+
+.button {
     padding: 10px 20px;
     font-size: 1em;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
-  }
-  
-  .firstButton {
-    background-color: #4CAF50;
-    color: white;
-  }
+    margin: 10px;
+}
 
-  .firstButton:hover {
+.firstButton {
+    background-color: #4caf50;
+    color: white;
+}
+
+.firstButton:hover {
     background-color: #31c536;
     color: white;
-  }
-  
-  .secondButton {
+}
+
+.secondButton {
     background-color: #da8c0f;
     color: white;
-  }
-  
-  .secondButton:hover {
+}
+
+.secondButton:hover {
     background-color: #e6ac5c;
     color: white;
-  }
-  
-  .warning {
+}
+
+.warning {
     background: yellow;
     padding: 10px;
     margin-bottom: 10px;
-  }
-  
+}

@@ -1,46 +1,46 @@
-  .backLink {
+.backLink {
     margin-bottom: 20px;
     display: block;
-  }
-  
-  .tableContainer {
+}
+
+.tableContainer {
     border: 1px solid #ccc;
     margin-bottom: 10px;
-  }
-  
-  .tableRow {
+}
+
+.tableRow {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-  }
-  
-  .tableColumnId {
+}
+
+.tableColumnId {
     flex: 1;
-  }
-  
-  .tableColumnName {
+}
+
+.tableColumnName {
     flex: 2;
     font-weight: bold;
-  }
-  
-  .tableColumnActions {
+}
+
+.tableColumnActions {
     flex: 1;
-  }
-  
-  .deleteButton {
+}
+
+.deleteButton {
     background-color: red;
     color: white;
-  }
+}
 
-  .backButton{
+.backButton {
     all: unset;
     padding: 5px;
-    border:1px solid rgb(95, 95, 95);
+    border: 1px solid rgb(95, 95, 95);
     border-radius: 3px;
     background-color: rgb(245, 187, 116);
     border-radius: 10px;
-    margin:10px;
-    color:#333;
+    margin: 10px;
+    color: #333;
     width: 80px;
+    cursor: pointer;
 }
-  
