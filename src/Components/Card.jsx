@@ -9,17 +9,13 @@ const Card = ({ instrumento }) => {
   const {state, dispatch} = useContextGlobal()
 
   return (
-    <div className="card">
-             
-      <img src={instrumento.imagenes[0]} alt="instrumento" width={' 100px'}  /> 
+    <Link to={`/Detail/${instrumento.id}`}>
+      <div className="card">
+        <img src={instrumento.imagenes[0]} alt="instrumento" width={' 100px'}  /> 
 
-      <Link to={`/Detail/${instrumento.id}`}>
-      <h2>{instrumento.nombre}</h2>
-      </Link>
-
-
-
-    </div>
+        <h4>{instrumento.nombre}</h4>
+      </div>
+    </Link>
   );
 };
 

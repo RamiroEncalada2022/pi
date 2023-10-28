@@ -1,7 +1,7 @@
 .container {
     background-color: rgb(127, 175, 134);
     background-color: blanchedalmond;
-    background-color: #ED834E;
+    background-color: #ed834e;
     height: 30vh;
     display: flex;
     flex-direction: column;
@@ -11,44 +11,55 @@
 }
 
 .input {
-    all:unset;
+    all: unset;
     width: 350px;
     background-color: rgb(255, 255, 255);
 
     border-radius: 10px;
     padding: 8px;
     margin: 10px;
-
 }
 
-.filter{
+.input:focus,
+.filter:focus {
+    outline: 3px solid #726d3e;
+}
+
+.filter {
     all: unset;
     padding: 8px;
     border-radius: 3px;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
-    margin:10px;
-    color:#050505;
+    margin: 10px;
+    color: #050505;
     width: 80px;
+    cursor: pointer;
 }
-.searchButton{
+.searchButton {
     all: unset;
     padding: 8px;
-    border:1px solid rgb(95, 95, 95);
+    border: 1px solid rgb(95, 95, 95);
     border-radius: 3px;
     background-color: rgb(245, 187, 116);
     border-radius: 10px;
-    margin:10px;
-    color:#333;
+    margin: 10px;
+    color: #333;
     width: 80px;
+    text-align: center;
+}
+
+.searchButton:hover,
+.filter:hover {
+    opacity: 70%;
 }
 
 .filter option {
     background-color: bisque;
     color: #2e2a2a;
-    padding:20px;
-  }
+    padding: 20px;
+}
 
-  .container h2{
+.container h2 {
     font-family: 'Didact Gothic', sans-serif;
-  }
+}

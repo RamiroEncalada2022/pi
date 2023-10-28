@@ -3,31 +3,6 @@ import style from './Styles/SearchBar.module.css'
 
 const SearchBar = () => {
 
-  /* --------------------------- Datos hardcodeados --------------------------- */
-
-  const instrumentosEjemplo = [
-    {
-      nombre: "Guitarra Eléctrica",
-      descripcion: "Una guitarra eléctrica de alta calidad.",
-      marca: "Yamaha",
-      tipo: "Guitarra",
-    },
-    {
-      nombre: "Batería Profesional",
-      descripcion: "Una batería profesional para conciertos en vivo.",
-      marca: "Hercules",
-      tipo: "Bateria",
-    },
-    {
-      nombre: "Piano de Cola",
-      descripcion: "Un piano de cola clásico para conciertos y eventos especiales.",
-      marca: "K&M",
-      tipo: "Piano",
-    },
-  ];
-
-  /* -------------------------------------------------------------------------- */
-
   /* --------------------------------- Estados -------------------------------- */
 
   const [term, setTerm] = useState('')
