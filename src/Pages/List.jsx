@@ -10,7 +10,7 @@ const List = () => {
   const handleDelete = async (id) => {
     if (window.confirm('¿Confirma que desea eliminar el producto?')) {
       try {
-        await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
+        await axios.delete(`http://localhost:8080/producto/eliminar/${id}`);
         dispatch({ type: 'DELETE_INSTRUMENTO', payload: id }); // Actualizar el estado mediante el contexto con instrumentos2
       } catch (error) {
         console.error('Error al eliminar el elemento:', error);
@@ -33,7 +33,7 @@ const List = () => {
         {state.instrumentos2.map((item) => (
           <div className={styles.tableRow} key={item.id}>
             <div className={styles.tableColumnId}>{item.id}</div>
-            <div className={styles.tableColumnName}>{item.title}</div>
+            <div className={styles.tableColumnName}>{item.nombre}</div>
             <div className={styles.tableColumnActions}>
               <button className={styles.deleteButton} onClick={() => handleDelete(item.id)}>
                 Eliminar
