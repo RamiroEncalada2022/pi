@@ -4,6 +4,7 @@ import Header from './Components/Header'
 import Footer from './Components/Footer'
 import Home from './Pages/Home'
 import Detail from "./Components/Detail"
+
 import { Route, Routes } from 'react-router-dom'
 import Admin from './Admin.jsx'
 import List from './Pages/List'
@@ -15,7 +16,7 @@ function App() {
 
   return (
     <>
-      <Header />
+    <Header/>
 
     <Routes>
       <Route path="/" element={<Home/>} />
@@ -26,8 +27,8 @@ function App() {
       <Route path="/ListaInstrumentos" element={<ProductList />} />
     </Routes>
 
-      <Footer />
-
+    <Footer/>
+      
     </>
   )
 }
