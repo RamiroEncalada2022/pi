@@ -12,6 +12,8 @@ const Pagination = ({ productsPerPage, currentPage, setCurrentPage, totalProduct
     pageNumbers.push(i)   
   }
 
+  console.log(pageNumbers)
+
   const onPreviusPage = () =>{
     setCurrentPage(currentPage-1)
   }
@@ -41,6 +43,7 @@ const Pagination = ({ productsPerPage, currentPage, setCurrentPage, totalProduct
 
                 >
           {noPage}
+          {console.log(noPage)}
         </button>
       )
 )
