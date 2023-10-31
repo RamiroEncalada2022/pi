@@ -29,6 +29,9 @@ const Recommendations = () => {
       {instrumentosRandom.map((instrumento) => (
         <Card key={instrumento.id} instrumento={instrumento} />
       )).slice(0, 10)}
+      <Link to="/ListaInstrumentos">
+      <button>Lista Completa</button>
+      </Link>
     </div>
   );
 };

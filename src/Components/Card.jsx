@@ -14,9 +14,10 @@ const Card = ({ instrumento }) => {
 console.log(primerInstrumento);
 
   return (
+    
     <div className="card">
              
-      <img src={instrumento.imagenes} alt="instrumento" width={' 100px'}  /> 
+      <img src={instrumento.image} alt="instrumento" width={' 100px'}  /> 
 
       <Link to={`/Detail/${instrumento.id}`}>
       <h2>{instrumento.nombre}</h2>
