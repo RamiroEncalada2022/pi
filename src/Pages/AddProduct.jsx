@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import styles from './Style/AddProduct.module.css'; // Asegúrate de que el nombre del archivo sea 'AddProduct.module.css'
+import styles from './Style/AddProduct.module.css'; 
 import { useContextGlobal } from '../Components/utils/global.context';
 import { Link } from 'react-router-dom';
 
@@ -9,6 +9,7 @@ const AddProduct = () => {
   const [productName, setProductName] = useState('');
   const [productDescription, setProductDescription] = useState('');
   const [productImages, setProductImages] = useState([]);
+  const [message, setMessage] = useState('');
 
   const handleProductNameChange = (e) => {
     setProductName(e.target.value);
@@ -39,24 +40,50 @@ const AddProduct = () => {
       .then((response) => {
         console.log(response.data);
         dispatch({ type: 'ADD_INSTRUMENTO', payload: data }); // Actualiza el estado mediante el contexto con instrumentos2
+
+        //Mensaje en caso de exito
+        setMessage('Producto agregado exitosamente');
+        setTimeout(() => {
+          setMessage('');
+        }, 3000); 
+
+        //Borra datos de inputs
+        setProductName('')
+        setProductDescription('')
+        setProductImages([])
       })
       .catch((error) => {
         console.error('Se produjo el siguiente error:', error);
+
+        //Mensaje en caso de error
+        setMessage('Error al agregar el producto');
+        setTimeout(() => {
+          setMessage('');
+        }, 3000);
       });
   };
 
   return (
+    <div className={styles.effectGlass}>
     <div className={styles.container}>
+      <h2 className={styles.subtitulo}>Añadir Nuevo Artículo</h2>
       <input className={styles.text} type="text" value={productName} onChange={handleProductNameChange} placeholder="Nombre del producto" />
       <input className={styles.text} type="text" value={productDescription} onChange={handleProductDescriptionChange} placeholder="Descripcion del producto" />
-      <input type="file" multiple onChange={handleImageChange} />
-      <button className={styles.button} onClick={handlePost}>
-        Agregar producto
-      </button>
-      <Link to="/admin" className={styles.buttonBack}>
-        Volver
-      </Link>
-    </div>
+      <div className={styles.contentFile}>
+        <label htmlFor="archivo" className={styles.label}>Agregar imagen</label>
+        <input type="file" multiple onChange={handleImageChange} id="archivo"/>
+      </div>
+      <div className={styles.containerButtons}>
+        <button className={styles.button} onClick={handlePost}>
+          Agregar producto
+        </button>
+        <Link to="/admin" className={styles.buttonBack}>
+          Volver
+        </Link>
+      </div>
+      {message && <div className={`${styles.message} ${message ? styles.show : ''}`}>{message}</div>} 
+        </div>
+        </div>
   );
 };
 
