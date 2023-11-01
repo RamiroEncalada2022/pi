@@ -12,7 +12,7 @@ const Recommendations = () => {
   const shuffled = state.instrumentos2.sort(() => 0.5 - Math.random());
   let selected = shuffled.slice(0, numItems);
   
- 
+
   for (let instrumento of selected) {
     while (instrumentosRandom.includes(instrumento)) {
       shuffled.sort(() => 0.5 - Math.random());
