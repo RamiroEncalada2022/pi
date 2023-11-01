@@ -5,7 +5,7 @@ import { useContextGlobal } from '../Components/utils/global.context';
 import { Link } from 'react-router-dom';
 
 const AddProduct = () => {
-  const { dispatch } = useContextGlobal(); // Uso del contexto
+  const { state, dispatch } = useContextGlobal(); // Uso del contexto
   const [productName, setProductName] = useState('');
   const [productDescription, setProductDescription] = useState('');
   const [productImages, setProductImages] = useState([]);
@@ -38,9 +38,11 @@ const AddProduct = () => {
         },
       })
       .then((response) => {
-        console.log(response.data);
-        dispatch({ type: 'ADD_INSTRUMENTO', payload: data }); // Actualiza el estado mediante el contexto con instrumentos2
-
+        console.log("La respuesta que da el llamado:" );
+        console.log(response.data)
+        dispatch({ type: 'ADD_INSTRUMENTO', payload: response.data }); // Actualiza el estado mediante el contexto con instrumentos2
+        console.log("valor actual del state(lista): ")
+        console.log(state)
         //Mensaje en caso de exito
         setMessage('Producto agregado exitosamente');
         setTimeout(() => {
