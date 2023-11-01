@@ -38,3 +38,20 @@
     
   }
 
+  /* Estilos para celulares */
+@media only screen and (max-width: 767px) {
+  .header {
+    flex-direction: column;
+    
+  }
+
+  .buttons{
+    margin-bottom: 10px;
+  }
+}
+
+/* Estilos para tabletas */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  
+}
+
