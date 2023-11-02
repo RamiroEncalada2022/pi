@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useContextGlobal} from "./utils/global.context";
-
+import style from "./Styles/Card.module.css"
 
 
 const Card = ({ instrumento }) => {
@@ -10,9 +10,9 @@ const Card = ({ instrumento }) => {
 
   return (
     
-    <div className="card">
+    <div className={style.card}>
              
-      <img src={instrumento.imagenes[0]} alt="instrumento" width={' 100px'}  /> 
+      <img src={instrumento.imagenes[0]} alt="instrumento" width={'50px'}  /> 
 
       <Link to={`/Detail/${instrumento.id}`}>
       <h2>{instrumento.nombre}</h2>

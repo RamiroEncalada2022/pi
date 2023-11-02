@@ -25,13 +25,17 @@ const Recommendations = () => {
 
 
   return (
-    <div className={style.container}>
-      {instrumentosRandom.map((instrumento) => (
-        <Card key={instrumento.id} instrumento={instrumento} />
-      )).slice(0, 10)}
+    <div className={style.container} >
+      <h2 className={style.subtitulo}>PRODUCTOS RECOMENDADOS</h2>
+      <div className={style.containerCards}>
+        {instrumentosRandom.map((instrumento) => (
+          <Card key={instrumento.id} instrumento={instrumento} />
+        )).slice(0, 10)}
+
+      </div>
       <Link to="/ListaInstrumentos">
-      <button>Lista Completa</button>
-      </Link>
+        <button className={style.firstButton}>Lista Completa</button>
+        </Link>
     </div>
   );
 };
