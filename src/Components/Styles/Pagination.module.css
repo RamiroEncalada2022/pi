@@ -18,11 +18,11 @@
     border: none;
     border-radius: 0%;
     text-decoration: none;
-
     margin-bottom: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin:5px 8px;
 }
 
 .disabled {
@@ -30,11 +30,11 @@
     background-color: rgb(96, 96, 96) !important;
     pointer-events:none;
     color: white;
-    border-radius: 0%;
+    border-radius: 100%;
     height: 40px;
     width: 40px;
     border:none;
-    margin:0 8px;
+    margin:5px 8px;
 
 }
 
@@ -47,7 +47,7 @@
 
     font-size: 1em;
     border: none;
-    border-radius: 0%;
+    border-radius: 100%;
     cursor: pointer;
     text-decoration: none;
 
@@ -58,7 +58,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin:0 8px;
+    margin:5px 8px;
 }
 
 .firstButton:hover {
