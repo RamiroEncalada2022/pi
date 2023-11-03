@@ -1,18 +1,20 @@
 .card{
     margin: 10px;
-    background-color: rgb(255, 255, 255);
-    width: 80%;
-    height: auto;
+    background-color: var(--color-card-fondo);
+    width: 70%;
+    height: 95%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    padding: 0.5rem;
+    border: 1px solid gray;
+   
     font-size: 14px;
     font-weight: normal;
     color: #1b1b19;
-    border-radius: 50px;
+    border-radius: 10px;
     transition: all 0.3s ease-out;
+    margin-left:12%;
+
 }
 
 .tituloCard{
@@ -31,7 +33,22 @@ a {
 }
 
 .card img {
-    width:190px;
-    height: 190px;
+    width:200px;
+    height: 230px;
+
+}
+
+@media only screen and (max-width: 900px) {
+    .card {
+        margin-left: 5px;
+        margin-right: 0;
+        font-size: 0.4rem;
+    }
+
+    .card img {
+        width:100px;
+        height: 115px;
+    }
+
 
 }

@@ -43,7 +43,7 @@
 }
 
 
-  input[type="text"] {
+ .text {
     border: 3px solid rgba(227, 157, 58,0);
     font-size: 16px;
     height: auto;
@@ -61,12 +61,12 @@
     font-weight: 900;
   }
   
-  input[type="text"]:focus {
+  .text:focus {
     border: 3px solid rgb(242, 232, 218);
 
   }
 
-  input[type="file"] {
+  .contentFile {
     display:none;
   }
 

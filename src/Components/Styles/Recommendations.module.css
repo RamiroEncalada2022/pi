@@ -1,5 +1,6 @@
 .container{
-    background-color: rgb(251, 232, 208);
+    background-color: var(--color-fondo);
+    width:100%;
 }
 .subtitulo {
     margin:0;
@@ -13,28 +14,16 @@
    grid-template-columns: auto auto;
    justify-content: space-around;
    margin: 0 auto;
-   padding: 20px;
+width: 90%;
+   padding: 0 40px; /* Ajusta el valor de padding según sea necesario */
+   grid-column-gap: 20px;
 }
 
 .firstButton {
-    background-color: #e8ae1b;
-    color: #513305;
-    font-family: 'Didact Gothic', sans-serif;
-    transition: .5s;
-    font-size: 1.2em;
-    padding: 10px 20px;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
     margin:auto;
     margin-bottom: 10px;
   }
 
-  .firstButton:hover {
-    background-color: #ecc767;
-  }
 
 .container img{
     width: 250px;   
