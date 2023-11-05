@@ -171,4 +171,23 @@
     opacity: 1;
     transition: visibility 0s, opacity 0.5s linear;
   }
-  
+
+  /*ESTILO DE CATEGORÍA MENU*/
+
+ul{
+  list-style: none;
+}
+
+.dropdownmenuactive{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: var(--speed) ease;
+}
+
+.dropdownmenuinactive{
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: var(--speed) ease;
+}
