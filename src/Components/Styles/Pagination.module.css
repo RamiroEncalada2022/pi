@@ -39,8 +39,7 @@
 }
 
 .firstButton {
-    background-color: #e8ae1b;
-    color: #513305;
+
     font-family: 'Didact Gothic', sans-serif;
     transition: .5s;
     font-size: 1.2em;
@@ -61,6 +60,3 @@
     margin:5px 8px;
 }
 
-.firstButton:hover {
-    background-color: #ecc767;
-}
