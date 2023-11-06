@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import Input from "./Input";
 
 export const FormLogin = () => {
 	const [user, setUser] = useState({
-		name: "",
+		password: "",
 		email: "",
 	});
 
-	const [show, setShow] = useState(false);
+
 	const [error, setError] = useState(false);
 
 	const handleSubmit = (event) => {
@@ -16,10 +17,8 @@ export const FormLogin = () => {
 
 		console.log(user.email.match(emailRegex));
 		if (user.name.length > 5 && user.email.match(emailRegex)) {
-			setShow(true);
 			setError(false);
 		} else {
-			setShow(false);
 			setError(true);
 		}
 	};
@@ -33,8 +32,8 @@ export const FormLogin = () => {
 			<form onSubmit={handleSubmit}>
 				<label>
 					Nombre completo
-					<input type="name" onChange={handleChange} required></input>
 				</label>
+				<Input  />
 				<label>
 					Email
 					<input
@@ -47,19 +46,10 @@ export const FormLogin = () => {
 				</label>
 
 				{error && (
-					<h4>Por favor aseguresé de ingresar la información correctamente.</h4>
+					<h4>Por favor aseguresé de ingresar las credenciales correctamente.</h4>
 				)}
 
-				{show ? (
-					<>
-						<h4>
-							Thank you {user.name}, we will contact you as soon as
-							possible via email
-						</h4>
-					</>
-				) : null}
-
-				<button>Enviar</button>
+				<button>Iniciar sesión</button>
 			</form>
 		</div>
 	);

@@ -25,7 +25,6 @@ function App() {
 				<Route path="/ListaInstrumentos" element={<ProductList />} />
 				<Route path="registrar" element={<Signup />} />
 			</Routes>
-
 			<Footer />
 		</>
 	);

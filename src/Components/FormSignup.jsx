@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./Styles/Fromsignup.module.css";
+import Input from "./Input";
 
 const FormSignup = () => {
 	const [user, setUser] = useState({
@@ -14,8 +15,7 @@ const FormSignup = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const emailRegex =
-			/^(?=.{1,256}$)[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$/;
+		const emailRegex = /^([a-zA-Z0-9-.]+)@([a-zA-Z0-9-.]+).([a-zA-Z]{2,5})$/;
 		// /^[a-zA-Z0-9._%+-]{4,}@[a-zA-Z0-9.-]{2,}\.[a-zA-Z]{2,}$/;
 
 		console.log(user.email.match(emailRegex));
@@ -33,30 +33,44 @@ const FormSignup = () => {
 		}
 	};
 
-	const handleChange = (event) =>
+	const handleChangeFname = (event) =>
 		setUser({ ...user, fname: event.target.value });
+
+	// const handleChange = (event) =>
+	// 	setUser({ ...user, fname: event.target.value });
 	console.log(user);
 
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
 				<div className={styles.name}>
-					<label>Nombre</label>
-					<input
+					<Input
 						type="text"
+						value={user.fname}
+						onChange={handleChangeFname}
 						placeholder="Nombre"
-						onChange={handleChange}
 						required
-					></input>
+					/>
+					{/* <label>Nombre</label>
+					<input
+						type="text" name="fname"
+						placeholder="Nombre"
+						onChange={(event) =>
+							setUser({ ...user, fname: event.target.value })
+						}
+						required
+					/> */}
+
 					<label>Apellido</label>
 					<input
 						type="text"
+						name="lname"
 						placeholder="Apellido"
 						onChange={(event) =>
 							setUser({ ...user, lname: event.target.value })
 						}
 						required
-					></input>
+					/>
 				</div>
 
 				<label>Email</label>
@@ -67,7 +81,7 @@ const FormSignup = () => {
 						setUser({ ...user, email: event.target.value })
 					}
 					required
-				></input>
+				/>
 
 				<label>Contraseña</label>
 				<input
@@ -77,7 +91,7 @@ const FormSignup = () => {
 						setUser({ ...user, password: event.target.value })
 					}
 					required
-				></input>
+				/>
 
 				{error && (
 					<h4 className={styles.error}>

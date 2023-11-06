@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,7 +10,7 @@ const Detail = () => {
 
 	const params = useParams();
 	// Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un instrumento en especifico
-	const url = "https://jsonplaceholder.typicode.com/photos/" + params.id;
+	const url = "http://localhost:8080/api/producto/" + params.id;
 
 	useEffect(() => {
 		fetch(url)

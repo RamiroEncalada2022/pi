@@ -1,5 +1,4 @@
 import axios from 'axios';
-import React from 'react'
 import { createContext, useContext, useEffect, useReducer} from "react";
 
 
@@ -43,7 +42,7 @@ export const ContextProvider = ({ children }) => {
       //const response = await axios.get('https://rickandmortyapi.com/api/character');
       //dispatch({ type: "GET_INSTRUMENTOS", payload: response.data.results });
       //const response2 = await axios.get('https://jsonplaceholder.typicode.com/posts');
-      const response2 = await axios.get('http://localhost:8080/producto')
+      const response2 = await axios.get('http://localhost:8080/api/producto')
       dispatch({ type: "GET_INSTRUMENTOS_2", payload: response2.data });
       console.log("Daots del back:")
       console.log(response2.data)
