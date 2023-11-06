@@ -1,22 +1,40 @@
 .container {
-    background-color: #4e6b66;
-   display: grid;
-   grid-template-columns: auto auto auto auto;
+    background-color: var(--color-fondo);
+
+   display: flex;
    justify-content: space-around;
     margin: 0 auto;
    padding: 20px;
    z-index: 0;
-   
+   flex-wrap: wrap;
 }
 
 .container div {
-    margin: 10px;
-    background-color: antiquewhite;
-    width: 300px;
-    height: 300px;
+    width: 20%;
+    height: 20%;
+    min-height: 250px;
+    border:1px dotted gray;
+    background:#ffffff;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease-out;
+    text-decoration: none;
 }
+
+.container div:hover {
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
+      0 10px 26px #6a6a6a;
+
+}
+
+
 
 .container img{
     width: 100%;
@@ -31,11 +49,19 @@
     background: linear-gradient(rgba(255,255,255,1), rgb(139, 139, 137));
     margin: 0;
     width: 100%;
-    height: 35px;
+
     text-justify: center;
     text-align: center;
     font-family: 'Didact Gothic', sans-serif;
     color: rgb(25, 26, 21);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.instrument {
+    min-width: 150px;
+    border-radius: 20px;
 
 }
 

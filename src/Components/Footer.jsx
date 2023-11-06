@@ -8,7 +8,7 @@ const Footer = () => {
   return (
    
     <div className={style.footer}>
-      <img className= 'logo' src="./img/LogoSinfonia.png" alt="logo dh" />
+      <img className={style.logo} src="./img/logo.png" alt="logo dh" />
       <FontAwesomeIcon icon={faCopyright} />
       <p>  2023 - Todos los derechos reservados</p>
     </div>

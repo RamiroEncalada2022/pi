@@ -23,7 +23,7 @@ function reducer(state, action){
         );
         return { ...state, instrumentos2: updatedInstrumentos };} //verificar que no falle
     case 'ADD_INSTRUMENTO':
-      return { ...state, instrumentos2: [...state.instrumentos2, action.payload] };    
+    return { ...state, instrumentos2: [...state.instrumentos2, action.payload] };
     default:
       throw new Error();
   }

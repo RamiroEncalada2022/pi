@@ -10,44 +10,28 @@ const ProductList = () => {
     console.log(state)
     const [productsPerPage, setProductsPerPage] = useState(10);
     const [currentPage, setCurrentPage] = useState(1);
-    const totalProducts = state.instrumentos.length
+    const totalProducts = state.instrumentos2.length
    
 
     const lastIndex = currentPage * productsPerPage;
     const firstIndex = lastIndex - productsPerPage
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     return (
         <div className={style.container}>
-            {state.instrumentos.slice(firstIndex, lastIndex).map((instrumento) =>(
-                <Card key={instrumento.id}
-                    instrumento={instrumento} />
+            <div className={style.containerCards}>
+                {state.instrumentos2.slice(firstIndex, lastIndex).map((instrumento) =>(
+                    <Card key={instrumento.id}
+                        instrumento={instrumento} />
 
 
-            ))}
+                ))}
+            </div>
             <Pagination
-                productsPerPage={productsPerPage}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-                totalProducts={totalProducts}
-            />
+                    productsPerPage={productsPerPage}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    totalProducts={totalProducts}
+                />
         </div>
     )
 }

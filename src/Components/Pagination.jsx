@@ -12,6 +12,8 @@ const Pagination = ({ productsPerPage, currentPage, setCurrentPage, totalProduct
     pageNumbers.push(i)   
   }
 
+  console.log(pageNumbers)
+
   const onPreviusPage = () =>{
     setCurrentPage(currentPage-1)
   }
@@ -30,22 +32,24 @@ const Pagination = ({ productsPerPage, currentPage, setCurrentPage, totalProduct
 
 
   return (
-    <div>
-      <button onClick={onPreviusPage} className={`${currentPage === 1 ? `${style.disabled}` : " "}`}>Anterior</button>
+    <div className={style.container}>
+      <button onClick={onPreviusPage} className={`${currentPage === 1 ? `${style.disabled}` : style.firstButton}`}>⬅️</button>
       {
       pageNumbers.map(noPage =>(
         <button key={noPage} 
                 onClick={()=>onSpecificPage(noPage)} 
                 
-                className={`${noPage === currentPage ? `${style.noPage}` : " "}`}
+                className={`${noPage === currentPage ? `${style.noPage}` : style.firstButton}`}
 
                 >
           {noPage}
+          {console.log(noPage)}
         </button>
       )
 )
       }
-      <button onClick={onNextPage} className={`${currentPage >= pageNumbers.length ? `${style.disabled}` : " "}`}>Siguiente</button>
+<button onClick={onNextPage} className={`${currentPage >= pageNumbers.length ? style.disabled : style.firstButton}`}>➡️</button>
+
 
 
 

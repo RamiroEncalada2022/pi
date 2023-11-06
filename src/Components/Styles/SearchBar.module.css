@@ -1,8 +1,8 @@
+@import '../../variables.css';
 .container {
-    background-color: rgb(127, 175, 134);
-    background-color: blanchedalmond;
-    background-color: #ED834E;
-    height: 30vh;
+
+    background-color: var(--color-fondo);
+    height: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,13 +12,19 @@
 
 .input {
     all:unset;
-    width: 350px;
+    width: 300px;
     background-color: rgb(255, 255, 255);
+    border-left: 1px dotted black;
+    border-bottom: 1px dotted black;;
 
-    border-radius: 10px;
     padding: 8px;
     margin: 10px;
 
+}
+
+.input:focus {
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
 }
 
 .filter{
@@ -36,7 +42,7 @@
     padding: 8px;
     border:1px solid rgb(95, 95, 95);
     border-radius: 3px;
-    background-color: rgb(245, 187, 116);
+    background-color: var(--color);
     border-radius: 10px;
     margin:10px;
     color:#333;
@@ -52,3 +58,10 @@
   .container h2{
     font-family: 'Didact Gothic', sans-serif;
   }
+
+  /* Estilos para tabletas */
+@media only screen and (max-width: 900px) {
+    .filter{
+        display: none;
+    }
+}

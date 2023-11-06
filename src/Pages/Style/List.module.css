@@ -2,16 +2,40 @@
     margin-bottom: 20px;
     display: block;
   }
+
+  .effectGlass{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    margin: 50px auto;
+    color: white;
+    
+    background: url('../fondoadmin.png') center/cover;
+
+  
+    border-radius: 10px;
+    min-width: 300px;
+  
+  }
   
   .tableContainer {
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
+    height: 70%;
+    width: 80%;
+    font-family: 'Didact Gothic', sans-serif;
+    padding:40px;
+    background-color: rgba(255,255,255,0,3);
+    backdrop-filter: blur(8px);
   }
   
   .tableRow {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 20px;
+    background-color: rgba(218, 178, 70, 0.388);
+    border-bottom: 1px solid black;
+    margin: 5px 0;;
   }
   
   .tableColumnId {
@@ -28,19 +52,55 @@
   }
   
   .deleteButton {
-    background-color: red;
-    color: white;
+    padding: 5px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #e67b68;
+    color: #f5f5f5;
+    font-family: 'Didact Gothic', sans-serif;
+    transition: .5s;
+  }
+
+  .deleteButton:hover {
+    background-color: #e83a1b;
   }
 
   .backButton{
     all: unset;
     padding: 5px;
-    border:1px solid rgb(95, 95, 95);
-    border-radius: 3px;
-    background-color: rgb(245, 187, 116);
-    border-radius: 10px;
-    margin:10px;
-    color:#333;
+    padding:10px 20px;
+    text-align: center;
+    font-size: 1em;
+    background-color: #634509;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Didact Gothic', sans-serif;
+    transition: .5s;
     width: 80px;
 }
+.backButton:hover{
+  background-color: #9c7d3d;
+}
+
+.cabecera{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
   
+.subtitulo {
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 2.5em;
+  font-weight: 600;
+  color: #eeb964;
+  line-height: 1.2;
+  text-align: center;
+  margin: 20px 0;
+  border-bottom: 1px solid #eeb964;
+}
