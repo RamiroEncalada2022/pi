@@ -20,11 +20,15 @@ const List = () => {
 
   return (
     <div>
-      <h2>Lista de productos</h2>
-      <Link to="/admin" className={styles.backButton}>
-        Volver
-      </Link>
+      
+      <div className={styles.effectGlass}>
       <div className={styles.tableContainer}>
+      <div className={styles.cabecera}>
+        <h2 className={styles.subtitulo}>Lista de productos</h2>
+        <Link to="/admin" className={styles.backButton}>
+          Volver
+        </Link>
+      </div>
         <div className={`${styles.tableRow} ${styles.header}`}>
           <div className={styles.tableColumnId}>ID</div>
           <div className={styles.tableColumnName}>Nombre</div>
@@ -41,6 +45,7 @@ const List = () => {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    background-color: #ebe1c5;
+    background-color: var(--color-fondo-footer);
     height: 16vh;
     width: 100%;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
@@ -14,17 +14,6 @@
   .footer p {
 
     font-weight: 500;
-  }
-
-  @media(max-width:900px){
-.footer{height: 80px;
-}
-.footer img{
-
-  height: 100%;
-}
-
-  
   }
 
 

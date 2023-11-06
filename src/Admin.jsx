@@ -17,19 +17,21 @@ const Admin = () => {
           ¡Advertencia! Estás accediendo desde un dispositivo móvil.
         </div>
       ) : (
-        <div className={style.container}>
-          <div className={style.title}>
-            <h1>Panel de administrador</h1>
-          </div>
+        <div className={style.effectGlass}>
+          <div className={style.container}>
+            <div className={style.title}>
+              <h2 className={style.subtitulo}>Panel de administrador</h2>
+            </div>
 
-          <div className={style.buttonContainer}>
-          <Link to='/admin/list' className={`${style.button} ${style.firstButton}`}>
-              Lista de productos
-            </Link>
+            <div className={style.buttonContainer}>
+            <Link to='/admin/list' className={`${style.button} ${style.firstButton}`}>
+                Lista de productos
+              </Link>
 
-            <Link to='/admin/addProduct' className={`${style.button} ${style.secondButton}`}>
-              Agregar productos
-            </Link>
+              <Link to='/admin/addProduct' className={`${style.button} ${style.secondButton}`}>
+                Agregar productos
+              </Link>
+            </div>
           </div>
         </div>
       )}

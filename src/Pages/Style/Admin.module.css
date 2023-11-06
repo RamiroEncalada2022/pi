@@ -1,8 +1,34 @@
-/* admin.module.css */
+
+.effectGlass{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 300px;
+  width: 50%;
+  margin: 50px auto;
+  color: white;
+  
+  background: url('../fondoadmin.png') center/cover;
+
+
+  border-radius: 10px;
+  min-width: 300px;
+
+}
+
 .container {
-    text-align: center;
-    margin-top: 20px;
-    font-family: 'Didact Gothic', sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  width: 70%;
+
+
+  gap: 30px;
+
+  text-align: center;
+  padding:40px;
+  background-color: rgba(255,255,255,0,3);
+  backdrop-filter: blur(4px);
 
   }
   
@@ -37,23 +63,38 @@
   }
   
   .firstButton {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #e8ae1b;
+    color: #513305;
+    font-family: 'Didact Gothic', sans-serif;
+    transition: .5s;
+    font-size: 1.2em;
   }
 
   .firstButton:hover {
-    background-color: #31c536;
-    color: white;
+    background-color: #ecc767;
+  }
+  .subtitulo {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 2.5em;
+    font-weight: 600;
+    color: #eeb964;
+    line-height: 1.2;
+    text-align: center;
+    margin: 20px 0;
+    border-bottom: 1px solid #eeb964;
   }
   
   .secondButton {
     background-color: #da8c0f;
-    color: white;
+    color: #513305;
+    font-family: 'Didact Gothic', sans-serif;
+    transition: .5s;
+    font-size: 1.2em;
   }
   
   .secondButton:hover {
     background-color: #e6ac5c;
-    color: white;
+
   }
   
   .warning {

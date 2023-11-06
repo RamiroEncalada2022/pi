@@ -119,7 +119,7 @@ const SearchBar = () => {
           <option value="K&M">K&M</option>
         </select>
         {/* ------------------- Cambiar el handleSearchSimulator} ------------------- */}
-        <button className={style.searchButton} onClick={handleSearchSimulador}>Buscar</button>
+        <button onClick={handleSearchSimulador}>Buscar</button>
       </div>
     </div>
   )

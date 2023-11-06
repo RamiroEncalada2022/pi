@@ -18,18 +18,20 @@ const ProductList = () => {
 
     return (
         <div className={style.container}>
-            {state.instrumentos2.slice(firstIndex, lastIndex).map((instrumento) =>(
-                <Card key={instrumento.id}
-                    instrumento={instrumento} />
+            <div className={style.containerCards}>
+                {state.instrumentos2.slice(firstIndex, lastIndex).map((instrumento) =>(
+                    <Card key={instrumento.id}
+                        instrumento={instrumento} />
 
 
-            ))}
+                ))}
+            </div>
             <Pagination
-                productsPerPage={productsPerPage}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-                totalProducts={totalProducts}
-            />
+                    productsPerPage={productsPerPage}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    totalProducts={totalProducts}
+                />
         </div>
     )
 }
