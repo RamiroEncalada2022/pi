@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+input {
+    all: unset;
+    width: 300px;
+    background-color: rgb(255, 255, 255);
+    border-left: 1px dotted black;
+    border-bottom: 1px dotted black;
+    padding: 8px;
+    margin: 10px;
+  }
+
+.error {
+    background-color: red;
+    color:white;
+    font-weight: bolder;
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+}
