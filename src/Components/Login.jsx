@@ -22,7 +22,7 @@ const Login = () => {
 
 
     const handleLogin = async () => {
-        if (!email || !password) {
+        if (!password) {
             setError('Por favor, complete todos los campos.');
             return;
           }
