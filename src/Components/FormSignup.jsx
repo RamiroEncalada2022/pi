@@ -33,13 +33,29 @@ const FormSignup = () => {
 		}
 	};
 
-	const handleChangeFname = (event) =>
-		setUser({ ...user, fname: event.target.value });
-
-	// const handleChange = (event) =>
-	// 	setUser({ ...user, fname: event.target.value });
 	console.log(user);
-
+	const handlePostRequest = () => {
+		fetch("http://localhost:8080/api/usuarios/registrar", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json", // Ajusta los encabezados según tus necesidades
+			},
+			body: JSON.stringify(user),
+		})
+			.then((response) => {
+				if (response.ok) {
+					return response.json(); // Parsea la respuesta JSON si es exitosa
+				} else {
+					throw new Error("Error en la solicitud POST");
+				}
+			})
+			.then((data) => {
+				console.log("Solicitud POST exitosa", data);
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+	};
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
@@ -47,7 +63,9 @@ const FormSignup = () => {
 					<Input
 						type="text"
 						value={user.fname}
-						onChange={handleChangeFname}
+						onChange={(event) =>
+							setUser({ ...user, fname: event.target.value })
+						}
 						placeholder="Nombre"
 						required
 					/>
@@ -108,7 +126,9 @@ const FormSignup = () => {
 					</>
 				) : null}
 
-				<button className={styles.btnSend}>Registrarme</button>
+				<button onClick={handlePostRequest} className={styles.btnSend}>
+					Registrarme
+				</button>
 			</form>
 		</>
 	);

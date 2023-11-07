@@ -10,6 +10,21 @@ import List from "./Pages/List";
 import AddProduct from "./Pages/AddProduct";
 import ProductList from "./Components/ProductList";
 import Signup from "./Pages/Signup";
+=======
+import './App.css'
+import Header from './Components/Header'
+import Footer from './Components/Footer'
+import Home from './Pages/Home'
+import Detail from "./Components/Detail"
+
+
+import { Route, Routes } from 'react-router-dom'
+import Admin from './Admin.jsx'
+import List from './Pages/List'
+import AddProduct from './Pages/AddProduct'
+import ProductList from "./Components/ProductList"
+import Login from './Components/Login'
+>>>>>>> 62154616e85e9b002734c40d717782cd3dc2e20f
 
 function App() {
 	return (

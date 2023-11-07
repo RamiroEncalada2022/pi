@@ -6,6 +6,8 @@ import style from './Style/Home.module.css'
 import Recommendations from '../Components/Recommendations'
 
 const Home = () => {
+
+
   return (
     <div>
         <SearchBar />
