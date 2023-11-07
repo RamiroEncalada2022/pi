@@ -41,29 +41,35 @@ const Detail = () => {
 
 
 
-	console.log(state)
+	console.log(imagenes)
 
 	return (
 
 		<div>
 			<div div className={style.tituloYFlecha}>
-			<h2>{nombre}</h2>
-			<Link className={style.flecha} to="/">
-				<FontAwesomeIcon icon={faArrowLeft} className={style.arrow} />
-			</Link>
+				<h2>{nombre}</h2>
+				<Link className={style.flecha} to="/">
+					<FontAwesomeIcon icon={faArrowLeft} className={style.arrow} />
+				</Link>
 			</div>
 
 			<div className={style.grande}>
 
 				<div className={style.imagenGrande}>
-					<img src={"https://img-c9-g2-bucket.s3.amazonaws.com/Microfono.jpg"} alt="instrumento" />
+
+
+					{/* <div> {imagenes.map((image) => (<div key={image.id}><img src={image.imagenes} alt={image.alt} />        
+					</div>))}     </div> */}
+
+					<img src={imagenes} alt="instrumento" />
+
 				</div>
 
 				<div className={style.imagenesChicas}>
-					<img src={imagenes} alt="instrumento" />
-					<img src={imagenes} alt="instrumento" />
-					<img src={imagenes} alt="instrumento" />
-					<img src={imagenes} alt="instrumento" />
+					<img src={"https://img-c9-g2-bucket.s3.amazonaws.com/Microfono.jpg"} alt="instrumento" />
+					<img src={"https://img-c9-g2-bucket.s3.amazonaws.com/Microfono.jpg"} alt="instrumento" />
+					<img src={"https://img-c9-g2-bucket.s3.amazonaws.com/Microfono.jpg"} alt="instrumento" />
+					<img src={"https://img-c9-g2-bucket.s3.amazonaws.com/Microfono.jpg"} alt="instrumento" />
 				</div>
 
 
@@ -75,8 +81,18 @@ const Detail = () => {
 			</div>
 
 			<div className={style.descript}>
-				<h2>Descripcion</h2>
+				<h2>Descripción</h2>
 				<td>{descripcion}</td>
+			</div>
+
+			<div className={style.caracteristica}>
+				<h2>Características</h2>
+				<div className={style.imagenesCaracteristicas}>
+					<img src={"https://img-c9-g2-bucket.s3.amazonaws.com/Microfono.jpg"} alt="instrumento" />
+					<img src={"https://img-c9-g2-bucket.s3.amazonaws.com/Microfono.jpg"} alt="instrumento" />
+					<img src={"https://img-c9-g2-bucket.s3.amazonaws.com/Microfono.jpg"} alt="instrumento" />
+					<img src={"https://img-c9-g2-bucket.s3.amazonaws.com/Microfono.jpg"} alt="instrumento" />
+				</div>
 			</div>
 
 		</div>
