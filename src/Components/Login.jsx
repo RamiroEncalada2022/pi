@@ -62,10 +62,10 @@ const Login = () => {
             if (response.status === 200) {
                 const token = response.data.jwt;
                 //id inventado hasta tener el del back
-                const id = 5;
+                //const id = 5;
                 //buscar usuario
                 
-                const userWithId = await searchUserForId( id, token);
+                const userWithId = await searchUserForId( response.data.usuarioId, token);
                 console.log("datos que retorna la funcion buscar usuario")
                 console.log(userWithId)
                 const user = {
