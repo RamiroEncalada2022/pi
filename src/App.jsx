@@ -4,12 +4,12 @@ import Header from './Components/Header'
 import Footer from './Components/Footer'
 import Home from './Pages/Home'
 import Detail from "./Components/Detail"
-
 import { Route, Routes } from 'react-router-dom'
 import Admin from './Admin.jsx'
 import List from './Pages/List'
 import AddProduct from './Pages/AddProduct'
 import ProductList from "./Components/ProductList"
+
 
 function App() {
 
