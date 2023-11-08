@@ -13,20 +13,20 @@
 }
 
 
-/* .buttons{
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 10px;
-}
+  /* .buttons{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+  }
 
-.buttons button{
-  background-color: #f3edbd;
-  border: 1px solid rgb(36, 44, 1);
-  border-radius: 5px;
-  width: 150px;
-  height: 30px;
-  font-family: 'Didact Gothic', sans-serif;
-} */
+  .buttons button{
+    background-color: #f3edbd;
+    border: 1px solid rgb(36, 44, 1);
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+    font-family: 'Didact Gothic', sans-serif;
+  } */
 
 
 .div {
@@ -34,23 +34,23 @@
   justify-content: flex-start;
   align-items: center;
 
-}
-
-.logo {
-  width: 100px; /* Ajusta el ancho según sea necesario */
-  height: 100px; /* Ajusta la altura según sea necesario */
-  border-radius: 50%; /* Asegura que el div sea circular */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra circular alrededor del div */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+  }
+  
+  .logo {
+    width: 100px; /* Ajusta el ancho según sea necesario */
+    height: 100px; /* Ajusta la altura según sea necesario */
+    border-radius: 50%; /* Asegura que el div sea circular */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra circular alrededor del div */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  .logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+  }
 
 /* Estilos para celulares */
 @media only screen and (max-width: 767px) {
@@ -66,5 +66,6 @@
 
 /* Estilos para tabletas */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-
+  
 }
+

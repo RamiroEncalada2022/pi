@@ -58,3 +58,10 @@
   .container h2{
     font-family: 'Didact Gothic', sans-serif;
   }
+
+  /* Estilos para tabletas */
+@media only screen and (max-width: 900px) {
+    .filter{
+        display: none;
+    }
+}
