@@ -60,7 +60,7 @@
   }
 
   /* Estilos para tabletas */
-@media only screen and (max-width: 900px) {
+@media only screen a (max-width: 900px) {
     .filter{
         display: none;
     }
