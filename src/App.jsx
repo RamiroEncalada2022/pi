@@ -8,8 +8,9 @@ import Detail from "./Components/Detail"
 import { Route, Routes } from 'react-router-dom'
 import Admin from './Admin.jsx'
 import List from './Pages/List'
-import AddProduct from './Pages/AddProduct/AddProduct.jsx'
+import AddProduct from './Pages/AddProduct.jsx'
 import ProductList from "./Components/ProductList"
+import AddCategory from './Pages/AddCategory.jsx'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
       <Route path="admin" element={<Admin/>} />
       <Route path="/admin/list" element={<List />} />
       <Route path="/admin/addProduct" element={<AddProduct />} />
+      <Route path="/admin/addCategory" element={<AddCategory />} />
       <Route path="/Detail/:id" element={<Detail/>} />
       <Route path="/ListaInstrumentos" element={<ProductList />} />
     </Routes>

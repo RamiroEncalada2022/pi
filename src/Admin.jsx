@@ -31,6 +31,10 @@ const Admin = () => {
               <Link to='/admin/addProduct' className={`${style.button} ${style.secondButton}`}>
                 Agregar productos
               </Link>
+
+              <Link to='/admin/addCategory' className={`${style.button} ${style.secondButton}`}>
+                Agregar categorias
+              </Link>
             </div>
           </div>
         </div>

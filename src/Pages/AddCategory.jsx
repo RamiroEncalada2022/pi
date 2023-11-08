@@ -1,12 +1,12 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import styles from './Style/AddProduct.module.css'; 
-import { useContextGlobal } from './../Components/utils/global.context';
+import { useContextGlobal } from '../Components/utils/global.context';
 import { Link } from 'react-router-dom';
 
 
 
-const AddCategory = ({ isOpen, closeModal }) => {
+const AddCategory = () => {
  
   const { state, dispatch } = useContextGlobal(); // Uso del contexto
   const [categoryName, setCategoryName] = useState('');
@@ -68,7 +68,7 @@ const AddCategory = ({ isOpen, closeModal }) => {
       });
   };
 
-   if (!isOpen) return null;
+   
 
   return (
     <div className={styles.effectGlass}>
