@@ -1,104 +1,70 @@
 .header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: white;
-    position: sticky;
-    height: 120px;
-    z-index: 1;
-    top: 0;
-    width: 100%;
-    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
-    font-family: 'Didact Gothic', sans-serif;
-  }
-  .imagHeader{
-    margin: 0%;
-  }
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  position: sticky;
+  height: 120px;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+  font-family: 'Didact Gothic', sans-serif;
+}
 
 
-  /* .buttons{
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 10px;
-  }
+/* .buttons{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+}
 
-  .buttons button{
-    background-color: #f3edbd;
-    border: 1px solid rgb(36, 44, 1);
-    border-radius: 5px;
-    width: 150px;
-    height: 30px;
-    font-family: 'Didact Gothic', sans-serif;
-  } */
+.buttons button{
+  background-color: #f3edbd;
+  border: 1px solid rgb(36, 44, 1);
+  border-radius: 5px;
+  width: 150px;
+  height: 30px;
+  font-family: 'Didact Gothic', sans-serif;
+} */
 
 
-.divHeader {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 
-  }
-  
-  .logo {
-    width: 100px; /* Ajusta el ancho según sea necesario */
-    height: 100px; /* Ajusta la altura según sea necesario */
-    border-radius: 50%; /* Asegura que el div sea circular */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra circular alrededor del div */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
-  }
+}
 
-  /* Estilos para celulares */
+.logo {
+  width: 100px; /* Ajusta el ancho según sea necesario */
+  height: 100px; /* Ajusta la altura según sea necesario */
+  border-radius: 50%; /* Asegura que el div sea circular */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra circular alrededor del div */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+/* Estilos para celulares */
 @media only screen and (max-width: 767px) {
-  .header {
-    flex-direction: column;
-    
-  }
+.header {
+  flex-direction: column;
+  
+}
 
-  .buttons{
-    margin-bottom: 10px;
-  }
+.buttons{
+  margin-bottom: 10px;
+}
 }
 
 /* Estilos para tabletas */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  
+
 }
-
-  @media(max-width:680px){
-
-    .buttons{
-      display: grid;
-      grid-template-columns: auto;
-    }
-
-    .divHeader{
-      display: grid;
-      grid-template-columns: auto;
-      place-items: center;
-
-    }
-
-    .divHeader img{
-      padding-bottom: 0;
-    }
-
-    .divHeader h1{
-      margin-top: 0;
-    }
-  }
-
-  @media(max-width:400px){
-
-    .buttons button {
-      width: 100px;
-    }
-  }
-
