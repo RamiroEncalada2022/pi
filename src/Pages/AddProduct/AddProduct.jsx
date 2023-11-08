@@ -1,7 +1,7 @@
 import axios from 'axios';
-import React, { useState } from 'react';
-import styles from './Style/AddProduct.module.css'; 
-import { useContextGlobal } from '../Components/utils/global.context';
+import { useState } from 'react';
+import styles from '../AddProduct/AddProduct.module.css'; 
+import { useContextGlobal } from '../../Components/utils/global.context';
 import { Link } from 'react-router-dom';
 
 const AddProduct = () => {

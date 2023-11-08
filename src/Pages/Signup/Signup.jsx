@@ -1,6 +1,6 @@
 
-import FormSignup from "../Components/FormSignup";
-import {  } from "./Style/Signup.module.css";
+import FormSignup from "../../Components/FromSignup/FormSignup";
+import style from "./Signup.module.css";
 
 const Signup = () => {
 	return (

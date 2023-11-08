@@ -1,5 +1,4 @@
-import React from 'react'
-import style from "./Styles/Pagination.module.css"
+import style from "./Pagination.module.css"
 
 const Pagination = ({ productsPerPage, currentPage, setCurrentPage, totalProducts}) => {
 

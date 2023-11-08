@@ -2,8 +2,8 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import style from "./Styles/Detail.module.css";
-import ModalGalery from "./ModalGalery";
+import style from "./Detail.module.css";
+import ModalGalery from "../ModalGalery/ModalGalery";
 
 const Detail = () => {
 	const [instrumento, setInstrumento] = useState({});

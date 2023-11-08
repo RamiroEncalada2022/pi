@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import { useContextGlobal } from '../Components/utils/global.context'
+import { useContext } from 'react';
+import { useContextGlobal } from '../../Components/utils/global.context'
 import axios from 'axios';
-import styles from './Style/List.module.css'
+import styles from '../List/List.module.css'
 import { Link } from 'react-router-dom';
 
 const List = () => {

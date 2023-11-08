@@ -1,13 +1,14 @@
 import { useState } from "react";
-import styles from "./Styles/Fromsignup.module.css";
-import Input from "./Input";
+import styles from "./Fromsignup.module.css";
+import Input from "../Input/Input";
 
 const FormSignup = () => {
 	const [user, setUser] = useState({
-		fname: "",
-		lname: "",
+		nombre: "",
+		apellido: "",
 		email: "",
 		password: "",
+		role: "USER",
 	});
 
 	const [show, setShow] = useState(false);
@@ -20,9 +21,9 @@ const FormSignup = () => {
 
 		console.log(user.email.match(emailRegex));
 		if (
-			user.fname.length > 1 &&
+			user.nombre.length > 1 &&
 			user.email.match(emailRegex) &&
-			user.lname.length > 1 &&
+			user.apellido.length > 1 &&
 			user.password.length > 4
 		) {
 			setShow(true);
@@ -38,17 +39,18 @@ const FormSignup = () => {
 		fetch("http://localhost:8080/api/usuarios/registrar", {
 			method: "POST",
 			headers: {
-				"Content-Type": "application/json", // Ajusta los encabezados según tus necesidades
+				"Content-Type": "application/json",
 			},
 			body: JSON.stringify(user),
 		})
 			.then((response) => {
-				if (response.ok) {
-					return response.json(); // Parsea la respuesta JSON si es exitosa
-				} else {
+				// response.json()
+				if (!response.ok) {
 					throw new Error("Error en la solicitud POST");
 				}
+				return response.json();
 			})
+
 			.then((data) => {
 				console.log("Solicitud POST exitosa", data);
 			})
@@ -62,19 +64,19 @@ const FormSignup = () => {
 				<div className={styles.name}>
 					<Input
 						type="text"
-						value={user.fname}
+						value={user.nombre}
 						onChange={(event) =>
-							setUser({ ...user, fname: event.target.value })
+							setUser({ ...user, nombre: event.target.value })
 						}
 						placeholder="Nombre"
 						required
 					/>
 					{/* <label>Nombre</label>
 					<input
-						type="text" name="fname"
+						type="text" name="nombre"
 						placeholder="Nombre"
 						onChange={(event) =>
-							setUser({ ...user, fname: event.target.value })
+							setUser({ ...user, nombre: event.target.value })
 						}
 						required
 					/> */}
@@ -82,10 +84,10 @@ const FormSignup = () => {
 					<label>Apellido</label>
 					<input
 						type="text"
-						name="lname"
+						name="apellido"
 						placeholder="Apellido"
 						onChange={(event) =>
-							setUser({ ...user, lname: event.target.value })
+							setUser({ ...user, apellido: event.target.value })
 						}
 						required
 					/>
@@ -120,8 +122,8 @@ const FormSignup = () => {
 				{show ? (
 					<>
 						<h4 className={styles.complete}>
-							Gracias {user.fname} por registrarte! Te estará llegando un
-							email de confirmación a {user.email}.
+							Gracias {user.nombre} por registrarte! Te estará llegando
+							un email de confirmación a {user.email}.
 						</h4>
 					</>
 				) : null}

@@ -1,5 +1,5 @@
-import React from "react";
-import {} from "./Styles/ModalGalery.css";
+
+import {} from "./ModalGalery.css";
 import { useState } from "react";
 import { useEffect } from "react";
 

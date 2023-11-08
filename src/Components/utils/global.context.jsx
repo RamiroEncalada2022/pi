@@ -33,10 +33,12 @@ function reducer(state, action){
         );
         return { ...state, instrumentos2: updatedInstrumentos };} //verificar que no falle
     case 'ADD_INSTRUMENTO':
-    return { ...state, instrumentos2: [...state.instrumentos2, action.payload] };
+      return { ...state, instrumentos2: [...state.instrumentos2, action.payload] };
+    case 'SIGN_UP':
+      return {}
     case 'LOGIN':
       return { ...state, loggedIn: true, user: action.payload, token: action.token  };
-      case 'LOGOUT':
+    case 'LOGOUT':
       return { ...state, loggedIn: false, user: null };
     default:
       throw new Error();

@@ -1,6 +1,5 @@
-import React from 'react'
-import { useContextGlobal } from './utils/global.context';
-import style from './Styles/UserInfo.module.css';
+import { useContextGlobal } from '../utils/global.context';
+import style from './UserInfo.module.css';
 import { Link } from 'react-router-dom';
 
 const UserInfo = () => {
