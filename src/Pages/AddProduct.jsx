@@ -1,17 +1,13 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import styles from '../Style/AddProduct.module.css'; 
-import { useContextGlobal } from '../../Components/utils/global.context';
+import styles from './Style/AddProduct.module.css'; 
+import { useContextGlobal } from '../Components/utils/global.context';
 import { Link } from 'react-router-dom';
-import CategoriaMenu from './CategoriaMenu';
-
-
 
 const AddProduct = () => {
   const { state, dispatch } = useContextGlobal(); // Uso del contexto
   const [productName, setProductName] = useState('');
   const [productDescription, setProductDescription] = useState('');
-  const [productCategory, setProductCategory] = useState("")
   const [productImages, setProductImages] = useState([]);
   const [message, setMessage] = useState('');
 
@@ -23,10 +19,6 @@ const AddProduct = () => {
     setProductDescription(e.target.value);
   };
 
-  const handleProductCategoryChange = (e) => {
-    setCategoria(e.target.value);
-  };
-
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     setProductImages(files);
@@ -36,12 +28,11 @@ const AddProduct = () => {
     const data = {
       nombre: productName,
       descripcion: productDescription, // Ajusta esto por descripción para el backend, en este caso es lo que usamo de la api
-      categoria: productCategory,
       imagenes: productImages,
     };
 
     axios
-      .post('http://localhost:8080/api/producto/registrar', data, {
+      .post('http://localhost:8080/producto/registrar', data, {
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         },
@@ -61,7 +52,6 @@ const AddProduct = () => {
         //Borra datos de inputs
         setProductName('')
         setProductDescription('')
-        setProductCategory("")
         setProductImages([])
       })
       .catch((error) => {
@@ -81,7 +71,6 @@ const AddProduct = () => {
       <h2 className={styles.subtitulo}>Añadir Nuevo Artículo</h2>
       <input className={styles.text} type="text" value={productName} onChange={handleProductNameChange} placeholder="Nombre del producto" />
       <input className={styles.text} type="text" value={productDescription} onChange={handleProductDescriptionChange} placeholder="Descripcion del producto" />
-      <CategoriaMenu/>
       <div className={styles.contentFile}>
         <label htmlFor="archivo" className={styles.label}>Agregar imagen</label>
         <input type="file" multiple onChange={handleImageChange} id="archivo"/>

@@ -8,7 +8,7 @@ import Detail from "./Components/Detail"
 import { Route, Routes } from 'react-router-dom'
 import Admin from './Admin.jsx'
 import List from './Pages/List'
-import AddProduct from './Pages/AddProduct/AddProduct'
+import AddProduct from './Pages/AddProduct/AddProduct.jsx'
 import ProductList from "./Components/ProductList"
 
 function App() {

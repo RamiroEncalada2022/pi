@@ -1,34 +1,44 @@
 import axios from 'axios';
 import React from 'react'
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer} from "react";
 
 
 export const ContextGlobal = createContext();
 
 
+
 const initialState = {
   instrumentos: [],
   instrumentos2: [], //para trabajar en admin mientras no hay backend
-  categorias: []
+  loggedIn: false,
+  user: {
+    name: "usuario",
+    surname: "invitado",
+    email: "",
+    token: "",
+    rol: "",
+
+  }
 };
 
 
-function reducer(state, action) {
-  switch (action.type) {
+function reducer(state, action){
+  switch(action.type){
     case "GET_INSTRUMENTOS":
-      return { ...state, instrumentos: action.payload };
+      return {...state, instrumentos: action.payload};
     case "GET_INSTRUMENTOS_2": // Este es el caso que se utiliza en el admin, luego se unificara con el de backend
-      return { ...state, instrumentos2: action.payload };
-    case 'DELETE_INSTRUMENTO': {
-      const updatedInstrumentos = state.instrumentos2.filter(
-        (instrumento2) => instrumento2.id !== action.payload
-      );
-      return { ...state, instrumentos2: updatedInstrumentos };
-    } //verificar que no falle
+      return {...state, instrumentos2: action.payload};
+    case 'DELETE_INSTRUMENTO':{
+        const updatedInstrumentos = state.instrumentos2.filter(
+          (instrumento2) => instrumento2.id !== action.payload
+        );
+        return { ...state, instrumentos2: updatedInstrumentos };} //verificar que no falle
     case 'ADD_INSTRUMENTO':
-      return { ...state, instrumentos2: [...state.instrumentos2, action.payload] };
-    case "GET_CATEGORIAS": // Este es el caso que se utiliza en el admin, luego se unificara con el de backend
-      return { ...state, categorias: action.payload };
+    return { ...state, instrumentos2: [...state.instrumentos2, action.payload] };
+    case 'LOGIN':
+      return { ...state, loggedIn: true, user: action.payload, token: action.token  };
+      case 'LOGOUT':
+      return { ...state, loggedIn: false, user: null };
     default:
       throw new Error();
   }
@@ -36,7 +46,7 @@ function reducer(state, action) {
 
 
 export const ContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch]= useReducer(reducer, initialState);
 
   useEffect(() => {
     fetchData();
@@ -49,28 +59,12 @@ export const ContextProvider = ({ children }) => {
       //const response2 = await axios.get('https://jsonplaceholder.typicode.com/posts');
       const response2 = await axios.get('http://localhost:8080/api/producto')
       dispatch({ type: "GET_INSTRUMENTOS_2", payload: response2.data });
-      console.log("Daots del back:")
-      console.log(response2.data)
+      //console.log("Datos del back:")
+      //console.log(response2.data)
     } catch (error) {
       console.error('Se produjo el error:', error);
     }
   };
-
-  useEffect(() => {
-    fetchData3();
-  }, []);
-
-  const fetchData3 = async () => {
-    try {
-      const response3 = await axios.get('http://localhost:8080/api/categorias')
-      dispatch({ type: "GET_CATEGORIAS", payload: response3.data });
-      console.log("Datos del back:")
-      console.log(response3.data)
-    } catch (error) {
-      console.error('Se produjo el error:', error);
-    }
-  };
-
 
   return (
     <ContextGlobal.Provider value={{ state, dispatch }}>
@@ -82,4 +76,4 @@ export const ContextProvider = ({ children }) => {
 
 
 
-export const useContextGlobal = () => useContext(ContextGlobal)
+export const useContextGlobal = ()=> useContext(ContextGlobal)
