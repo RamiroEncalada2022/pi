@@ -22,6 +22,8 @@ const Detail = () => {
         return <div>No se encontró el elemento</div>;
     }
 
+    
+
     return (
         <div>
 

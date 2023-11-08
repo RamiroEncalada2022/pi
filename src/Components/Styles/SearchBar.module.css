@@ -10,13 +10,13 @@
     font-family: 'Didact Gothic', sans-serif;
 }
 
+
 .input {
     all:unset;
     width: 300px;
     background-color: rgb(255, 255, 255);
-    border-left: 1px dotted black;
-    border-bottom: 1px dotted black;;
 
+    border-radius: 10px;
     padding: 8px;
     margin: 10px;
 
@@ -60,7 +60,7 @@
   }
 
   /* Estilos para tabletas */
-@media only screen a (max-width: 900px) {
+@media only screen and (max-width: 900px) {
     .filter{
         display: none;
     }

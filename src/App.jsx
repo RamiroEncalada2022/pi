@@ -9,7 +9,9 @@ import { Route, Routes } from 'react-router-dom'
 import Admin from './Admin.jsx'
 import List from './Pages/List'
 import AddProduct from './Pages/AddProduct'
+import AddCategory from './Pages/AddCategory.jsx'
 import ProductList from "./Components/ProductList"
+import Login from './Components/Login'
 
 function App() {
 

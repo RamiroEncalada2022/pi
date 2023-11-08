@@ -21,7 +21,10 @@ width: 90%;
 
 .firstButton {
     margin:auto;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    display: grid;
+    place-self: center;
   }
 
 
