@@ -11,7 +11,7 @@ const UserInfo = () => {
         localStorage.removeItem('token');
     };
 
-    if (state.loggedIn) {
+    if (state.loggedIn ) {
         const initials = state.user.name.charAt(0) + state.user.surname.charAt(0);
 
         return (

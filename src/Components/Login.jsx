@@ -3,6 +3,7 @@ import { useContextGlobal } from './utils/global.context';
 import axios from 'axios';
 import style from './Styles/Login.module.css';
 import { useNavigate } from 'react-router-dom';
+import searchUserForId from './searchUserForId';
 
 
 const Login = () => {
@@ -35,31 +36,56 @@ const Login = () => {
         try {
             /* ---------------- Respuesta para cuando este andando la api --------------- */
 
-      //const response = await axios.post('http://localhost:8080/api/auth/login', {
-        //email: email, 
-        //password: password, 
-      //});
+                const response = await axios.post('http://localhost:8080/api/auth/login', {
+                    email: email, 
+                    password: password, 
+                });
+                console.log("Respuesta: ")
+                console.log(response)
 
              /* ------------------------- Simulación de respuesta ------------------------ */
-            const response = {
-                status: 200,
-                data: {
-                    user: {
-                        // Estructura de datos de usuario simulada
-                        name: "Sergio",
-                        surname: "Marquez",
-                        email: email,
-                        token: "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-                        rol: "USER",
-                    },
-                },
-            };
-            console.log("Respuesta del servidor simulado: " + response.data.user);
+            // const response = {
+            //     status: 200,
+            //     data: {
+            //         user: {
+            //             // Estructura de datos de usuario simulada
+            //             name: "Sergio",
+            //             surname: "Marquez",
+            //             email: email,
+            //             token: "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+            //             rol: "USER",
+            //         },
+            //     },
+            // };
+            // console.log("Respuesta del servidor simulado: " + response.data.user);
 
             if (response.status === 200) {
-                dispatch({ type: 'LOGIN', payload: response.data.user});
+                const token = response.data.jwt;
+                //id inventado hasta tener el del back
+                const id = 5;
+                //buscar usuario
+                
+                const userWithId = await searchUserForId( id, token);
+                console.log("datos que retorna la funcion buscar usuario")
+                console.log(userWithId)
+                const user = {
+                    name: userWithId.nombre,
+                    surname: userWithId.apellido,
+                    email: response.data.email,
+                    token: token,
+                    rol: userWithId.role,
+                }
+
+                // const user = {
+                //     name: "usuario",
+                //     surname: "invitado",
+                //     email: response.data.email,
+                //     token: token,
+                //     rol: "",
+                //   };
+                dispatch({ type: 'LOGIN', payload: user});
                 // Guardar el token en localStorage
-                localStorage.setItem('token', response.data.user.token);
+                localStorage.setItem('token', response.data.jwt);
                 navigateTo('/')
             }
         } catch (error) {

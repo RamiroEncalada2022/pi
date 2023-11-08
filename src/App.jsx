@@ -12,6 +12,7 @@ import List from './Pages/List'
 import AddProduct from './Pages/AddProduct'
 import ProductList from "./Components/ProductList"
 import Login from './Components/Login'
+import Profile from './Pages/Profile'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
       <Route path="/Detail/:id" element={<Detail/>} />
       <Route path="/ListaInstrumentos" element={<ProductList />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
 
     <Footer/>
