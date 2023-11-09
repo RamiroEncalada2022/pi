@@ -1,0 +1,110 @@
+
+ul,
+li {
+  list-style: none;
+  white-space: nowrap;
+}
+
+li {
+  display: inline;
+}
+
+.imagenCategoria{
+  width: 250px;
+  height: 220px;
+  margin: 0px 20px 0px 20px;
+  /* border: 2px solid rgb(175, 167, 167);
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5); */
+  border-radius: 20px;
+
+}
+
+.imagenCategoria:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
+    0 10px 26px #6a6a6a;
+
+}
+
+::-webkit-scrollbar {
+  width: 1vw; 
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff; 
+}
+
+
+::-webkit-scrollbar-thumb {
+  background-color: #999797;
+  border: 0.3vw solid #ffffff;
+  border-radius: 5vw;
+}
+
+.imageList {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 16px; /* Ajusta según sea necesario para mantener visibles las imágenes */
+
+}
+
+/* Main container */
+
+.maincontainer {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  
+}
+
+/* Slider container */
+.slidercontainer {
+  position: relative;
+  height: 100%;
+  background-color: rgba(174, 177, 173, 0.466); ;
+  margin-left: 50px;
+  margin-right: 50px;
+  border-radius: 20px;  
+}
+
+/* Arrows */
+.leftArrow {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 32px;
+  font-size: 50px;
+  font-weight: 700;
+  color: #000000;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.rightArrow {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 32px;
+  font-size: 50px;
+  font-weight: 700;
+  color: #000000;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.containerimages {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 1px solid #eee;
+  overflow: hidden;
+}
+
+div.active {
+  background: #ccc;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}

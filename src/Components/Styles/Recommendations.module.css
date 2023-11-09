@@ -14,9 +14,10 @@
    grid-template-columns: auto auto;
    justify-content: space-around;
    margin: 0 auto;
-width: 90%;
+    width: 90%;
    padding: 0 40px; /* Ajusta el valor de padding según sea necesario */
    grid-column-gap: 20px;
+   
 }
 
 .firstButton {
@@ -30,9 +31,10 @@ width: 90%;
 
 .container img{
     width: 250px;   
+    
+    object-fit: contain;
+    margin-top: 20px;
+    
 }
 
-.container h2{
-    color: rgb(31, 32, 32);  
-    font-family: 'Didact Gothic', sans-serif;
-}
+
