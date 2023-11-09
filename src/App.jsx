@@ -12,6 +12,7 @@ import List from './Pages/List'
 import AddProduct from './Pages/AddProduct'
 import ProductList from "./Components/ProductList"
 import AddCategory from './Pages/AddCategory.jsx'
+import Features from './Pages/Features.jsx'
 import Login from './Components/Login'
 import Profile from './Pages/Profile'
 
@@ -28,6 +29,7 @@ function App() {
       <Route path="/admin/list" element={<List />} />
       <Route path="/admin/addProduct" element={<AddProduct />} />
       <Route path="/admin/addCategory" element={<AddCategory />} />
+      <Route path="/admin/caracteristicas" element={<Features />} />
       <Route path="/Detail/:id" element={<Detail/>} />
       <Route path="/ListaInstrumentos" element={<ProductList />} />
       <Route path="/login" element={<Login />} />
