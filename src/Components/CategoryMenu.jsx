@@ -1,6 +1,6 @@
 
 import styles from '../Style/AddProduct.module.css';
-import { useContextGlobal } from '../Components/utils/global.context';
+import { useContextGlobal } from './utils/global.context';
 
 
 
