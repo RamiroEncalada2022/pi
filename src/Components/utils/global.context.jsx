@@ -6,6 +6,7 @@ export const ContextGlobal = createContext();
 const initialState = {
   instrumentos: [],
   instrumentos2: [],
+  categorias: [],
   loggedIn: false,
   user: {
     name: "usuario",
@@ -29,6 +30,8 @@ function reducer(state, action) {
       return { ...state, instrumentos2: updatedInstrumentos };}
     case 'ADD_INSTRUMENTO':
       return { ...state, instrumentos2: [...state.instrumentos2, action.payload] };
+    case "GET_CATEGORIAS": 
+      return { ...state, categorias: action.payload };
     case 'LOGIN':
       return { ...state, loggedIn: true, user: action.payload };
     case 'LOGOUT':
@@ -85,6 +88,26 @@ export const ContextProvider = ({ children }) => {
       fetchUserData();
     }
   }, []);
+
+  useEffect(() => {
+    fetchData3();
+  }, []);
+
+  const fetchData3 = async () => {
+    try {
+      const response3 = await axios.get('https://rickandmortyapi.com/api/character')
+      dispatch({ type: "GET_CATEGORIAS", payload: response3.data.results });
+      console.log("Datos del back:")
+      console.log(response3)
+      console.log(response3.data)
+      console.log(response3.data.results)
+    } catch (error) {
+      console.error('Se produjo el error:', error);
+    }
+  };
+
+
+
 
   return (
     <ContextGlobal.Provider value={{ state, dispatch }}>

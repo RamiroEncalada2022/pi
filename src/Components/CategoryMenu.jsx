@@ -1,6 +1,6 @@
 
-import styles from '../Style/AddProduct.module.css';
-import { useContextGlobal } from './utils/global.context';
+import styles from '../Pages/Style/AddProduct.module.css';
+import { useContextGlobal } from './utils/global.context.jsx';
 
 
 

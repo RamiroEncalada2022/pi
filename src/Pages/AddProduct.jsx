@@ -3,13 +3,21 @@ import React, { useState } from 'react';
 import styles from './Style/AddProduct.module.css'; 
 import { useContextGlobal } from '../Components/utils/global.context';
 import { Link } from 'react-router-dom';
+import CategoriaMenu from "../Components/CategoryMenu"
+import CategoryModal from '../Components/CategoryModal';
+
+
 
 const AddProduct = () => {
   const { state, dispatch } = useContextGlobal(); // Uso del contexto
   const [productName, setProductName] = useState('');
   const [productDescription, setProductDescription] = useState('');
+  const [productCategory, setProductCategory] = useState("")
   const [productImages, setProductImages] = useState([]);
   const [message, setMessage] = useState('');
+
+
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleProductNameChange = (e) => {
     setProductName(e.target.value);
@@ -18,6 +26,16 @@ const AddProduct = () => {
   const handleProductDescriptionChange = (e) => {
     setProductDescription(e.target.value);
   };
+
+ 
+
+  const handleProductCategoryChange= (e) => {
+    // Your function code here
+    console.log(e.target.value);
+    e.target.value == "agregar"? setModalOpen(true) : setProductCategory(e.target.value);
+  }
+
+
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
@@ -28,11 +46,12 @@ const AddProduct = () => {
     const data = {
       nombre: productName,
       descripcion: productDescription, // Ajusta esto por descripción para el backend, en este caso es lo que usamo de la api
+      categoria: productCategory,
       imagenes: productImages,
     };
 
     axios
-      .post('http://localhost:8080/producto/registrar', data, {
+      .post('http://localhost:8080/api/producto/registrar', data, {
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         },
@@ -52,6 +71,7 @@ const AddProduct = () => {
         //Borra datos de inputs
         setProductName('')
         setProductDescription('')
+        setProductCategory("")
         setProductImages([])
       })
       .catch((error) => {
@@ -68,9 +88,12 @@ const AddProduct = () => {
   return (
     <div className={styles.effectGlass}>
     <div className={styles.container}>
-      <h2 className={styles.subtitulo}>Añadir Nuevo Artículo</h2>
+     <h2 className={styles.subtitulo}>Añadir Nuevo Artículo</h2>
       <input className={styles.text} type="text" value={productName} onChange={handleProductNameChange} placeholder="Nombre del producto" />
       <input className={styles.text} type="text" value={productDescription} onChange={handleProductDescriptionChange} placeholder="Descripcion del producto" />
+      <CategoriaMenu   handleProductCategoryChange={handleProductCategoryChange}/>
+      {modalOpen && <CategoryModal setOpenModal={setModalOpen} />}
+      
       <div className={styles.contentFile}>
         <label htmlFor="archivo" className={styles.label}>Agregar imagen</label>
         <input type="file" multiple onChange={handleImageChange} id="archivo"/>
@@ -88,5 +111,6 @@ const AddProduct = () => {
         </div>
   );
 };
+
 
 export default AddProduct;
