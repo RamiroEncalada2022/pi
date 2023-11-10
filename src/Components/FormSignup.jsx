@@ -82,7 +82,7 @@ const FormSignup = () => {
 					/> */}
 
 					<label>Apellido</label>
-					<input
+					<Input
 						type="text"
 						name="apellido"
 						placeholder="Apellido"
@@ -94,7 +94,7 @@ const FormSignup = () => {
 				</div>
 
 				<label>Email</label>
-				<input
+				<Input
 					type="email"
 					placeholder="Correo electrónico "
 					onChange={(event) =>
@@ -104,7 +104,7 @@ const FormSignup = () => {
 				/>
 
 				<label>Contraseña</label>
-				<input
+				<Input
 					type="password"
 					placeholder="Contraseña"
 					onChange={(event) =>

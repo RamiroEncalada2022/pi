@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { useContextGlobal } from "../Components/utils/global.context";
 import axios from "axios";
-import style from "./Styles/Login.module.css";
+import style from "./Style/Login.module.css";
 import { useNavigate } from "react-router-dom";
 import searchUserForId from "../Components/searchUserForId";
 
@@ -100,6 +100,8 @@ const Login = () => {
 
 	return (
 		<div className={style.container}>
+			<h1>Iniciar sesión</h1>
+
 			<input
 				type="email"
 				placeholder="Correo electrónico"

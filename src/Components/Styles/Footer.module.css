@@ -1,29 +1,26 @@
-
-
 .footer {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    background-color: var(--color-fondo-footer);
-    height: 16vh;
-    width: 100%;
-    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
-    font-family: 'Didact Gothic', sans-serif;
-  }
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	background-color: var(--color-fondo-footer);
+	height: 16vh;
+	width: 100%;
+	box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+	font-family: "Didact Gothic", sans-serif;
+	margin-top: 20px;
+}
 
-  .footer p {
+.footer p {
+	font-weight: 500;
+}
 
-    font-weight: 500;
-  }
-
-  .logo {
-    width: 80px; /* Ajusta el ancho según sea necesario */
-    height: 80px; /* Ajusta la altura según sea necesario */
-    border-radius: 50%; /* Asegura que el div sea circular */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra circular alrededor del div */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin:0 15px;
-  }
-
+.logo {
+	width: 80px; /* Ajusta el ancho según sea necesario */
+	height: 80px; /* Ajusta la altura según sea necesario */
+	border-radius: 50%; /* Asegura que el div sea circular */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra circular alrededor del div */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 15px;
+}
