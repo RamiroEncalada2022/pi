@@ -7,6 +7,7 @@ const Header = () => {
 	const { state } = useContextGlobal();
 	console.log("Esta logueado? ");
 	console.log(state.loggedIn);
+
 	return (
 		<div className={style.header}>
 			<div className={style.div}>
@@ -28,7 +29,7 @@ const Header = () => {
 					</Link>
 				)}
 			</div>
-			<div>{state.loggedIn ? <UserInfo /> : null}</div>
+			<div>{state.loggedIn ? <UserInfo /> : <div style={{ display: 'none' }}></div>}</div>
 		</div>
 	);
 };

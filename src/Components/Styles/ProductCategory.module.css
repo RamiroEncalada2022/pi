@@ -1,72 +1,61 @@
-.container{
-    background-color: var(--color-fondo);
-    width:100%;
-    
+.container {
+	background-color: var(--color-fondo);
+	width: 100%;
 }
 
-.checkboxes
-{
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-    
+.checkboxes {
+	display: flex;
+	justify-content: center;
+	margin: 20px;
 }
 .checkboxes label {
-background-color: rgb(58, 55, 55) ;
-color: aliceblue;
-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
-padding: 20px;
-margin: 10px;
-border-radius: 20px;
-cursor: pointer
-
+	background-color: rgb(58, 55, 55);
+	color: aliceblue;
+	box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+	padding: 20px;
+	margin: 10px;
+	border-radius: 20px;
+	cursor: pointer;
 }
 
 .checkboxes label:hover {
-    transform: translateY(-5px) scale(1.005) translateZ(0); 
-    box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
-      0 10px 26px #6a6a6a;
-  
-  }
-
+	transform: translateY(-5px) scale(1.005) translateZ(0);
+	box-shadow: 0 14px 26px rgba(0, 0, 0, 0.11), 0 6px 10px #6a6a6a;
+}
 
 .checkboxes input {
-    display: none;
+	display: none;
 }
 
 .subtitulo {
-    margin:0;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
+	margin: 0;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 20px;
 }
 .containerCards {
-    /* display: none; */
-   display: grid;
-   grid-template-columns: auto auto;
-   justify-content: space-around;
-   margin: 0 auto;
-    width: 90%;
-   padding: 0 40px; /* Ajusta el valor de padding según sea necesario */
-   grid-column-gap: 20px;
-   
+	/* display: none; */
+	display: grid;
+	grid-template-columns: auto auto;
+	justify-content: space-around;
+	margin: 0 auto;
+	width: 90%;
+	padding: 0 40px; /* Ajusta el valor de padding según sea necesario */
+	grid-column-gap: 20px;
 }
 
 .firstButton {
-    margin:auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    display: grid;
-    place-self: center;
-  }
-
-
-.container img{
-    width: 250px;   
-    
-    object-fit: contain;
-    margin-top: 20px;
-    
+	margin: auto;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	display: grid;
+	place-self: center;
 }
 
+.container img {
+	width: 250px;
+
+	object-fit: contain;
+	margin-top: 20px;
+}
