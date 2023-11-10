@@ -85,7 +85,7 @@ const Login = () => {
                 //   };
                 dispatch({ type: 'LOGIN', payload: user});
                 // Guardar el token en localStorage
-                localStorage.setItem('token', response.data.jwt);
+                //localStorage.setItem('token', response.data.jwt);
                 navigateTo('/')
             }
         } catch (error) {

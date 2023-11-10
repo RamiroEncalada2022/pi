@@ -7,7 +7,7 @@ li {
 
 li {
   display: grid;
-  
+
   object-fit: cover;
  
 }
@@ -52,7 +52,7 @@ li {
   overflow-x: auto;
   white-space: nowrap;
   padding-bottom: 16px; /* Ajusta según sea necesario para mantener visibles las imágenes */
- 
+  gap:15px;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   
