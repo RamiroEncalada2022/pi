@@ -14,7 +14,7 @@ input {
 	width: 26rem;
 }
 
-label {
+.label {
 	display: none;
 }
 

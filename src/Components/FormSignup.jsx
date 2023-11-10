@@ -81,7 +81,7 @@ const FormSignup = () => {
 						required
 					/> */}
 
-					<label>Apellido</label>
+					<label className={styles.label}>Apellido</label>
 					<Input
 						type="text"
 						name="apellido"
@@ -93,7 +93,7 @@ const FormSignup = () => {
 					/>
 				</div>
 
-				<label>Email</label>
+				<label className={styles.label}>Email</label>
 				<Input
 					type="email"
 					placeholder="Correo electrónico "
@@ -103,7 +103,7 @@ const FormSignup = () => {
 					required
 				/>
 
-				<label>Contraseña</label>
+				<label className={styles.label}>Contraseña</label>
 				<Input
 					type="password"
 					placeholder="Contraseña"

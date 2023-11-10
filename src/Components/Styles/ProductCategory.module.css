@@ -42,7 +42,7 @@ cursor: pointer
     margin-bottom: 20px;
 }
 .containerCards {
-    display: none;
+    /* display: none; */
    display: grid;
    grid-template-columns: auto auto;
    justify-content: space-around;
