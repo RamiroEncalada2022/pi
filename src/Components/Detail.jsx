@@ -12,29 +12,6 @@ const Detail = () => {
 
     const { state } = useContextGlobal();
     
-//     var datos = state.instrumentos2
-//     let primerElementoEncontrado = false;
-//     let instrumentoSeleccionado; // Declarar fuera del bloque if
-
-// datos.forEach(function(elemento) {
-//     if (!primerElementoEncontrado) {
-//         const elementoID = elemento.id;
-
-
-//         instrumentoSeleccionado = state.instrumentos2.find(instrumento => instrumento.id === elementoID);
-
-//         if (instrumentoSeleccionado) {
-//             // Hacer algo con el instrumento seleccionado, por ejemplo, mostrar sus imágenes
-//             console.log("Instrumento encontrado:", instrumentoSeleccionado);
-//             console.log("Imágenes del instrumento:", instrumentoSeleccionado.imagenes);
-
-//             // Marcar que se ha encontrado el primer elemento
-//             primerElementoEncontrado = true;
-//         } else {
-//             console.log("No se encontró el elemento con ID:", elementoID);
-//         }
-//     }
-// });
 
 var fragmentoID = window.location.pathname;
 
@@ -64,20 +41,9 @@ if (instrumentoSeleccionado) {
 } else {
     console.log("No se encontró el elemento con ID:", soloNumeros);
 }
-    
-    
-    
-    
-    
-    
-
-
 
     // console.log(elementoID)
 
-
-
-    
 
     return (
         <div>

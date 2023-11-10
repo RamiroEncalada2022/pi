@@ -1,49 +1,31 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { data } from './Data';
 import style from "./Styles/Categories2.module.css";
+import { Link } from 'react-router-dom';
 
 const Categories2 = () => {
   const listRef = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    const listNode = listRef.current;
-    const imgNode = listNode.querySelectorAll("li > img")[currentIndex];
+  
 
-    if (imgNode) {
-      imgNode.scrollIntoView({
-        behavior: "smooth"
-      });
-    }
-  }, [currentIndex]);
+  // const scrollToImage = (direction) => {
+  //   if (direction === 'prev') {
+  //     setCurrentIndex(curr => {
+  //       const isFirstSlide = currentIndex === 0;
+  //       return isFirstSlide ? 0 : curr - 1;
+  //     });
+  //   } else {
+  //     const isLastSlide = currentIndex === data.length - 1;
+  //     if (!isLastSlide) {
+  //       setCurrentIndex(curr => curr + 1);
+  //     }
+  //   }
+  // }
 
-  const scrollToImage = (direction) => {
-    if (direction === 'prev') {
-      setCurrentIndex(curr => {
-        const isFirstSlide = currentIndex === 0;
-        return isFirstSlide ? 0 : curr - 1;
-      });
-    } else {
-      const isLastSlide = currentIndex === data.length - 1;
-      if (!isLastSlide) {
-        setCurrentIndex(curr => curr + 1);
-      }
-    }
-  }
+  console.log(data)
 
-  // Event listener to prevent arrow key scrolling
-  const handleKeyDown = (e) => {
-    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
-      e.preventDefault();
-    }
-  };
 
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []); // Add and remove event listener on mount/unmount
 
   return (
     <div className={style.maincontainer}>
@@ -52,7 +34,10 @@ const Categories2 = () => {
           <ul ref={listRef} className={style.imageList}>
             {data.map((item) => (
               <li key={item.id}>
+                <Link to={`/${item.categoria}`}>
+    
                 <img className = {style.imagenCategoria}src={item.imgUrl} alt={`Slide ${item.id}`} />
+                </Link>
               </li>
             ))}
           </ul>
