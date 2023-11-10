@@ -1,6 +1,6 @@
 import { useState } from "react";
-import styles from "./Fromsignup.module.css";
-import Input from "../Input/Input";
+import styles from "../Components/Styles/Fromsignup.module.css";
+import Input from "./Input";
 
 const FormSignup = () => {
 	const [user, setUser] = useState({

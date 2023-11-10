@@ -19,6 +19,7 @@ import Profile from './Pages/Profile'
 import ListUsers from './Pages/ListUsers'
 
 import Login from './Components/Login'
+import Signup from './Pages/Signup.jsx'
 
 function App() {
 
