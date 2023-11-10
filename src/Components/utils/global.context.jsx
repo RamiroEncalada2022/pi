@@ -32,6 +32,8 @@ function reducer(state, action) {
       return { ...state, instrumentos2: [...state.instrumentos2, action.payload] };
     case "GET_CATEGORIAS": 
       return { ...state, categorias: action.payload };
+    case 'ADD_CATEGORIA': 
+      return { ...state, categorias: [...state.categorias, action.payload] }; 
     case 'LOGIN':
       return { ...state, loggedIn: true, user: action.payload };
     case 'LOGOUT':
@@ -58,8 +60,8 @@ export const ContextProvider = ({ children }) => {
     try {
       const response2 = await axios.get('http://localhost:8080/api/producto');
       dispatch({ type: "GET_INSTRUMENTOS_2", payload: response2.data });
-      console.log("Datos del back:");
-      console.log(response2.data);
+      //console.log("Datos del back:");
+      //console.log(response2.data);
     } catch (error) {
       console.error('Se produjo el error:', error);
     }
@@ -97,8 +99,8 @@ export const ContextProvider = ({ children }) => {
     try {
       const response3 = await axios.get('http://localhost:8080/api/categorias')
       dispatch({ type: "GET_CATEGORIAS", payload: response3.data });
-      console.log("Datos de rick")
-      console.log(response3.data)
+      //console.log("Datos de rick")
+      //console.log(response3.data)
     } catch (error) {
       console.error('Se produjo el error:', error);
     }

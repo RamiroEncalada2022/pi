@@ -24,7 +24,7 @@ const AddCategory = () => {
 
 
   const handleCategoryImageChange = (e) => {
-    setProductImages(e.target.value);
+    setCategoryImage(e.target.value);
   };
 
   const handlePost = () => {
