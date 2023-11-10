@@ -80,7 +80,7 @@ const AddCategory = () => {
       
       <div className={styles.contentFile}>
         <label htmlFor="archivo" className={styles.label}>Agregar imagen</label>
-        <input type="file" onChange={handleCategoryImageChange} id="archivo"/>
+        <input type="file" className={styles.archivo} onChange={handleCategoryImageChange} id="archivo"/>
       </div>
       <div className={styles.containerButtons}>
         <button className={styles.button} onClick={handlePost}>

@@ -41,6 +41,7 @@
   .buttonContainer {
     display: flex;
     flex-direction: column;
+
     margin:auto auto;
     gap:10px;
 
@@ -49,6 +50,12 @@
   .button-container a {
     text-decoration: none;
     margin-right: 10px;
+
+  }
+
+  a {
+    justify-content: center;
+
   }
   
   .button {
@@ -89,6 +96,7 @@
     font-family: 'Didact Gothic', sans-serif;
     transition: .5s;
     font-size: 1.2em;
+    
   }
   
   .secondButton:hover {

@@ -1,83 +1,74 @@
 .header {
-    /* display: flex;
-    justify-content: space-around;
-    align-items: center; */
-    display: grid;
-    grid-template-columns: auto auto;
-    background-color: white;
-    position: sticky;
-    height: 120px;
-    z-index: 2;
-    top: 0;
-    width: 100%;
-    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
-    font-family: 'Didact Gothic', sans-serif;
-    padding-top: 10px;
-  }
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  position: sticky;
+  height: 120px;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+  font-family: 'Didact Gothic', sans-serif;
+}
 
 
-   .buttons{
-    display: grid;
-    grid-template-columns: auto auto;
-    place-self: end;
-    place-items: center;
-    align-self: center;
-    grid-gap: 10px;
-    padding: 0px 100px 0px 200px; 
-    width: 400px;   
-  }
+ .buttons{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+}
 
 
 .div {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 
-  }
-  
-  .logo {
-    width: 100px;
-    height: 100px; 
-    border-radius: 50%; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 0px 0px 80px;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
-  }
+}
 
-  /* Estilos para celulares */
+.logo {
+  width: 100px;
+  height: 100px; 
+  border-radius: 50%; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+/* Estilos para celulares */
 @media only screen and (max-width: 767px) {
-  .header {
-    flex-direction: column;
-    
-  }
+.header {
+  flex-direction: column;
+  
+}
 
-  .buttons{
-    margin-bottom: 10px;
-  }
+.buttons{
+  margin-bottom: 10px;
+}
 }
 
 /* Estilos para tabletas */
 @media only screen and (max-width: 768px) {
-  .logo {
-    width: 60px;
-    height: 60px; 
-  }
-  .header {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    width: auto;
-    padding: 10px 10px;
-    align-items: center;
+.logo {
+  width: 60px;
+  height: 60px; 
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: auto;
+  padding: 10px 10px;
+  align-items: center;
 
-  }
+}
 
 }
