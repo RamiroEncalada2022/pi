@@ -3,12 +3,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 300px;
-  width: 50%;
+  height: auto;
+  width: 60%;
   margin: 50px auto;
   color: white;
   
-  background: url('../fondoadmin.png') center/cover;
+  background: url('../admin-black.png') center/cover;
 
 
   border-radius: 10px;
@@ -21,10 +21,7 @@
   flex-direction: column;
   height: 70%;
   width: 70%;
-
-
   gap: 30px;
-
   text-align: center;
   padding:40px;
   background-color: rgba(255,255,255,0,3);
@@ -43,9 +40,10 @@
   
   .buttonContainer {
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    margin-left: 100px;
+    flex-direction: column;
+    margin:auto auto;
+    gap:10px;
+
   }
   
   .button-container a {
@@ -63,37 +61,39 @@
   }
   
   .firstButton {
-    background-color: #e8ae1b;
-    color: #513305;
+    background-color: #000000;
+    color: #ffffff;
     font-family: 'Didact Gothic', sans-serif;
     transition: .5s;
     font-size: 1.2em;
   }
 
   .firstButton:hover {
-    background-color: #ecc767;
+    background-color: #dddcd9;
+    color:black;
   }
   .subtitulo {
     font-family: 'Didact Gothic', sans-serif;
     font-size: 2.5em;
     font-weight: 600;
-    color: #eeb964;
+    color: #ffffff;
     line-height: 1.2;
     text-align: center;
     margin: 20px 0;
-    border-bottom: 1px solid #eeb964;
+    border-bottom: 1px solid #000000;
   }
   
   .secondButton {
-    background-color: #da8c0f;
-    color: #513305;
+    background-color: #000000;
+    color: #ffffff;
     font-family: 'Didact Gothic', sans-serif;
     transition: .5s;
     font-size: 1.2em;
   }
   
   .secondButton:hover {
-    background-color: #e6ac5c;
+    background-color: #dddcd9;
+    color:black;
 
   }
   

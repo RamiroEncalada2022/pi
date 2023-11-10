@@ -1,9 +1,8 @@
+// CategoryModal.js
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useContextGlobal } from './utils/global.context';
-import styles from "../Pages/Style/AddProduct.module.css"
-
-
+import styles from "./Styles/CategoryModal.module.css"
 
 const CategoryModal = ({ setOpenModal }) => {
 
@@ -67,41 +66,34 @@ const CategoryModal = ({ setOpenModal }) => {
       });
   };
 
-
-
   return (
-
-
-
-    <div className={styles.effectGlass} style={{ width: '550px' }} >
-      <div className={styles.container}>
-        <h2 className={styles.subtitulo}>Añadir Nueva Categoria</h2>
-        <input className={styles.text} type="text" value={categoryName} onChange={handleCategoryNameChange} placeholder="Nombre de la categoría" />
-        <input className={styles.text} type="text" value={categoryDescription} onChange={handleCategoryDescriptionChange} placeholder="Descripcion de la categoría" />
-        <div className={styles.contentFile}>
-          <label htmlFor="archivo" className={styles.label}>Agregar imagen</label>
-          <input type="file" onChange={handleCategoryImageChange} id="archivo" />
+    <div className={styles.modalContainer}>
+      <div className={styles.effectGlass} style={{ width: '550px' }} >
+        <div className={styles.container}>
+          <h2 className={styles.subtitulo}>Añadir Nueva Categoria</h2>
+          <input className={styles.text} type="text" value={categoryName} onChange={handleCategoryNameChange} placeholder="Nombre de la categoría" />
+          <input className={styles.text} type="text" value={categoryDescription} onChange={handleCategoryDescriptionChange} placeholder="Descripcion de la categoría" />
+          <div className={styles.contentFile}>
+            <label htmlFor="archivo" className={styles.label}>Agregar imagen</label>
+            <input type="file" className={styles.archivo} onChange={handleCategoryImageChange} id="archivo" />
+          </div>
+          <div className={styles.containerButtons}>
+            <button className={styles.button} onClick={handlePost}>
+              Agregar categoria
+            </button>
+            <button
+              onClick={() => {
+                setOpenModal(false);
+              }}
+            >
+              X
+            </button>
+          </div>
+          {message && <div className={`${styles.message} ${message ? styles.show : ''}`}>{message}</div>}
         </div>
-        <div className={styles.containerButtons}>
-          <button className={styles.button} onClick={handlePost}>
-            Agregar categoria
-          </button>
-          <button
-            onClick={() => {
-              setOpenModal(false);
-            }}
-          >
-            X
-          </button>
-        </div>
-        {message && <div className={`${styles.message} ${message ? styles.show : ''}`}>{message}</div>}
       </div>
     </div>
-
-
-
   );
 };
-
 
 export default CategoryModal;

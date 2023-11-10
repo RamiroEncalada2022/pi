@@ -96,7 +96,7 @@ const AddProduct = () => {
       
       <div className={styles.contentFile}>
         <label htmlFor="archivo" className={styles.label}>Agregar imagen</label>
-        <input type="file" multiple onChange={handleImageChange} id="archivo"/>
+        <input type="file" className={styles.archivo} multiple onChange={handleImageChange} id="archivo"/>
       </div>
       <div className={styles.containerButtons}>
         <button className={styles.button} onClick={handlePost}>
