@@ -3,6 +3,7 @@
 body {
   font-family: 'Didact Gothic', sans-serif;
   /* Otros estilos globales para el cuerpo */
+  
 }
 
 h1 {
@@ -35,7 +36,7 @@ button:hover {
 input[type=text] {
   all:unset;
   width: 300px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(202, 194, 194);
   border-left: 1px dotted black;
   border-bottom: 1px dotted black;;
 
