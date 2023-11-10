@@ -49,8 +49,8 @@ if (instrumentoSeleccionado) {
         <div>
 
             <div div className={style.tituloYFlecha}>
-                
-                <h2>{instrumentoSeleccionado.nombre}</h2>
+                {/* <h2>Nombre</h2> */}
+                <h2>{state.instrumentos2[0].nombre}</h2>
                 <Link className={style.flecha} to="/">
                     <FontAwesomeIcon icon={faArrowLeft} className={style.arrow} />
                 </Link>
