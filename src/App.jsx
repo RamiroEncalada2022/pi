@@ -42,6 +42,7 @@ function App() {
       <Route path="/Viento" element={<Viento/>}/>
       <Route path="/ListaInstrumentos" element={<ProductList />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/registro" element={<Signup />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/admin/listUsers" element={<ListUsers />} />
     </Routes>
