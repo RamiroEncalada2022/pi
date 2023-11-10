@@ -1,0 +1,48 @@
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 40rem;
+	margin: auto;
+	/* border: 3px solid blue; */
+}
+
+input {
+	font-size: 1rem;
+	margin: 0.5rem;
+	height: 2rem;
+	width: 26rem;
+}
+
+label {
+	display: none;
+}
+
+h4 {
+	width: 26rem;
+}
+
+.name {
+	display: flex;
+	justify-content: center;
+	width: 10rem;
+}
+
+.error {
+	color: red;
+}
+
+.complete {
+	color: rgb(31, 167, 13);
+}
+
+.btnSend {
+	background-color: #00a400;
+	border-radius: 6px;
+	color: #fff;
+	font-size: 18px;
+	height: 36px;
+	padding: 0 32px;
+	margin: 1rem;
+	border: none;
+}
