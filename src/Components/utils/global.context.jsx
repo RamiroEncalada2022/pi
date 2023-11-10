@@ -95,12 +95,10 @@ export const ContextProvider = ({ children }) => {
 
   const fetchData3 = async () => {
     try {
-      const response3 = await axios.get('https://rickandmortyapi.com/api/character')
-      dispatch({ type: "GET_CATEGORIAS", payload: response3.data.results });
-      console.log("Datos del back:")
-      console.log(response3)
+      const response3 = await axios.get('http://localhost:8080/api/categorias')
+      dispatch({ type: "GET_CATEGORIAS", payload: response3.data });
+      console.log("Datos de rick")
       console.log(response3.data)
-      console.log(response3.data.results)
     } catch (error) {
       console.error('Se produjo el error:', error);
     }

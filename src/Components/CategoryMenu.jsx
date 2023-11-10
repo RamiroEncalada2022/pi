@@ -23,8 +23,8 @@ const CategoriaMenu = ({ handleProductCategoryChange }) => {
 
         {categorias.map(categoria => (
 
-          <option key={categoria.id} value={categoria.name}>
-            {categoria.name}
+          <option key={categoria.id} value={categoria.titulo}>
+            {categoria.titulo}
           </option>
 
         ))}
