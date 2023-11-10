@@ -28,7 +28,7 @@ const Header = () => {
 					</Link>
 				)}
 			</div>
-			<div>{state.loggedIn ? <UserInfo /> : null}</div>
+			{state.loggedIn ? <UserInfo /> : <div style={{ display: 'none' }}></div>}
 		</div>
 	);
 };
