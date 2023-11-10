@@ -91,6 +91,20 @@ export const ContextProvider = ({ children }) => {
   }
 };
 
+useEffect(() => {
+  fetchData3();
+}, []);
+
+const fetchData3 = async () => {
+  try {
+    const response3 = await axios.get('http://localhost:8080/api/categorias')
+    dispatch({ type: "GET_CATEGORIAS", payload: response3.data });
+    //console.log("Datos de rick")
+    //console.log(response3.data)
+  } catch (error) {
+    console.error('Se produjo el error:', error);
+  }
+};
 
 
 
