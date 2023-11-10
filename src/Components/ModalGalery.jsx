@@ -1,9 +1,8 @@
-import React from "react";
 import style from "./Styles/ModalGalery.css";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const ModalGalery = ({instrumento}) => {
+const ModalGalery = ({ instrumento }) => {
 	const [modal, setModal] = useState(false);
 	console.log(modal);
 	const toggleModal = () => {
@@ -29,13 +28,25 @@ const ModalGalery = ({instrumento}) => {
 				Ver más
 			</button>
 			{modal && (
-				<div className= {style.contenedorModal}>
+				<div className={style.contenedorModal}>
 					<div onClick={toggleModal} className="overlay"></div>
 					<div className="modal-content">
 						<div className="slider">
-						<img src={instrumento.imagenes[1]} alt="instrumento" width={'250px'}  />
-						<img src={instrumento.imagenes[2]} alt="instrumento" width={'250px'}  />
-						<img src={instrumento.imagenes[3]} alt="instrumento" width={'250px'}  />
+							<img
+								src={instrumento.imagenes[1]}
+								alt="instrumento"
+								width={"250px"}
+							/>
+							<img
+								src={instrumento.imagenes[2]}
+								alt="instrumento"
+								width={"250px"}
+							/>
+							<img
+								src={instrumento.imagenes[3]}
+								alt="instrumento"
+								width={"250px"}
+							/>
 						</div>
 
 						<button className="close-modal" onClick={toggleModal}>
