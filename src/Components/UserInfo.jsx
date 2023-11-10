@@ -25,6 +25,13 @@ const UserInfo = () => {
                         <Link to="/profile"className={style.miniButton} >Perfil</Link>
                     </div>
                     <div className={style.link}>
+                        {state.user.rol === 'ADMIN' && (
+                            <Link to="/admin" className={style.miniButton}>
+                            Panel Admin
+                            </Link>
+                        )}
+                    </div>
+                    <div className={style.link}>
                         <span onClick={handleLogout} className={style.miniButton}>Cerrar sesión</span>
                     </div>
                 </div>
