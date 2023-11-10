@@ -6,6 +6,7 @@ export const ContextGlobal = createContext();
 const initialState = {
   instrumentos: [],
   instrumentos2: [],
+  usuarios: [],
   categorias: [],
   loggedIn: false,
   user: {
@@ -44,6 +45,8 @@ function reducer(state, action) {
         token: "",
         rol: "",
       } };
+    case "GET_USUARIOS":
+      return { ...state, usuarios: action.payload };
     default:
       throw new Error();
   }
@@ -105,6 +108,27 @@ export const ContextProvider = ({ children }) => {
       console.error('Se produjo el error:', error);
     }
   };
+
+  useEffect(() => {
+    fetchDataUsers();
+  }, []);
+
+  const fetchDataUsers = async () => {
+    const token = localStorage.getItem('token');
+    try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const response4 = await axios.get('http://localhost:8080/api/usuarios', config);
+      if (response4.status === 200) {
+      dispatch({ type: "GET_USUARIOS", payload: response4.data });
+    }
+  } catch (error) {
+    console.error('Error al obtener los datos del usuario:', error);
+  }
+};
 
 
 

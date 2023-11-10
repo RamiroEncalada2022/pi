@@ -15,6 +15,7 @@ import AddCategory from './Pages/AddCategory.jsx'
 import Features from './Pages/Features.jsx'
 import Login from './Components/Login'
 import Profile from './Pages/Profile'
+import ListUsers from './Pages/ListUsers'
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
       <Route path="/ListaInstrumentos" element={<ProductList />} />
       <Route path="/login" element={<Login />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/admin/listUsers" element={<ListUsers />} />
     </Routes>
 
     <Footer/>

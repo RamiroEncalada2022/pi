@@ -12,6 +12,8 @@ const UserInfo = () => {
     };
 
     if (state.loggedIn ) {
+        console.log("Por que no trae datos?")
+        console.log(state.user)
         const initials = state.user.name.charAt(0) + state.user.surname.charAt(0);
 
         return (

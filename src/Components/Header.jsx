@@ -6,7 +6,8 @@ import UserInfo from "./UserInfo";
 
 const Header = () => {
     const { state } = useContextGlobal(); 
-
+    console.log("Esta logueado? ")
+    console.log(state.loggedIn)
     return (
         <div className={style.header}>
             <div className={style.div}>

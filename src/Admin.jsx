@@ -24,6 +24,11 @@ const Admin = () => {
             </div>
 
             <div className={style.buttonContainer}>
+
+            <Link to='/admin/listUsers' className={`${style.button} ${style.firstButton}`}>
+                Lista de Usuarios
+            </Link>
+
             <Link to='/admin/list' className={`${style.button} ${style.firstButton}`}>
                 Lista de productos
               </Link>
