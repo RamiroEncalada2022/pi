@@ -9,9 +9,14 @@ import { Route, Routes } from 'react-router-dom'
 import Admin from './Admin.jsx'
 import List from './Pages/List'
 import AddProduct from './Pages/AddProduct'
-import AddCategory from './Pages/AddCategory.jsx'
 import ProductList from "./Components/ProductList"
 import AddCategory from './Pages/AddCategory.jsx'
+import Viento from "./Components/Viento"
+import Cuerdas from './Components/Cuerdas'
+import Percusion from './Components/Percusion'
+import Acessorios from './Components/Accesorios'
+import Profile from './Pages/Profile'
+
 import Login from './Components/Login'
 
 function App() {
@@ -27,7 +32,7 @@ function App() {
       <Route path="/admin/list" element={<List />} />
       <Route path="/admin/addProduct" element={<AddProduct />} />
       <Route path="/admin/addCategory" element={<AddCategory />} />
-      <Route path="/admin/caracteristicas" element={<Features />} />
+      {/* <Route path="/admin/caracteristicas" element={<Features />} /> */}
       <Route path="/Detail/:id" element={<Detail/>} />
       <Route path="/ProductCategory" element={<ProductCategory/>}/>
       <Route path="/Cuerdas" element={<Cuerdas/>}/>

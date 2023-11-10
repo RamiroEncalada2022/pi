@@ -8,7 +8,12 @@
     align-items: center;
     justify-content: center;
     font-family: 'Didact Gothic', sans-serif;
+    color: #050505;
 }
+
+.containerTexto{
+}
+    
 
 
 .input {
