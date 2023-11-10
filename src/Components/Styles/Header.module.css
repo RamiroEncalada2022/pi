@@ -1,22 +1,30 @@
 .header {
-    display: flex;
+    /* display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: center; */
+    display: grid;
+    grid-template-columns: auto auto;
     background-color: white;
     position: sticky;
     height: 120px;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     width: 100%;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
     font-family: 'Didact Gothic', sans-serif;
+    padding-top: 10px;
   }
 
 
    .buttons{
     display: grid;
     grid-template-columns: auto auto;
+    place-self: end;
+    place-items: center;
+    align-self: center;
     grid-gap: 10px;
+    padding: 0px 100px 0px 200px; 
+    width: 400px;   
   }
 
 
@@ -35,6 +43,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0px 0px 0px 80px;
   }
   .logo:hover {
     filter: drop-shadow(0 0 2em #646cffaa);

@@ -6,7 +6,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid gray;
+    border: 2px solid rgb(175, 167, 167);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
    
     font-size: 14px;
     font-weight: normal;
@@ -14,7 +15,16 @@
     border-radius: 10px;
     transition: all 0.3s ease-out;
     margin-left:12%;
+    border-radius: none;
 
+}
+
+.card h2{
+    color: rgb(31, 32, 32);  
+    font-family: 'Didact Gothic', sans-serif;
+    place-self: center;
+    justify-self: center;
+    width: 70%;
 }
 
 .tituloCard{
@@ -35,6 +45,7 @@ a {
 .card img {
     width:200px;
     height: 230px;
+    border-radius: none;
 
 }
 

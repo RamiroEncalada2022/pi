@@ -94,7 +94,9 @@ const SearchBar = () => {
 
   return (
     <div className={style.container}>
+      <div className={style.containerTexto}>
       <h2>Busca entre los cientos de instrumentos que tenemos para ti:</h2>
+      </div>
       <div>
         <input
           className={style.input}

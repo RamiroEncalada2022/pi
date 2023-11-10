@@ -1,9 +1,10 @@
 :root {
     --color-boton-fondo: #0d0e0d; /* Color de fondo del botón */
     --color-titulo-texto: #0d0e0d; /* Color de fondo del botón */
-    --color-boton-texto: #ffffff; /* Color del texto del botón */
+    --color-boton-texto: #f3f3f3; /* Color del texto del botón */
     --color-boton-fondo-hover:#afafaf;
     --color-fondo-footer:#afafaf;
     --color-card-fondo:#ffffff;
     --color-fondo: #FAFAFA; /* Color de fondo */
+    
 }
