@@ -4,7 +4,7 @@ import Footer from "./Components/Footer";
 import Home from "./Pages/Home";
 import Detail from "./Components/Detail";
 import ProductCategory from "./Components/ProductCategory";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Admin from "./Pages/Admin.jsx";
 import List from "./Pages/List";
 import AddProduct from "./Pages/AddProduct";
@@ -19,19 +19,56 @@ import ListUsers from "./Pages/ListUsers";
 import Features from "./Pages/Features"
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup.jsx";
+import { useContextGlobal } from './Components/utils/global.context';
+import { useEffect } from "react";
 
 function App() {
+
+	const { state, dispatch } = useContextGlobal(); // Uso del contexto
+
+
+	useEffect(() => {
+		// Cargar información de autenticación desde localStorage
+
+		const storedUserData = localStorage.getItem('user');
+	
+		// Verificar si hay información almacenada en localStorage
+		if (storedUserData) {
+		// Convertir la cadena a un objeto usando JSON.parse
+		const userData = JSON.parse(storedUserData);
+	
+		// Hacer algo con la información del usuario, por ejemplo, actualizar el contexto
+		dispatch({
+			type: 'LOGIN',
+			payload: userData,
+		});
+		} else {
+		// No hay información del usuario en localStorage, manejarlo según sea necesario
+		console.log('No se encontró información del usuario en localStorage');
+		}
+	}, [dispatch]);
 	return (
 		<>
 			<Header />
 
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="admin" element={<Admin />} />
-				<Route path="/admin/list" element={<List />} />
-				<Route path="/admin/addProduct" element={<AddProduct />} />
-				<Route path="/admin/addCategory" element={<AddCategory />} />
-				<Route path="/admin/caracteristicas" element={<Features />} /> 
+				{state.loggedIn && state.user.rol === 'ADMIN' ? (
+          <>
+            <Route path="admin" element={<Admin />} />
+              <Route path="admin/list" element={<List />} />
+              <Route path="admin/addProduct" element={<AddProduct />} />
+              <Route path="admin/addCategory" element={<AddCategory />} />
+              <Route path="admin/caracteristicas" element={<Features />} />
+              <Route path="admin/listUsers" element={<ListUsers />} />
+          </>
+        ) : (
+			<Route
+            path="admin/*"
+            element={<Navigate to="/login" />}
+          />
+        )}
+
 				<Route path="/Detail/:id" element={<Detail />} />
 				<Route path="/ProductCategory" element={<ProductCategory />} />
 				<Route path="/Cuerdas" element={<Cuerdas />} />
@@ -42,7 +79,7 @@ function App() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/registro" element={<Signup />} />
 				<Route path="/profile" element={<Profile />} />
-				<Route path="/admin/listUsers" element={<ListUsers />} />
+
 
 			</Routes>
 

@@ -8,13 +8,11 @@ const UserInfo = () => {
 
     const handleLogout = () => {
         dispatch({ type: 'LOGOUT' });
-        localStorage.removeItem('token');
+        localStorage.removeItem('user');
     };
 
     if (state.loggedIn ) {
-        console.log("Por que no trae datos?")
-        console.log(state.user)
-        const initials = state.user.name.charAt(0) + state.user.surname.charAt(0);
+        const initials = (state.user.name && state.user.name.charAt(0)) + (state.user.surname && state.user.surname.charAt(0));
 
         return (
             <div className={style.userContainer}>

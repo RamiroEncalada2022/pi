@@ -12,6 +12,9 @@ const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
+	if (state.loggedIn && state.user.rol === 'ADMIN'){
+		navigateTo("/admin");
+	}
 
 	const isEmailValid = (email) => {
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -87,7 +90,10 @@ const Login = () => {
 				//   };
 				dispatch({ type: "LOGIN", payload: user });
 				// Guardar el token en localStorage
-				// localStorage.setItem("token", response.data.jwt);
+				localStorage.setItem("token", response.data.jwt);
+				console.log(JSON.stringify(response.data))
+				localStorage.setItem("user", JSON.stringify(user));
+
 				navigateTo("/");
 			}
 		} catch (error) {
