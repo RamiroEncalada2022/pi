@@ -7,14 +7,39 @@ import { Link } from 'react-router-dom';
 const ListUsers = () => {
     const { state, dispatch } = useContextGlobal(); // Uso del contexto
 
-    const handleDelete = async (id) => {
-      if (window.confirm('¿Confirma que desea eliminar el usuario?')) {
+
+
+
+
+
+    const promoteUser = async (item) => {
+      const token = localStorage.getItem('token');
+      if (window.confirm('¿Confirma que desea ascender al usuario?')) {
         try {
-          //cambiar logica para ascender
-          await axios.delete(`http://localhost:8080/producto/eliminar/${id}`);
-          dispatch({ type: 'DELETE_INSTRUMENTO', payload: id }); // Actualizar el estado mediante el contexto con instrumentos2
+          const config = {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          };
+    
+          // Datos que deseas actualizar en el usuario (en este caso, el rol)
+          const userDataToUpdate = {
+            ...item, // Mantén los datos actuales del usuario
+            role: 'ADMIN', // Actualiza el rol a 'ADMIN'
+          };
+    
+          const response = await axios.put(
+            'http://localhost:8080/api/usuarios/actualizar',
+            userDataToUpdate,
+            config
+          );
+    
+          if (response.status === 200) {
+            // Llamar al reducer con la acción correspondiente
+            dispatch({ type: 'PROMOTE_USER', payload: userDataToUpdate });
+          }
         } catch (error) {
-          console.error('Error al eliminar el elemento:', error);
+          console.error('Error al ascender al usuario:', error);
         }
       }
     };
@@ -40,7 +65,7 @@ const ListUsers = () => {
               <div className={styles.tableColumnName}>{item.nombre}</div>
               <div className={styles.tableColumnActions}>
                 {console.log(item.role)}
-                <button className={`${styles.deleteButton} ${item.role === 'ADMIN' ? styles.disableButton : ''} `} onClick={() => handleDelete(item.id)} disabled={item.role === 'ADMIN'}>
+                <button className={`${styles.deleteButton} ${item.role === 'ADMIN' ? styles.disableButton : ''} `} onClick={() => promoteUser(item)} disabled={item.role === 'ADMIN'}>
                   Ascender a administrador
                 </button>
               </div>

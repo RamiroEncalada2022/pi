@@ -47,6 +47,17 @@ function reducer(state, action) {
       } };
     case "GET_USUARIOS":
       return { ...state, usuarios: action.payload };
+      case 'PROMOTE_USER':{
+        const userIdToPromote = action.payload;
+  
+        // Encuentra el usuario en el estado y actualiza su rol
+        const updatedUsuarios = state.usuarios.map((usuario) =>
+          usuario.id === userIdToPromote
+            ? { ...usuario, rol: 'ADMIN' } 
+            : usuario
+        );
+  
+        return { ...state, usuarios: updatedUsuarios };}
     default:
       throw new Error();
   }
@@ -101,6 +112,8 @@ const fetchDataCategory = async () => {
     console.error('Se produjo el error:', error);
   }
 };
+
+
 
 
   return (
