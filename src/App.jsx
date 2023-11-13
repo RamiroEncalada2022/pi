@@ -5,7 +5,7 @@ import Home from "./Pages/Home";
 import Detail from "./Components/Detail";
 import ProductCategory from "./Components/ProductCategory";
 import { Route, Routes } from "react-router-dom";
-import Admin from "./Admin.jsx";
+import Admin from "./Pages/Admin.jsx";
 import List from "./Pages/List";
 import AddProduct from "./Pages/AddProduct";
 import ProductList from "./Components/ProductList";
@@ -16,7 +16,7 @@ import Percusion from "./Components/Percusion";
 import Acessorios from "./Components/Accesorios";
 import Profile from "./Pages/Profile";
 import ListUsers from "./Pages/ListUsers";
-
+import Features from "./Pages/Features"
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup.jsx";
 
@@ -31,7 +31,7 @@ function App() {
 				<Route path="/admin/list" element={<List />} />
 				<Route path="/admin/addProduct" element={<AddProduct />} />
 				<Route path="/admin/addCategory" element={<AddCategory />} />
-				{/* <Route path="/admin/caracteristicas" element={<Features />} /> */}
+				<Route path="/admin/caracteristicas" element={<Features />} /> 
 				<Route path="/Detail/:id" element={<Detail />} />
 				<Route path="/ProductCategory" element={<ProductCategory />} />
 				<Route path="/Cuerdas" element={<Cuerdas />} />
@@ -43,6 +43,7 @@ function App() {
 				<Route path="/registro" element={<Signup />} />
 				<Route path="/profile" element={<Profile />} />
 				<Route path="/admin/listUsers" element={<ListUsers />} />
+
 			</Routes>
 
 			<Footer />

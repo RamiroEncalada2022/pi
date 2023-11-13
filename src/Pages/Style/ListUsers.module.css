@@ -1,0 +1,82 @@
+.backLink {
+  margin-bottom: 20px;
+  display: block;
+}
+
+.effectGlass{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  margin: 50px auto;
+  color: white;
+  
+  background: url('../admin-black.png') center/cover;
+
+
+  border-radius: 10px;
+  min-width: 300px;
+
+}
+
+.tableContainer {
+  height: 70%;
+  width: 80%;
+  font-family: 'Didact Gothic', sans-serif;
+  padding:40px;
+  background-color: rgba(255,255,255,0,3);
+  backdrop-filter: blur(8px);
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgba(218, 178, 70, 0.388);
+  border-bottom: 1px solid black;
+  margin: 5px 0;;
+}
+
+.tableColumnId {
+  flex: 1;
+}
+
+.tableColumnName {
+  flex: 2;
+  font-weight: bold;
+}
+
+.tableColumnActions {
+  flex: 1;
+}
+
+.deleteButton {
+    padding: 5px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #59f093;
+    color: #000000;
+    font-family: 'Didact Gothic', sans-serif;
+    transition: .5s;
+  }
+  
+
+  .deleteButton:hover {
+    background-color: #1be833;
+  }
+  
+  .disableButton {
+    background-color: #797878; /* Cambiar el color de fondo */
+    color: #ffffff; /* Cambiar el color del texto */
+    cursor: not-allowed; /* Cambiar el cursor a 'no permitido' */
+  }
+
+  .disableButton:hover {
+    content: "🚫"; /* Agregar el emoji de prohibido antes del contenido del botón en hover */
+    background-color: #797878; /* Cambiar el color de fondo */
+    color: #ffffff; /* Cambiar el color del texto */
+  }

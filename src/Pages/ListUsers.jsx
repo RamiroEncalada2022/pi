@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useContextGlobal } from '../Components/utils/global.context'
 import axios from 'axios';
-import styles from './Style/List.module.css'
+import styles from './Style/ListUsers.module.css'
 import { Link } from 'react-router-dom';
 
 const ListUsers = () => {
@@ -10,6 +10,7 @@ const ListUsers = () => {
     const handleDelete = async (id) => {
       if (window.confirm('¿Confirma que desea eliminar el usuario?')) {
         try {
+          //cambiar logica para ascender
           await axios.delete(`http://localhost:8080/producto/eliminar/${id}`);
           dispatch({ type: 'DELETE_INSTRUMENTO', payload: id }); // Actualizar el estado mediante el contexto con instrumentos2
         } catch (error) {
@@ -17,8 +18,6 @@ const ListUsers = () => {
         }
       }
     };
-    console.log("Usuarios")
-    console.log(state.usuarios)
     return (
       <div>
         
@@ -40,8 +39,9 @@ const ListUsers = () => {
               <div className={styles.tableColumnId}>{item.id}</div>
               <div className={styles.tableColumnName}>{item.nombre}</div>
               <div className={styles.tableColumnActions}>
-                <button className={styles.deleteButton} onClick={() => handleDelete(item.id)}>
-                  Eliminar
+                {console.log(item.role)}
+                <button className={`${styles.deleteButton} ${item.role === 'ADMIN' ? styles.disableButton : ''} `} onClick={() => handleDelete(item.id)} disabled={item.role === 'ADMIN'}>
+                  Ascender a administrador
                 </button>
               </div>
             </div>

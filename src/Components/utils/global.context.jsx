@@ -63,8 +63,6 @@ export const ContextProvider = ({ children }) => {
     try {
       const response2 = await axios.get('http://localhost:8080/api/producto');
       dispatch({ type: "GET_INSTRUMENTOS_2", payload: response2.data });
-      //console.log("Datos del back:")
-      //console.log(response2.data)
     } catch (error) {
       console.error('Se produjo el error:', error);
     }
@@ -82,9 +80,9 @@ export const ContextProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       };
-      const response4 = await axios.get('http://localhost:8080/api/usuarios', config);
-      if (response4.status === 200) {
-      dispatch({ type: "GET_USUARIOS", payload: response4.data });
+      const response = await axios.get('http://localhost:8080/api/usuarios', config);
+      if (response.status === 200) {
+      dispatch({ type: "GET_USUARIOS", payload: response.data });
     }
   } catch (error) {
     console.error('Error al obtener los datos del usuario:', error);
@@ -92,20 +90,17 @@ export const ContextProvider = ({ children }) => {
 };
 
 useEffect(() => {
-  fetchData3();
+  fetchDataCategory();
 }, []);
 
-const fetchData3 = async () => {
+const fetchDataCategory = async () => {
   try {
     const response3 = await axios.get('http://localhost:8080/api/categorias')
     dispatch({ type: "GET_CATEGORIAS", payload: response3.data });
-    //console.log("Datos de rick")
-    //console.log(response3.data)
   } catch (error) {
     console.error('Se produjo el error:', error);
   }
 };
-
 
 
   return (
