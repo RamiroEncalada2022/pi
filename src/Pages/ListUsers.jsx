@@ -21,21 +21,17 @@ const ListUsers = () => {
               Authorization: `Bearer ${token}`,
             },
           };
-    
-          // Datos que deseas actualizar en el usuario (en este caso, el rol)
           const userDataToUpdate = {
-            ...item, // Mantén los datos actuales del usuario
-            role: 'ADMIN', // Actualiza el rol a 'ADMIN'
+            ...item, 
+            role: 'ADMIN',
           };
-    
           const response = await axios.put(
             'http://localhost:8080/api/usuarios/actualizar',
             userDataToUpdate,
             config
           );
-    
           if (response.status === 200) {
-            // Llamar al reducer con la acción correspondiente
+            // Llama al reducer con la acción correspondiente
             dispatch({ type: 'PROMOTE_USER', payload: userDataToUpdate });
           }
         } catch (error) {
