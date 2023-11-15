@@ -20,6 +20,8 @@ import ListUsers from "./Pages/ListUsers";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup.jsx";
 
+/*FONT AWESOME */
+
 function App() {
 	return (
 		<>
