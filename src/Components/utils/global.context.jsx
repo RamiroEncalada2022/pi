@@ -61,9 +61,11 @@ function reducer(state, action) {
 			return { ...state, usuarios: action.payload };
 
 		case "TOGGLE_FAV": {
-			const updatedFavs = state.favs.includes(action.payload)
-				? state.favs.filter((item) => item !== action.payload)
-				: [...state.favs, action.payload];
+			const updatedFavs = state.favs.includes(action.payload.instrumento)
+				? state.favs.filter(
+						(item) => item.id !== action.payload.instrumento.id
+				  )
+				: [...state.favs, action.payload.instrumento];
 			console.log(action.payload);
 			return { ...state, favs: updatedFavs };
 		}

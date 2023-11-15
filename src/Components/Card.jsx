@@ -4,14 +4,14 @@ import style from "./Styles/Card.module.css";
 import Fav from "./Fav";
 
 const Card = ({ instrumento }) => {
-	const { state, dispatch } = useContextGlobal();
+	const { state } = useContextGlobal();
 	// const toggleFav = () => {
 	// 	dispatch({ type: "TOGGLE_FAV", payload: instrumento });
 	// };
 
 	return (
 		<div className={style.card}>
-			<Fav instrumento={instrumento}/>
+			<Fav instrumento={instrumento} />
 			{/* <button onClick={toggleFav} className="favButton">
 				⭐
 			</button> */}
