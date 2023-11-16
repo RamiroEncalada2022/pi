@@ -16,6 +16,7 @@ const initialState = {
     token: "",
     rol: "",
   },
+  caracteristicas: [],
 };
 
 function reducer(state, action) {
@@ -35,6 +36,16 @@ function reducer(state, action) {
       return { ...state, categorias: action.payload };
     case 'ADD_CATEGORIA': 
       return { ...state, categorias: [...state.categorias, action.payload] }; 
+    case "GET_CARACTERISTICAS": 
+      return { ...state, caracteristicas: action.payload };
+    case 'ADD_CARACTERISTICA': 
+      return { ...state, caracteristicas: [...state.caracteristicas, action.payload] };
+    case 'DELETE_CARACTERISTICA': {
+      const updatedCaracteristicas = state.caracteristicas.filter(
+        (caracteristica) => caracteristica.id !== action.payload
+      );
+      return { ...state, caracteristicas: updatedCaracteristicas };
+    }
     case 'LOGIN':
       return { ...state, loggedIn: true, user: action.payload };
     case 'LOGOUT':
@@ -58,8 +69,9 @@ function reducer(state, action) {
         );
   
         return { ...state, usuarios: updatedUsuarios };}
-    default:
-      throw new Error();
+        default:
+          console.error(`Acción desconocida: ${action.type}`);
+          return state; 
   }
 }
 
@@ -110,6 +122,20 @@ const fetchDataCategory = async () => {
     dispatch({ type: "GET_CATEGORIAS", payload: response3.data });
   } catch (error) {
     console.error('Se produjo el error:', error);
+  }
+};
+
+useEffect(() => {
+  fetchDataCharacteristics();
+}, []);
+
+const fetchDataCharacteristics = async () => {
+  try {
+    const response = await axios.get('http://localhost:8080/api/caracteristicas');
+    console.log(response.data)
+    dispatch({ type: "GET_CARACTERISTICAS", payload: response.data });
+  } catch (error) {
+    console.error('Error al obtener las características:', error);
   }
 };
 
