@@ -1,41 +1,35 @@
-import React from 'react'
-import style from "./Styles/Recommendations.module.css"
-import { useContextGlobal } from './utils/global.context'
-import { Link } from 'react-router-dom'
-import Card from "./Card"
+import React, { useState, useEffect, useContext } from 'react';
+import style from './Styles/Recommendations.module.css';
+import { useContextGlobal } from './utils/global.context';
+import { Link } from 'react-router-dom';
+import Card from './Card';
 
 const Recommendations = () => {
   const { state } = useContextGlobal();
-  const instrumentosRandom = [];
-  const numItems = 10; 
-  
-  const shuffled = state.instrumentos2.sort(() => 0.5 - Math.random());
-  let selected = shuffled.slice(0, numItems);
-  
- 
-  for (let instrumento of selected) {
-    while (instrumentosRandom.includes(instrumento)) {
-      shuffled.sort(() => 0.5 - Math.random());
-      selected = shuffled.slice(0, numItems);
-    }
-  }
-  
-  instrumentosRandom.push(...selected);
-  console.log(instrumentosRandom)
+  const [instrumentosRandom, setInstrumentosRandom] = useState([]);
 
+  const generateRandomInstruments = () => {
+    const numItems = 10;
+    const shuffled = state.instrumentos2.sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, numItems);
+    setInstrumentosRandom(selected);
+  };
+
+  useEffect(() => {
+    generateRandomInstruments();
+  }, [state.instrumentos2]); 
 
   return (
-    <div className={style.container} >
+    <div className={style.container}>
       <h2 className={style.subtitulo}>PRODUCTOS RECOMENDADOS</h2>
       <div className={style.containerCards}>
         {instrumentosRandom.map((instrumento) => (
           <Card key={instrumento.id} instrumento={instrumento} />
-        )).slice(0, 10)}
-
+        ))}
       </div>
       <Link to="/ListaInstrumentos">
         <button className={style.firstButton}>Lista Completa</button>
-        </Link>
+      </Link>
     </div>
   );
 };
