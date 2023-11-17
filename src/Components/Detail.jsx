@@ -17,7 +17,7 @@ const Detail = () => {
 
 var fragmentoID = window.location.pathname;
 
-    console.log(fragmentoID)
+    // console.log(fragmentoID)
 
     function obtenerNumeros(elemento) {
         // Utiliza una expresión regular para encontrar todos los dígitos en el elemento
