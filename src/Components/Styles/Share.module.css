@@ -1,0 +1,10 @@
+.shareIconCollections {
+    background-color: white;
+}
+
+.shareIcon {
+    border-radius: 30%;
+    border: 2px solid rgb(175, 167, 167);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+    margin: 5px;
+}

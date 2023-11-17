@@ -1,22 +1,42 @@
+.contenedorDetail{
+   margin-left: 5%;
+   margin-right: 5%;
+}
+
 .tituloYFlecha{
    display: grid;
    grid-template-columns: auto auto;
    margin-top: 60px;
 }
-.tituloYFlecha h2{
+.titulo{
    margin: 0;
    margin-left: 50px;
+   padding-right: 30%;
 }
 
 .flecha{
    display: grid;
    place-content: end;
    margin-right: 100px;
+   
+
+}
+.arrow:hover{
+   box-shadow: 0 10px 10px rgba(168, 165, 165, 0.11),
+    0 5px 20px #1f1c1c;
+
+}
+
+.arrow {
+   width: 30px;
+   height: 30px;
+   border-radius: 50px;
+   color: rgb(0, 0, 0);
 }
 
 
+
 .grande {
-   margin-top: 50px;
    display: grid;
    grid-template-columns: auto auto;
    place-content: center;
@@ -108,7 +128,7 @@ box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
       height: 90%;
       object-fit: cover;
       border: 2px solid rgb(175, 167, 167);
-     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
       margin: 5px;
    
    }
@@ -116,3 +136,56 @@ box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
    h2 {
       color:black
    }
+
+   .modalCompartir{
+      display: grid;
+      margin-top: 30px;
+      
+      
+   }
+   
+   
+   .btnCompartir{   
+      width: 40px;
+      height: 40px;
+      position: relative;
+      right: -25%;
+      bottom: -100%;
+      color: #292727;
+      border-radius: 10px;
+      
+     
+   }
+
+   .btnCompartir svg {
+      width: 30px;
+      height: 30px;
+      box-shadow: 0px 0px 6px 0px rgba(41, 40, 40, 0.5);
+    }
+
+   
+   .btnCompartir svg:hover{
+      box-shadow: 0 10px 10px rgba(212, 206, 206, 0.856),
+       0 5px 20px #b3afaf;
+   
+   }
+
+   .politicas{
+      margin-top: 40px
+   }
+
+   .divPoliticas {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: auto auto auto;
+      gap: 10px;
+   }
+
+   .divPoliticas div{
+      padding: 3% 15% 3% 15%;
+      text-align:justify;
+      border: 2px solid rgb(175, 167, 167);
+      box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+      
+   }
+   
