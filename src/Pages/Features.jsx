@@ -43,7 +43,7 @@ const Features = () => {
 
     const handleUpdate = async () => {
         try {
-            await axios.put(`http://localhost:8080/api/caracteristicas/actualizar/${editedFeature.id}`, editedFeature);
+            await axios.put(`http://localhost:8080/api/caracteristicas/actualizar`, editedFeature);
             // Lógica para actualizar el estado local o realizar una nueva llamada para obtener las características actualizadas
             setEditMode(false);
             setEditedFeature({ id: null, nombre: '', icono: '' });
