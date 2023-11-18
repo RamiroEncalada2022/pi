@@ -1,14 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useContextGlobal } from '../Components/utils/global.context';
 import axios from 'axios';
-import styles from './Style/List.module.css';
+import styles from './Style/ListUsers.module.css';
 import { Link } from 'react-router-dom';
 
 const Features = () => {
     const { state, dispatch } = useContextGlobal();
-    const [newFeature, setNewFeature] = useState({ nombre: '', icono: '' });
+    const [newFeature, setNewFeature] = useState({ nombre: '', urlIcono: '' });
     const [editMode, setEditMode] = useState(false);
-    const [editedFeature, setEditedFeature] = useState({ id: null, nombre: '', icono: '' });
+    const [editedFeature, setEditedFeature] = useState({ id: null, nombre: '', urlIcono: '' });
 
     const handleDelete = async (id) => {
         if (window.confirm('¿Confirma que desea eliminar esta característica?')) {
@@ -25,7 +25,11 @@ const Features = () => {
         try {
             const response = await axios.post('http://localhost:8080/api/caracteristicas/registrar', newFeature);
             dispatch({ type: 'ADD_CARACTERISTICA', payload: response.data });
-            setNewFeature({ nombre: '', icono: '' });
+    
+            // Obtener datos actualizados y actualizar el estado local
+            const updatedResponse = await axios.get('http://localhost:8080/api/caracteristicas');
+            dispatch({ type: 'SET_CARACTERISTICAS', payload: updatedResponse.data });
+            setNewFeature({ nombre: '', urlIcono: '' });
         } catch (error) {
             console.error('Error al agregar la característica:', error);
         }
@@ -36,17 +40,20 @@ const Features = () => {
         setNewFeature({ ...newFeature, [name]: value });
     };
 
-    const handleEdit = (id, nombre, icono) => {
+    const handleEdit = (id, nombre, urlIcono) => {
         setEditMode(true);
-        setEditedFeature({ id, nombre, icono });
+        setEditedFeature({ id, nombre, urlIcono });
     };
 
     const handleUpdate = async () => {
         try {
             await axios.put(`http://localhost:8080/api/caracteristicas/actualizar`, editedFeature);
-            // Lógica para actualizar el estado local o realizar una nueva llamada para obtener las características actualizadas
+
+            // Obtener datos actualizados y actualizar el estado local
+            //const updatedResponse = await axios.get('http://localhost:8080/api/caracteristicas');
+            dispatch({ type: 'UPDATE_CARACTERISTICA', payload: editedFeature });
             setEditMode(false);
-            setEditedFeature({ id: null, nombre: '', icono: '' });
+            setEditedFeature({ id: null, nombre: '', urlIcono: '' });
         } catch (error) {
             console.error('Error al actualizar la característica:', error);
         }
@@ -54,8 +61,9 @@ const Features = () => {
 
     const handleCancelEdit = () => {
         setEditMode(false);
-        setEditedFeature({ id: null, nombre: '', icono: '' });
+        setEditedFeature({ id: null, nombre: '', urlIcono: '' });
     };
+    
 
     return (
         <div>
@@ -78,13 +86,13 @@ const Features = () => {
                             <div className={styles.tableColumnId}>{item.id}</div>
                             <div className={styles.tableColumnName}>{item.nombre}</div>
                             <div className={styles.tableColumnName}>
-                                <img src={item.icono} alt={item.nombre} style={{ width: '50px', height: '50px' }} />
+                                <img src={item.urlIcono} alt={item.nombre} style={{ width: '50px', height: '50px' }} />
                             </div>
                             <div className={styles.tableColumnActions}>
                                 <button className={styles.deleteButton} onClick={() => handleDelete(item.id)}>
                                     Eliminar
                                 </button>
-                                <button className={styles.editButton} onClick={() => handleEdit(item.id, item.nombre, item.icono)}>
+                                <button className={styles.editButton} onClick={() => handleEdit(item.id, item.nombre, item.urlIcono)}>
                                     Editar
                                 </button>
                             </div>
@@ -104,9 +112,9 @@ const Features = () => {
                         <input
                             type="text"
                             placeholder="Ícono de la característica"
-                            name="icono"
-                            value={editedFeature.icono}
-                            onChange={(e) => setEditedFeature({ ...editedFeature, icono: e.target.value })}
+                            name="urlIcono"
+                            value={editedFeature.urlIcono}
+                            onChange={(e) => setEditedFeature({ ...editedFeature, urlIcono: e.target.value })}
                         />
                         <button className={styles.addButton} onClick={handleUpdate}>
                             Guardar cambios
@@ -128,8 +136,8 @@ const Features = () => {
                     <input
                         type="text"
                         placeholder="Ícono de la característica"
-                        name="icono"
-                        value={newFeature.icono}
+                        name="urlIcono"
+                        value={newFeature.urlIcono}
                         onChange={handleInputChange}
                     />
                     <button className={styles.addButton} onClick={handleAdd}>

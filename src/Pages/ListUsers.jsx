@@ -61,7 +61,7 @@ const ListUsers = () => {
               <div className={styles.tableColumnName}>{item.nombre}</div>
               <div className={styles.tableColumnActions}>
                 {console.log(item.role)}
-                <button className={`${styles.deleteButton} ${item.role === 'ADMIN' ? styles.disableButton : ''} `} onClick={() => promoteUser(item)} disabled={item.role === 'ADMIN'}>
+                <button className={`${styles.promoteButton} ${item.role === 'ADMIN' ? styles.disableButton : ''} `} onClick={() => promoteUser(item)} disabled={item.role === 'ADMIN'}>
                   Ascender a administrador
                 </button>
               </div>

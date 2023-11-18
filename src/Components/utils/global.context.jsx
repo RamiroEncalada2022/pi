@@ -46,6 +46,12 @@ function reducer(state, action) {
       );
       return { ...state, caracteristicas: updatedCaracteristicas };
     }
+    case 'UPDATE_CARACTERISTICA': {
+      const updatedCaracteristicas = state.caracteristicas.map((caracteristica) =>
+          caracteristica.id === action.payload.id ? action.payload : caracteristica
+      );
+      return { ...state, caracteristicas: updatedCaracteristicas };
+  }
     case 'LOGIN':
       return { ...state, loggedIn: true, user: action.payload };
     case 'LOGOUT':
