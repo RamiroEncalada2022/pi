@@ -68,39 +68,16 @@ const Features = () => {
     return (
         <div>
             <div className={styles.effectGlass}>
+
+
+
+
+
+                
                 <div className={styles.tableContainer}>
                     <div className={styles.cabecera}>
                         <h2 className={styles.subtitulo}>Lista de características</h2>
-                        <Link to="/admin" className={styles.backButton}>
-                            Volver
-                        </Link>
-                    </div>
-                    <div className={`${styles.tableRow} ${styles.header}`}>
-                        <div className={styles.tableColumnId}>ID</div>
-                        <div className={styles.tableColumnName}>Nombre</div>
-                        <div className={styles.tableColumnName}>Icono</div>
-                        <div className={styles.tableColumnActions}>Acciones</div>
-                    </div>
-                    {state.caracteristicas.map((item) => (
-                        <div className={styles.tableRow} key={item.id}>
-                            <div className={styles.tableColumnId}>{item.id}</div>
-                            <div className={styles.tableColumnName}>{item.nombre}</div>
-                            <div className={styles.tableColumnName}>
-                                <img src={item.urlIcono} alt={item.nombre} style={{ width: '50px', height: '50px' }} />
-                            </div>
-                            <div className={styles.tableColumnActions}>
-                                <button className={styles.deleteButton} onClick={() => handleDelete(item.id)}>
-                                    Eliminar
-                                </button>
-                                <button className={styles.editButton} onClick={() => handleEdit(item.id, item.nombre, item.urlIcono)}>
-                                    Editar
-                                </button>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {editMode && (
+                        {editMode && (
                     <div className={styles.addNewFeature}>
                         <input
                             type="text"
@@ -143,6 +120,34 @@ const Features = () => {
                     <button className={styles.addButton} onClick={handleAdd}>
                         Agregar nueva
                     </button>
+                </div>
+                        <Link to="/admin" className={styles.backButton}>
+                            Volver
+                        </Link>
+                    </div>
+                    <div className={`${styles.tableRow} ${styles.header}`}>
+                        <div className={styles.tableColumnId}>ID</div>
+                        <div className={styles.tableColumnName}>Nombre</div>
+                        <div className={styles.tableColumnName}>Icono</div>
+                        <div className={styles.tableColumnActions}>Acciones</div>
+                    </div>
+                    {state.caracteristicas.map((item) => (
+                        <div className={styles.tableRow} key={item.id}>
+                            <div className={styles.tableColumnId}>{item.id}</div>
+                            <div className={styles.tableColumnName}>{item.nombre}</div>
+                            <div className={styles.tableColumnName}>
+                                <img src={item.urlIcono} alt={item.nombre} style={{ width: '50px', height: '50px' }} />
+                            </div>
+                            <div className={styles.tableColumnActions}>
+                                <button className={styles.deleteButton} onClick={() => handleDelete(item.id)}>
+                                    Eliminar
+                                </button>
+                                <button className={styles.editButton} onClick={() => handleEdit(item.id, item.nombre, item.urlIcono)}>
+                                    Editar
+                                </button>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

@@ -121,7 +121,6 @@ const AddCategory = () => {
       </div>
       
 
-      {/* Aquí puedes agregar el listado de categorías con la lógica similar a la de Features.js */}
       <div className={styles.tableContainer}>
       <h2 className={styles.subtitulo}>Lista de Categorías</h2>
       <div className={`${styles.tableRow} ${styles.header}`}>
