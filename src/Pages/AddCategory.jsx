@@ -72,7 +72,7 @@ const AddCategory = () => {
   return (
     <div className={styles.effectGlass}>
       <div className={styles.container}>
-        <h2 className={styles.subtitulo}>Añadir/Editar Categoría</h2>
+        <h2 className={styles.subtitulo}>Administrar Categoría</h2>
         <input
           className={styles.text}
           type="text"
@@ -114,7 +114,7 @@ const AddCategory = () => {
             </button>
           )}
 
-          <Link to="/admin" className={styles.buttonBack}>
+          <Link to="/admin" className={styles.backButton}>
             Volver
           </Link>
         </div>
@@ -144,12 +144,12 @@ const AddCategory = () => {
             <button className={styles.deleteButton} onClick={() => handleDelete(category.id)}>
               Eliminar
             </button>
-            <button
+            {/* <button
               className={styles.editButton}
               onClick={() => handleEdit(category.id, category.titulo, category.descripcion, category.urlImagen)}
             >
               Editar
-            </button>
+            </button> */}
           </div>
         </div>
       ))}

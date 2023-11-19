@@ -36,11 +36,17 @@ function reducer(state, action) {
       return { ...state, categorias: action.payload };
     case 'ADD_CATEGORIA': 
       return { ...state, categorias: [...state.categorias, action.payload] }; 
-    case 'UPDATE_CATEGORIA': {
-        const updatedCategoria = state.categoria.map((categoria) =>
-            categoria.id === action.payload.id ? action.payload : categoria
+    case 'DELETE_CATEGORIA': {
+        const updatedCategorias = state.categorias.filter(
+          (categorias) => categorias.id !== action.payload
         );
-        return { ...state, caracteristicas: updatedCategoria };
+        return { ...state, categorias: updatedCategorias };
+    }
+    case 'UPDATE_CATEGORIA': {
+        const updatedCategorias = state.categorias.map((categorias) =>
+            categorias.id === action.payload.id ? action.payload : categorias
+        );
+        return { ...state, categorias: updatedCategorias };
     }
     case "GET_CARACTERISTICAS": 
       return { ...state, caracteristicas: action.payload };

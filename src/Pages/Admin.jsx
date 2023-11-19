@@ -38,7 +38,7 @@ const Admin = () => {
               </Link>
 
               <Link to='/admin/addCategory' className={`${style.button} ${style.secondButton}`}>
-                Agregar categorias
+                Administrar categoría
               </Link>
 
               <Link to='/admin/caracteristicas' className={`${style.button} ${style.secondButton}`}>
