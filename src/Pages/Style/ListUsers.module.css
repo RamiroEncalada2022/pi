@@ -90,14 +90,14 @@
 
   
   .disableButton {
-    background-color: #797878; 
+    background-color: #706b0c; 
     color: #ffffff; 
-    cursor: not-allowed; 
+
   }
 
   .disableButton:hover {
-    content: "🚫"; 
-    background-color: #797878; 
+    content: "⏬"; 
+    background-color: #eac653; 
     color: #ffffff; 
   }
 

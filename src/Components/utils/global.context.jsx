@@ -64,7 +64,7 @@ function reducer(state, action) {
       } };
     case "GET_USUARIOS":
       return { ...state, usuarios: action.payload };
-      case 'PROMOTE_USER':{
+      case 'UPDATE_USER_ROLE':{
         const userIdToPromote = action.payload;
   
         // Encuentra el usuario en el estado y actualiza su rol
