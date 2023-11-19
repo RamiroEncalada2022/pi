@@ -5,11 +5,11 @@ import styles from './Style/ListUsers.module.css';
 import { Link } from 'react-router-dom';
 
 const ListUsers = () => {
-  const { state, dispatch } = useContextGlobal(); // Uso del contexto
+  const { state, dispatch } = useContextGlobal(); 
 
   const updateUserRole = async (item) => {
     const token = localStorage.getItem('token');
-    const newRole = item.role === 'ADMIN' ? 'USER' : 'ADMIN'; // Cambia entre USER y ADMIN
+    const newRole = item.role === 'ADMIN' ? 'USER' : 'ADMIN'; 
 
     if (window.confirm(`¿Confirma que desea cambiar el rol del usuario a ${newRole}?`)) {
       try {

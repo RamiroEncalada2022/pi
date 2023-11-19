@@ -36,6 +36,12 @@ function reducer(state, action) {
       return { ...state, categorias: action.payload };
     case 'ADD_CATEGORIA': 
       return { ...state, categorias: [...state.categorias, action.payload] }; 
+    case 'UPDATE_CATEGORIA': {
+        const updatedCategoria = state.categoria.map((categoria) =>
+            categoria.id === action.payload.id ? action.payload : categoria
+        );
+        return { ...state, caracteristicas: updatedCategoria };
+    }
     case "GET_CARACTERISTICAS": 
       return { ...state, caracteristicas: action.payload };
     case 'ADD_CARACTERISTICA': 
@@ -51,7 +57,7 @@ function reducer(state, action) {
           caracteristica.id === action.payload.id ? action.payload : caracteristica
       );
       return { ...state, caracteristicas: updatedCaracteristicas };
-  }
+    }
     case 'LOGIN':
       return { ...state, loggedIn: true, user: action.payload };
     case 'LOGOUT':
