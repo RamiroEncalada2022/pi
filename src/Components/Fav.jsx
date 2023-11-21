@@ -13,6 +13,7 @@ const Fav = ({ instrumento }) => {
 	return (
 		<div className="fav">
 			<FontAwesomeIcon icon={faHeart} onClick={toggleFav} />
+			<FontAwesomeIcon icon="fa-solid fa-heart" onClick={toggleFav} />
 		</div>
 	);
 };
