@@ -9,6 +9,10 @@ const Card = ({ instrumento }) => {
 	// 	dispatch({ type: "TOGGLE_FAV", payload: instrumento });
 	// };
 
+  const {state, dispatch} = useContextGlobal()
+  console.log("Imagenes" + instrumento.imagenes)
+
+  console.log("La imagen: " +instrumento.imagenes[0])
 	return (
 		<div className={style.card}>
 			<Fav instrumento={instrumento} />

@@ -21,6 +21,7 @@ const initialState = {
 	},
   searchText: "", // Nuevo estado para el texto de búsqueda
 	favs: initialFavState,
+  caracteristicas: [],
 };
 
 function reducer(state, action) {
@@ -44,6 +45,34 @@ function reducer(state, action) {
 			return { ...state, categorias: action.payload };
 		case "ADD_CATEGORIA":
 			return { ...state, categorias: [...state.categorias, action.payload] };
+    case 'DELETE_CATEGORIA': {
+        const updatedCategorias = state.categorias.filter(
+          (categorias) => categorias.id !== action.payload
+        );
+        return { ...state, categorias: updatedCategorias };
+    }
+    case 'UPDATE_CATEGORIA': {
+        const updatedCategorias = state.categorias.map((categorias) =>
+            categorias.id === action.payload.id ? action.payload : categorias
+        );
+        return { ...state, categorias: updatedCategorias };
+    }
+    case "GET_CARACTERISTICAS": 
+      return { ...state, caracteristicas: action.payload };
+    case 'ADD_CARACTERISTICA': 
+      return { ...state, caracteristicas: [...state.caracteristicas, action.payload] };
+    case 'DELETE_CARACTERISTICA': {
+      const updatedCaracteristicas = state.caracteristicas.filter(
+        (caracteristica) => caracteristica.id !== action.payload
+      );
+      return { ...state, caracteristicas: updatedCaracteristicas };
+    }
+    case 'UPDATE_CARACTERISTICA': {
+      const updatedCaracteristicas = state.caracteristicas.map((caracteristica) =>
+          caracteristica.id === action.payload.id ? action.payload : caracteristica
+      );
+      return { ...state, caracteristicas: updatedCaracteristicas };
+    }
 		case "LOGIN":
 			return { ...state, loggedIn: true, user: action.payload };
 		case "LOGOUT":
@@ -60,7 +89,18 @@ function reducer(state, action) {
 			};
 		case "GET_USUARIOS":
 			return { ...state, usuarios: action.payload };
-
+    case 'UPDATE_USER_ROLE':{
+        const userIdToPromote = action.payload;
+  
+        // Encuentra el usuario en el estado y actualiza su rol
+        const updatedUsuarios = state.usuarios.map((usuario) =>
+          usuario.id === userIdToPromote
+            ? { ...usuario, rol: 'ADMIN' } 
+            : usuario
+        );
+  
+      return { ...state, usuarios: updatedUsuarios };}
+  
 		case "TOGGLE_FAV": {
 			const updatedFavs = state.favs.includes(action.payload.instrumento)
 				? state.favs.filter((item) => item !== action.payload.instrumento)
@@ -71,7 +111,8 @@ function reducer(state, action) {
     case 'SET_SEARCH_TEXT':
       return { ...state, searchText: action.payload };
 		default:
-			throw new Error();
+			    console.error(`Acción desconocida: ${action.type}`);
+          return state; 
 	}
 }
 // localStorage.clear();
@@ -119,22 +160,33 @@ export const ContextProvider = ({ children }) => {
 		}
 	};
 
-	useEffect(() => {
-		fetchData3();
-	}, []);
+useEffect(() => {
+  fetchDataCategory();
+}, []);
 
-	const fetchData3 = async () => {
-		try {
-			const response3 = await axios.get(
-				"http://localhost:8080/api/categorias"
-			);
-			dispatch({ type: "GET_CATEGORIAS", payload: response3.data });
-			//console.log("Datos de rick")
-			//console.log(response3.data)
-		} catch (error) {
-			console.error("Se produjo el error:", error);
-		}
-	};
+const fetchDataCategory = async () => {
+  try {
+    const response3 = await axios.get('http://localhost:8080/api/categorias')
+    dispatch({ type: "GET_CATEGORIAS", payload: response3.data });
+  } catch (error) {
+    console.error('Se produjo el error:', error);
+  }
+};
+
+useEffect(() => {
+  fetchDataCharacteristics();
+}, []);
+
+const fetchDataCharacteristics = async () => {
+  try {
+    const response = await axios.get('http://localhost:8080/api/caracteristicas');
+    console.log(response.data)
+    dispatch({ type: "GET_CARACTERISTICAS", payload: response.data });
+  } catch (error) {
+    console.error('Error al obtener las características:', error);
+  }
+};
+
 
 	useEffect(() => {
 		localStorage.setItem("favs", JSON.stringify(state.favs));
