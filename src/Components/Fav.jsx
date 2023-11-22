@@ -4,7 +4,7 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import {} from "./Styles/Fav.css";
 
 const Fav = ({ instrumento }) => {
-	const { dispatch } = useContextGlobal();
+	const { dispatch, state } = useContextGlobal();
 
 	const toggleFav = () => {
 		dispatch({ type: "TOGGLE_FAV", payload: { instrumento } });
@@ -12,8 +12,10 @@ const Fav = ({ instrumento }) => {
 
 	return (
 		<div className="fav">
-			<FontAwesomeIcon icon={faHeart} onClick={toggleFav} />
-			<FontAwesomeIcon icon="fa-solid fa-heart" onClick={toggleFav} />
+			{state.loggedIn ? (
+				<FontAwesomeIcon icon={faHeart} onClick={toggleFav} />
+			) : null}
+			{/* // <FontAwesomeIcon icon="fa-solid fa-heart" onClick={toggleFav} /> */}
 		</div>
 	);
 };
