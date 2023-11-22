@@ -34,8 +34,6 @@
    color: rgb(0, 0, 0);
 }
 
-
-
 .grande {
    display: grid;
    grid-template-columns: auto auto;
@@ -47,7 +45,6 @@
 .imagenGrande{
 width: 400px;
 height: 400px;
-border: 2px solid rgb(175, 167, 167);
 box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
 
 }
@@ -71,7 +68,7 @@ box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
    width: 90%;
    height: 90%;
    object-fit: cover;
-   border: 2px solid rgb(175, 167, 167);
+
    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
    margin: 5px;
 
@@ -127,7 +124,6 @@ box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
       width: 90%;
       height: 90%;
       object-fit: cover;
-      border: 2px solid rgb(175, 167, 167);
       box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
       margin: 5px;
    
@@ -184,7 +180,6 @@ box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
    .divPoliticas div{
       padding: 3% 15% 3% 15%;
       text-align:justify;
-      border: 2px solid rgb(175, 167, 167);
       box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
       
    }

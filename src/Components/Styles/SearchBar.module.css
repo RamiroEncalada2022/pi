@@ -1,4 +1,4 @@
-@import '../../variables.css';
+/* @import '../../variables.css';
 .container {
 
     background-color: var(--color-fondo);
@@ -65,8 +65,58 @@
   }
 
   /* Estilos para tabletas */
-@media only screen and (max-width: 900px) {
+/* @media only screen and (max-width: 900px) {
     .filter{
         display: none;
     }
+} */ 
+
+
+/*NUEVO*/
+
+.searchBar{
+    /* border: 2px solid rgb(184, 13, 13); */
+    display: grid;
+    place-content: center;
 }
+
+.inputSearch input[type="text"] {
+    padding: 10px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    border: 2px solid #ccc; /* Borde del input */
+    border-radius: 5px; /* Bordes redondeados */
+    width: 400px; /* Ancho del input */
+    outline: none; /* Eliminar el borde al enfocar */
+  }
+
+ .inputSearch input[type="text"]:focus {
+    border-color: rgb(62, 100, 141); /* Cambiar color del borde al enfocar */
+    box-shadow: 0 0 5px rgba(80, 80, 153, 0.5); /* Agregar sombra al enfocar */
+  }
+
+.inputSearch{
+    display: grid;
+    grid-template-columns: auto auto;
+    place-content: center;
+    /* border: 2px solid rgb(184, 13, 13); */
+}
+
+.searchResults {
+    /* Estilos previos */
+    /* ... */
+  
+    /* Añadir transición para suavizar el cambio */
+    transition: background-color 0.3s ease;
+    background-color: rgb(235, 228, 228);
+    width: 410px;
+    position: relative;
+    right: -18%;
+    margin-bottom: 20px;
+    border-radius: 2%;
+    
+  }
+
+  .searchResults p:hover {
+    cursor: pointer;
+    background-color: rgb(97, 109, 141); /* Cambiar el color de fondo al pasar el mouse */
+  }

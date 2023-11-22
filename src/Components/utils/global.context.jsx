@@ -16,6 +16,7 @@ const initialState = {
     token: "",
     rol: "",
   },
+  searchText: "", // Nuevo estado para el texto de búsqueda
 };
 
 function reducer(state, action) {
@@ -47,6 +48,8 @@ function reducer(state, action) {
       } };
     case "GET_USUARIOS":
       return { ...state, usuarios: action.payload };
+    case 'SET_SEARCH_TEXT':
+      return { ...state, searchText: action.payload };
     default:
       throw new Error();
   }

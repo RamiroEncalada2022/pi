@@ -90,7 +90,7 @@ if (instrumentoSeleccionado) {
 
             <div className={style.descript}>
                 <h2>Descripción</h2>
-                <h4>{instrumentoSeleccionado.descripcion}</h4>
+                <p>{instrumentoSeleccionado.descripcion}</p>
             </div>
 
             <div className={style.caracteristica}>
