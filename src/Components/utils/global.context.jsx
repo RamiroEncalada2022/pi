@@ -19,7 +19,7 @@ const initialState = {
 		token: "",
 		rol: "",
 	},
-  searchText: "", // Nuevo estado para el texto de búsqueda
+	searchText: "", // Nuevo estado para el texto de búsqueda
 	favs: initialFavState,
 };
 
@@ -68,8 +68,8 @@ function reducer(state, action) {
 			console.log(action.payload);
 			return { ...state, favs: updatedFavs };
 		}
-    case 'SET_SEARCH_TEXT':
-      return { ...state, searchText: action.payload };
+		case "SET_SEARCH_TEXT":
+			return { ...state, searchText: action.payload };
 		default:
 			throw new Error();
 	}
