@@ -7,7 +7,9 @@ import style from "./Styles/Card.module.css"
 const Card = ({ instrumento }) => {
 
   const {state, dispatch} = useContextGlobal()
+  console.log("Imagenes" + instrumento.imagenes)
 
+  console.log("La imagen: " +instrumento.imagenes[0])
   return (
     
     <div className={style.card}>

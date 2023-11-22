@@ -10,6 +10,7 @@ import CategoryModal from '../Components/CategoryModal';
 
 const AddProduct = () => {
   const { state, dispatch } = useContextGlobal(); // Uso del contexto
+  const token = localStorage.getItem("token")
   const [productName, setProductName] = useState('');
   const [productDescription, setProductDescription] = useState('');
   const [productCategory, setProductCategory] = useState("")
@@ -46,22 +47,23 @@ const AddProduct = () => {
     const data = {
       nombre: productName,
       descripcion: productDescription, // Ajusta esto por descripción para el backend, en este caso es lo que usamo de la api
-      categoria: productCategory,
-      imagenes: productImages,
-    };
+      categoria: {
+        id: productCategory 
+      },
 
+    };
+    console.log("Token: " + token)
     axios
       .post('http://localhost:8080/api/producto/registrar', data, {
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
+          'Authorization': `Bearer ${token}`,
         },
       })
       .then((response) => {
         console.log("La respuesta que da el llamado:" );
         console.log(response.data)
-        dispatch({ type: 'ADD_INSTRUMENTO', payload: response.data }); // Actualiza el estado mediante el contexto con instrumentos2
-        console.log("valor actual del state(lista): ")
-        console.log(state)
+        dispatch({ type: 'ADD_INSTRUMENTO', payload: response.data }); // Actualiza el estado mediante el contexto
         //Mensaje en caso de exito
         setMessage('Producto agregado exitosamente');
         setTimeout(() => {
