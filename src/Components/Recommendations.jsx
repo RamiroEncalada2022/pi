@@ -1,4 +1,3 @@
-import React from 'react';
 import style from './Styles/Recommendations.module.css';
 import { useContextGlobal } from './utils/global.context';
 import { Link } from 'react-router-dom';
