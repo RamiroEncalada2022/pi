@@ -61,13 +61,17 @@ function reducer(state, action) {
 		case "GET_USUARIOS":
 			return { ...state, usuarios: action.payload };
 
-		case "TOGGLE_FAV": {
-			const updatedFavs = state.favs.includes(action.payload.instrumento)
-				? state.favs.filter((item) => item !== action.payload.instrumento)
-				: [...state.favs, action.payload.instrumento];
-			console.log(action.payload);
-			return { ...state, favs: updatedFavs };
-		}
+		// case "TOGGLE_FAV": {
+		// 	const updatedFavs = state.favs.includes(action.payload.instrumento)
+		// 		? state.favs.filter((item) => item !== action.payload.instrumento)
+		// 		: [...state.favs, action.payload.instrumento];
+		// 	console.log(action.payload);
+		// 	return { ...state, favs: updatedFavs };
+		// }
+		case "GET_FAVORITOS": 
+			return {...state, favs: action.payload};
+		case "ADD_FAVORITOS": 
+		return { ...state, favs: [...state.favs, action.payload] };
 		case "SET_SEARCH_TEXT":
 			return { ...state, searchText: action.payload };
 		default:
