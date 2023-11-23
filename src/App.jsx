@@ -19,6 +19,7 @@ import ListUsers from "./Pages/ListUsers";
 
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup.jsx";
+import FavList from "./Pages/FavList.jsx";
 
 /*FONT AWESOME */
 
@@ -44,6 +45,7 @@ function App() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/registro" element={<Signup />} />
 				<Route path="/profile" element={<Profile />} />
+				<Route path="/favoritos" element={<FavList />} />
 				<Route path="/admin/listUsers" element={<ListUsers />} />
 			</Routes>
 
