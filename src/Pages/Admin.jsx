@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import style from './Pages/Style/Admin.module.css';
+import style from './Style/Admin.module.css';
 
 const Admin = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -38,7 +38,7 @@ const Admin = () => {
               </Link>
 
               <Link to='/admin/addCategory' className={`${style.button} ${style.secondButton}`}>
-                Agregar categorias
+                Administrar categorías
               </Link>
 
               <Link to='/admin/caracteristicas' className={`${style.button} ${style.secondButton}`}>

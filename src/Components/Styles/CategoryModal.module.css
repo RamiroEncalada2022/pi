@@ -10,6 +10,7 @@
     background: rgba(200, 200, 200, 0.3); /* Fondo semi-transparente de color gris */
     border-radius: 10px;
     min-width: 300px;
+    
   }
   
   .container {
@@ -23,6 +24,7 @@
     background-color: rgba(210, 207, 207, 0.979);
     border: 2px solid black;
     backdrop-filter: blur(4px);
+    
   }
   
   .subtitulo {

@@ -52,7 +52,7 @@ if (instrumentoSeleccionado) {
     return (
         <div className= {style.contenedorDetail}>
 
-            <div div className={style.tituloYFlecha}>
+            <div className={style.tituloYFlecha}>
                 
                 <h2 className= {style.titulo}>{instrumentoSeleccionado.nombre}</h2>
                 <Link className={style.flecha} to="/">

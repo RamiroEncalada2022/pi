@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useContextGlobal } from "../Components/utils/global.context";
 import axios from "axios";
 import style from "./Style/Login.module.css";
@@ -12,6 +12,7 @@ const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
+
 
 	const isEmailValid = (email) => {
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -87,8 +88,11 @@ const Login = () => {
 				//   };
 				dispatch({ type: "LOGIN", payload: user });
 				// Guardar el token en localStorage
-				// localStorage.setItem("token", response.data.jwt);
-				navigateTo("/");
+				localStorage.setItem("token", response.data.jwt);
+				console.log(JSON.stringify(response.data))
+				localStorage.setItem("user", JSON.stringify(user));
+
+				//navigateTo("/");
 			}
 		} catch (error) {
 			console.error("Error al iniciar sesión:", error);
@@ -96,7 +100,24 @@ const Login = () => {
 				"Se produjo un error al iniciar sesión. Por favor, inténtalo de nuevo."
 			);
 		}
+
+
+		// if (state.loggedIn && state.user.rol === 'ADMIN'){
+		// 	navigateTo("/admin");
+		// }
 	};
+
+	useEffect(() => {
+		// Redirect logic when the component mounts
+		if (state.loggedIn) {
+		  if (state.user.rol === 'ADMIN') {
+			navigateTo("/admin");
+		  } else {
+			navigateTo("/"); // Redirect to the app or any desired route for regular users
+		  }
+		}
+	  }, [state.loggedIn, state.user.rol, navigateTo]);
+
 
 	return (
 		<div className={style.container}>
