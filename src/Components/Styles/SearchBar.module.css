@@ -120,3 +120,17 @@
     cursor: pointer;
     background-color: rgb(97, 109, 141); /* Cambiar el color de fondo al pasar el mouse */
   }
+
+  .datePickers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Espaciado entre los datePickers y el campo de búsqueda */
+
+  }
+
+  .datePicker {
+    margin: 0 10px; /* Espacio entre los datePickers */
+  }
+
+

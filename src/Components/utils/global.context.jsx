@@ -125,17 +125,27 @@ export const ContextProvider = ({ children }) => {
 
 	const fetchData = async () => {
 		try {
-			const response2 = await axios.get(
-				"http://localhost:8080/api/producto"
-			);
-			dispatch({ type: "GET_INSTRUMENTOS_2", payload: response2.data });
-			//console.log("Datos del back:")
-			//console.log(response2.data)
+		const response2 = await axios.get("http://localhost:8080/api/producto");
+		// DISPONIBILIDA de los productos.
+		const productosConDisponibilidad = response2.data.map((producto) => {
+			// Agregar lógica para obtener los períodos de disponibilidad del producto desde tu backend
+			// ...
+
+			const fechasReservadas = [
+				{ fechaInicio: '2023-11-25', fechaFin: '2023-11-30' },
+				{ fechaInicio: '2023-12-05', fechaFin: '2023-12-10' },
+			// se pueden agregar mas periodos...
+			];
+	
+			return { ...producto, fechasReservadas };
+		});
+	
+			dispatch({ type: "GET_INSTRUMENTOS_2", payload: productosConDisponibilidad });
 		} catch (error) {
-			console.error("Se produjo el error:", error);
+		console.error("Se produjo el error:", error);
 		}
 	};
-
+	
 	useEffect(() => {
 		fetchDataUsers();
 	}, []);
