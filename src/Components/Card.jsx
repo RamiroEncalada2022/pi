@@ -4,15 +4,13 @@ import style from "./Styles/Card.module.css";
 import Fav from "./Fav";
 
 const Card = ({ instrumento }) => {
-	const { state } = useContextGlobal();
+
 	// const toggleFav = () => {
 	// 	dispatch({ type: "TOGGLE_FAV", payload: instrumento });
 	// };
 
-  const {state, dispatch} = useContextGlobal()
-  console.log("Imagenes" + instrumento.imagenes)
+  const {state} = useContextGlobal()
 
-  console.log("La imagen: " +instrumento.imagenes[0])
 	return (
 		<div className={style.card}>
 			<Fav instrumento={instrumento} />
