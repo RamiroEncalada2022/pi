@@ -17,7 +17,7 @@ const Card = ({ instrumento }) => {
 			{/* <button onClick={toggleFav} className="favButton">
 				⭐
 			</button> */}
-			<img src={instrumento.imagenes[0]} alt="instrumento" width={"50px"} />
+			<img src={instrumento.imagenes[0].url} alt="instrumento" width={"50px"} />
 
 			<Link to={`/Detail/${instrumento.id}`}>
 				<h2 className={style.tituloCard}>{instrumento.nombre}</h2>
