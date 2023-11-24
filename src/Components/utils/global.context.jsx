@@ -149,14 +149,6 @@ export const ContextProvider = ({ children }) => {
 			//le asigna un grupo de fechas distinta (3 casos) a los productos
 			const fechasReservadas = disponibilidadProductos[index % disponibilidadProductos.length];
 
-
-
-			// const fechasReservadas = [
-			// 	{ fechaInicio: '2023-11-25', fechaFin: '2023-11-30' },
-			// 	{ fechaInicio: '2023-12-05', fechaFin: '2023-12-10' },
-			// se pueden agregar mas periodos...
-			// ];
-	
 			return { ...producto, fechasReservadas };
 		});
 	
