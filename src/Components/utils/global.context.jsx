@@ -124,18 +124,38 @@ export const ContextProvider = ({ children }) => {
 	}, []);
 
 	const fetchData = async () => {
+
+		//Fechas simuladas, para dar aleatoriamente a los productos
+		const disponibilidadProductos = [
+			[
+				{ fechaInicio: '2023-11-25', fechaFin: '2023-11-30' },
+				{ fechaInicio: '2023-12-05', fechaFin: '2023-12-10' },
+			],
+			[
+				{ fechaInicio: '2023-12-01', fechaFin: '2023-12-15' },
+				{ fechaInicio: '2023-12-20', fechaFin: '2023-12-25' },
+			],
+			[
+				{ fechaInicio: '2024-01-01', fechaFin: '2024-01-10' },
+				{ fechaInicio: '2024-01-15', fechaFin: '2024-01-20' },
+			],
+		];
 		try {
 		const response2 = await axios.get("http://localhost:8080/api/producto");
 		// DISPONIBILIDA de los productos.
-		const productosConDisponibilidad = response2.data.map((producto) => {
+		const productosConDisponibilidad = response2.data.map((producto, index) => {
 			// Agregar lógica para obtener los períodos de disponibilidad del producto desde tu backend
 			// ...
+			//le asigna un grupo de fechas distinta (3 casos) a los productos
+			const fechasReservadas = disponibilidadProductos[index % disponibilidadProductos.length];
 
-			const fechasReservadas = [
-				{ fechaInicio: '2023-11-25', fechaFin: '2023-11-30' },
-				{ fechaInicio: '2023-12-05', fechaFin: '2023-12-10' },
+
+
+			// const fechasReservadas = [
+			// 	{ fechaInicio: '2023-11-25', fechaFin: '2023-11-30' },
+			// 	{ fechaInicio: '2023-12-05', fechaFin: '2023-12-10' },
 			// se pueden agregar mas periodos...
-			];
+			// ];
 	
 			return { ...producto, fechasReservadas };
 		});
