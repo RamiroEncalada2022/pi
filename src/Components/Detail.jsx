@@ -8,6 +8,7 @@ import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faShareSquare } from '@fortawesome/free-solid-svg-icons';
+import Calendar from './Calendar';
 
 
 const Detail = () => {
@@ -102,7 +103,9 @@ if (instrumentoSeleccionado) {
                     <img src={"https://img-c9-g2-bucket.s3.amazonaws.com/caracteristicas-recibe-hoy.jpeg"} alt="instrumento" />
                 </div>
             </div>
-
+            <div>
+                <Calendar unavailablePeriods={instrumentoSeleccionado.fechasReservadas} />
+            </div>
     <div className = {style.politicas}>
         <h2>Políticas</h2>
             <div className= {style.divPoliticas}>
