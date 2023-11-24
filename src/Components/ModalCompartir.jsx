@@ -34,7 +34,7 @@ const ModalCompartir = ({ instrumento, icon}) => {
 					<div className= {style.modalcontent}>
 						<div className= {style.slider}>
 							<img
-								src={instrumento.imagenes[0]}
+								src={instrumento.imagenes[0].url}
 								alt="instrumento"
 								width={"250px"}
 							/>
