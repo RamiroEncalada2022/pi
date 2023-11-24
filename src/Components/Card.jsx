@@ -9,7 +9,7 @@ const Card = ({ instrumento }) => {
 	// 	dispatch({ type: "TOGGLE_FAV", payload: instrumento });
 	// };
 
-  const {state} = useContextGlobal()
+  const {state, dispatch} = useContextGlobal()
 
 	return (
 		<div className={style.card}>

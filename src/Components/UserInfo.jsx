@@ -24,6 +24,10 @@ const UserInfo = () => {
                     <div className={style.link}>
                         <Link to="/profile"className={style.miniButton} >Perfil</Link>
                     </div>
+                   <div className={style.link}>
+                        <Link to="/favoritos"className={style.miniButton} >Favoritos</Link>
+                    </div>
+
                     <div className={style.link}>
                         {state.user.rol === 'ADMIN' && (
                             <Link to="/admin" className={style.miniButton}>
