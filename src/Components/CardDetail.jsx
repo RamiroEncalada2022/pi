@@ -8,7 +8,7 @@ const CardDetail = ({instrumento}) => {
 
   return (
     <div> 
-        <img src={instrumento.imagenes[0]} alt="instrumento" width={'250px'}  />
+        <img src={instrumento.imagenes[0].url} alt="instrumento" width={'250px'}  />
         {/* <img src={instrumento.imagenes[0]} alt={`Imagen`}></img> */}
     </div>
   )

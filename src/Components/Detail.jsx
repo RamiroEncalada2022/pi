@@ -77,8 +77,8 @@ if (instrumentoSeleccionado) {
                 </div>
 
                 <div className={style.imagenesChicas}>
-                    <img src={instrumentoSeleccionado.imagenes[1]} alt="instrumento" />
-                    <img src={instrumentoSeleccionado.imagenes[2]} alt="instrumento" />
+                    <img src={instrumentoSeleccionado.imagenes[1].url} alt="instrumento" />
+                    <img src={instrumentoSeleccionado.imagenes[2].url} alt="instrumento" />
                 </div>
             </div>
 
