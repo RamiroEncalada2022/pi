@@ -3,9 +3,24 @@ import { useContextGlobal } from '../Components/utils/global.context'
 import axios from 'axios';
 import styles from './Style/List.module.css'
 import { Link } from 'react-router-dom';
+import UpdateProductModal from '../Components/UpdateProductModal'
 
 const List = () => {
   const { state, dispatch } = useContextGlobal(); // Uso del contexto
+
+  const [rowData, setRowData] = useState({})
+
+  const [modalUpdateOpen, setModalUpdateOpen] = useState(false)
+
+  const handleUpdate = (item) => {
+    if (window.confirm('¿Confirma que desea editar el producto?')) {
+      setModalUpdateOpen(true)
+      console.log(modalUpdateOpen)
+      setRowData(item)  
+      console.log(rowData)
+      
+    };
+  }
 
   const handleDelete = async (id) => {
     if (window.confirm('¿Confirma que desea eliminar el producto?')) {
@@ -39,6 +54,11 @@ const List = () => {
             <div className={styles.tableColumnId}>{item.id}</div>
             <div className={styles.tableColumnName}>{item.nombre}</div>
             <div className={styles.tableColumnActions}>
+            <button className={styles.deleteButton} onClick={() => handleUpdate(item)}>
+                  Editar
+                </button>
+
+
               <button className={styles.deleteButton} onClick={() => handleDelete(item.id)}>
                 Eliminar
               </button>
@@ -47,6 +67,8 @@ const List = () => {
         ))}
       </div>
       </div>
+      
+      {modalUpdateOpen && <UpdateProductModal setOpenUpdateModal={setModalUpdateOpen} rowData={rowData} />}
     </div>
   );
 };

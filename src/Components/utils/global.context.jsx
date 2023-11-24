@@ -108,6 +108,18 @@ function reducer(state, action) {
 			console.log(action.payload);
 			return { ...state, favs: updatedFavs };
 		}
+
+		case "UPDATE_INSTRUMENTO": {
+			const updatedInstrumento = action.payload;
+			return {
+				  ...state,
+				  instrumento2: state.instrumento2.map( (instrumento) => {
+					  return instrumento.id === updatedInstrumento.id? updatedInstrumento : instrumento
+				  })
+			  }
+		  }
+
+
     case 'SET_SEARCH_TEXT':
       return { ...state, searchText: action.payload };
 		default:
