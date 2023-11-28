@@ -23,12 +23,13 @@
     font-family: 'Didact Gothic', sans-serif;
     place-self: center;
     justify-self: center;
-    width: 70%;
+
 }
 
 .tituloCard{
     text-align: center;
-    margin-left: 5rem;
+    margin-left: 15px;
+    width: 90%;
 }
 
 a {
