@@ -110,6 +110,15 @@ function reducer(state, action) {
 		}
     case 'SET_SEARCH_TEXT':
       return { ...state, searchText: action.payload };
+	case "UPDATE_INSTRUMENTO": {
+		const updatedInstrumento = action.payload;
+		return {
+			  ...state,
+			  instrumento2: state.instrumento2.map( (instrumento) => {
+				  return instrumento.id === updatedInstrumento.id? updatedInstrumento : instrumento
+			  })
+		  }
+	  }
 		default:
 			    console.error(`Acción desconocida: ${action.type}`);
           return state; 

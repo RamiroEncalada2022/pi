@@ -1,0 +1,99 @@
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(128, 128, 128, 0.824); /* Fondo semi-transparente de color gris */
+  z-index: 1; /* Asegura que el modal esté en la parte superior */
+}
+
+.effectGlass{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: 50%;
+  margin: 50px auto;
+  color: white;
+  background: rgba(200, 200, 200, 0.3); /* Fondo semi-transparente de color gris */
+  border-radius: 10px;
+  min-width: 300px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  width: 500px;
+  gap: 30px;
+  text-align: center;
+  padding:40px;
+  background-color: rgba(210, 207, 207, 0.979);
+  border: 2px solid black;
+  backdrop-filter: blur(4px);
+}
+
+.tableContainer {
+  height: 70%;
+  width: 80%;
+  font-family: 'Didact Gothic', sans-serif;
+  padding:40px;
+  background-color: rgba(255,255,255,0,3);
+  backdrop-filter: blur(8px);
+}
+
+.cabecera{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subtitulo {
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #eeb964;
+  line-height: 1.2;
+  text-align: center;
+  margin: 20px 0;
+  border-bottom: 1px solid #eeb964;
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  background-color: rgba(218, 178, 70, 0.388);
+  border-bottom: 1px solid black;
+  margin: 0px 0;;
+}
+
+
+.label {
+  display:block;
+  padding: 20px 10px;
+  width: 100px;
+  margin-top: 20xp;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Didact Gothic', sans-serif;
+  cursor:pointer;
+  text-transform:uppercase;
+  text-align: center;
+  transition: .5s;
+}
+.label:hover {
+  background-color: #dddcd9;
+  color:black;
+}
+
+
