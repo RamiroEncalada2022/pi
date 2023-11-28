@@ -16,9 +16,10 @@ import Percusion from "./Components/Percusion";
 import Acessorios from "./Components/Accesorios";
 import Profile from "./Pages/Profile";
 import ListUsers from "./Pages/ListUsers";
-
+// import {  } from "./Pages/";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup.jsx";
+import FavList from "./Pages/FavList.jsx";
 
 /*FONT AWESOME */
 
@@ -45,6 +46,7 @@ function App() {
 				<Route path="/registro" element={<Signup />} />
 				<Route path="/profile" element={<Profile />} />
 				<Route path="/admin/listUsers" element={<ListUsers />} />
+				<Route path="/favoritos" element={<FavList />}/>
 			</Routes>
 
 			<Footer />

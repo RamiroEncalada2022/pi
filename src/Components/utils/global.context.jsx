@@ -60,18 +60,25 @@ function reducer(state, action) {
 		case "GET_USUARIOS":
 			return { ...state, usuarios: action.payload };
 
-		case "TOGGLE_FAV": {
-			const updatedFavs = state.favs.includes(action.payload.instrumento)
-				? state.favs.filter((item) => item !== action.payload.instrumento)
-				: [...state.favs, action.payload.instrumento];
-			console.log(action.payload);
-			return { ...state, favs: updatedFavs };
+		case "ADD_FAV":
+			return {
+				...state,
+				favs: [...state.favs, action.payload],
+			};
+
+		case "DELETE_FAV": {
+			const newsFavs = state.favs.filter((fav) => fav !== action.payload);
+
+			return {
+				...state,
+				favs: newsFavs,
+			};
 		}
 		default:
 			throw new Error();
 	}
 }
-// localStorage.clear();
+
 export const ContextProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
