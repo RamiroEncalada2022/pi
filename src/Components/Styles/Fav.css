@@ -1,7 +1,9 @@
 .fav {
    position: relative;
    top: 5px;
-   left: 125px;
+   text-align: right;
+   width: 90%;
 	font-size: 2.4rem;
    /* color: red; */
 }
+
