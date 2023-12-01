@@ -35,7 +35,6 @@ const Categories2 = () => {
             {data.map((item) => (
               <li key={item.id}>
                 <Link to={`/${item.categoria}`}>
-    
                 <img className = {style.imagenCategoria}src={item.imgUrl} alt={`Slide ${item.id}`} />
                 </Link>
               </li>

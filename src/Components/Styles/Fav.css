@@ -5,5 +5,13 @@
    width: 90%;
 	font-size: 2.4rem;
    /* color: red; */
+   max-width: 100%
+}
+
+@media only screen and (max-width: 900px) {
+   .fav {
+      font-size:1.5rem;
+   }
+
 }
 

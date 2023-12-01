@@ -54,6 +54,7 @@ a {
         margin-left: 5px;
         margin-right: 0;
         font-size: 0.4rem;
+        min-width: 170px;
     }
 
     .card img {
