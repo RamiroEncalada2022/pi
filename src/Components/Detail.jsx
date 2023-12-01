@@ -8,11 +8,13 @@ import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faShareSquare } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from "react-router-dom";
+
 import Calendar from './Calendar';
 
 
 const Detail = () => {
-
+	const navigateTo = useNavigate();
     const { state } = useContextGlobal();
     
 
@@ -48,6 +50,15 @@ if (instrumentoSeleccionado) {
     // console.log(elementoID)
 
     console.log(instrumentoSeleccionado.categoria)
+
+    const handleReserveClick = () => {
+        // Verificar si el usuario está logueado
+        if (state.loggedIn) {
+            navigateTo("/reservation");
+		} else {
+			navigateTo("/login"); 
+        }
+    }
 
 
     return (
@@ -142,6 +153,7 @@ if (instrumentoSeleccionado) {
     
 
             </div>
+            <button onClick={handleReserveClick}>Reservar</button>
             </div>
 
         </div >

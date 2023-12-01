@@ -22,6 +22,7 @@ import Signup from "./Pages/Signup.jsx";
 import FavList from "./Pages/FavList.jsx";
 import { useContextGlobal } from './Components/utils/global.context';
 import { useEffect } from "react";
+import Reservation from "./Pages/Reservation";
 
 /*FONT AWESOME */
 
@@ -84,6 +85,7 @@ function App() {
 				<Route path="/profile" element={<Profile />} />
 				<Route path="/favoritos" element={<FavList />} />
 				<Route path="/admin/listUsers" element={<ListUsers />} />
+				<Route path="/reservation" element={<Reservation />} />
 			</Routes>
 
 			<Footer />
