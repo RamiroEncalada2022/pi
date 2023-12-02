@@ -22,6 +22,7 @@ import Signup from "./Pages/Signup.jsx";
 import FavList from "./Pages/FavList.jsx";
 import { useContextGlobal } from './Components/utils/global.context';
 import { useEffect } from "react";
+import Whatssap from "./Components/Whatssap.jsx";
 
 /*FONT AWESOME */
 
@@ -85,6 +86,7 @@ function App() {
 				<Route path="/favoritos" element={<FavList />} />
 				<Route path="/admin/listUsers" element={<ListUsers />} />
 			</Routes>
+			<Whatssap/>
 
 			<Footer />
 		</>
