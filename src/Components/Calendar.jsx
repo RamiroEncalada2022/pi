@@ -2,37 +2,57 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const Calendar = ({ unavailablePeriods }) => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+const Calendar = ({ unavailablePeriods, onDatesSelected }) => {
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
 
-  const unavailableDates = [];
-  if (unavailablePeriods && unavailablePeriods.length > 0) {
-    for (let i = 0; i < unavailablePeriods.length; i++) {
-      const start = new Date(unavailablePeriods[i].fechaInicio);
-      const end = new Date(unavailablePeriods[i].fechaFin);
-
-      for (let date = new Date(start); date <= end; date.setDate(date.getDate() + 1)) {
-        unavailableDates.push(new Date(date));
-      }
+  const handleStartDateChange = (date) => {
+    setStartDate(date);
+    if (endDate && date.getTime() > endDate.getTime()) {
+      setEndDate(null);
     }
-  }
+    console.log('Start Date Selected:', date);
+  };
+
+  const handleEndDateChange = (date) => {
+    if (!startDate || date.getTime() >= startDate.getTime()) {
+      setEndDate(date);
+    }
+    console.log('End Date Selected:', date);
+  };
+
+  const handleReserve = () => {
+    if (onDatesSelected) {
+      onDatesSelected(startDate, endDate);
+      console.log('Dates Selected:', startDate, endDate);
+    }
+  };
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '600px' }}>
         <DatePicker
           selected={startDate}
-          onChange={(date) => setStartDate(date)}
-          monthsShown={2}
-          excludeDates={unavailableDates}
+          onChange={handleStartDateChange}
+          selectsStart
+          startDate={startDate}
+          endDate={endDate}
+          minDate={new Date()}
           inline
-          customDayClassName={(date) =>
-            unavailableDates.some((unavailableDate) => date.getTime() === unavailableDate.getTime())
-              ? 'unavailable'
-              : null
-          }
+          placeholderText="Start Date"
         />
+        <DatePicker
+          selected={endDate}
+          onChange={handleEndDateChange}
+          selectsEnd
+          startDate={startDate}
+          endDate={endDate}
+          minDate={startDate}
+          inline
+          placeholderText="End Date"
+        />
+        {/* Agregamos un botón para verificar la selección de fechas */}
+        <button onClick={handleReserve}>Check Dates</button>
       </div>
     </div>
   );

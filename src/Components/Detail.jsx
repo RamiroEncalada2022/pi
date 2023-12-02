@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useContextGlobal } from './utils/global.context';
 import CardDetail from "./CardDetail"
 import ModalGalery from './ModalGalery';
@@ -14,11 +14,44 @@ import Calendar from './Calendar';
 
 
 const Detail = () => {
-	const navigateTo = useNavigate();
+    const navigateTo = useNavigate();
     const { state } = useContextGlobal();
+    const [selectedDates, setSelectedDates] = useState([]);
+
+    const handleDatesSelected = (startDate, endDate) => {
+        setSelectedDates([startDate, endDate]);
+        console.log('Fecha de inicio seleccionada:', startDate);
+        console.log('Fecha de fin seleccionada:', endDate);
+      };
     
 
-var fragmentoID = window.location.pathname;
+    // Función para verificar la disponibilidad de fechas
+const checkAvailability = () => {
+    // Verifica si las fechas seleccionadas están en los períodos no disponibles
+    const areDatesAvailable = selectedDates.every(date => {
+        // Realiza la lógica de comparación con los períodos no disponibles (unavailablePeriods)
+        // Retorna true si la fecha está disponible y false si no lo está
+        return !instrumentoSeleccionado.fechasReservadas.some(period => {
+            // Lógica de comparación para verificar si la fecha está en un período no disponible
+            return date >= new Date(period.fechaInicio) && date <= new Date(period.fechaFin);
+        });
+    });
+
+    if (areDatesAvailable) {
+        // Las fechas están disponibles para reservar
+        // Puedes proceder con la reserva
+        console.log('Las fechas seleccionadas están disponibles');
+        // Realizar la acción de reserva aquí
+    } else {
+        // Las fechas no están disponibles
+        // Notificar al usuario que las fechas seleccionadas no están disponibles para reserva
+        console.log('Las fechas seleccionadas no están disponibles para reserva');
+    }
+};
+
+    
+
+    var fragmentoID = window.location.pathname;
 
     // console.log(fragmentoID)
 
@@ -34,7 +67,7 @@ var fragmentoID = window.location.pathname;
     }
 
     var soloNumeros = obtenerNumeros(fragmentoID)
-    console.log(soloNumeros)
+
 
 
 let instrumentoSeleccionado = state.instrumentos2.find(instrumento => instrumento.id === soloNumeros);
@@ -52,14 +85,30 @@ if (instrumentoSeleccionado) {
     console.log(instrumentoSeleccionado.categoria)
 
     const handleReserveClick = () => {
-        // Verificar si el usuario está logueado
         if (state.loggedIn) {
-            navigateTo("/reservation");
-		} else {
-			navigateTo("/login"); 
+          if (selectedDates.length > 0 && instrumentoSeleccionado) {
+            const areDatesAvailable = selectedDates.every((date) => {
+              return !instrumentoSeleccionado.fechasReservadas.some(
+                (period) =>
+                  date >= new Date(period.fechaInicio) && date <= new Date(period.fechaFin)
+              );
+            });
+    
+            if (areDatesAvailable) {
+              console.log('Las fechas seleccionadas están disponibles para reserva');
+              navigateTo('/reservation');
+            } else {
+              console.log('Las fechas seleccionadas no están disponibles para reserva');
+            }
+          } else {
+            console.log('Por favor, selecciona las fechas y/o un instrumento para la reserva');
+          }
+        } else {
+          navigateTo('/login');
         }
-    }
+      };
 
+console.log("Fechas no habilitadas: " + instrumentoSeleccionado.fechasReservadas.map)
 
     return (
         <div className= {style.contenedorDetail}>
@@ -115,7 +164,7 @@ if (instrumentoSeleccionado) {
                 </div>
             </div>
             <div>
-                <Calendar unavailablePeriods={instrumentoSeleccionado.fechasReservadas} />
+                <Calendar unavailablePeriods={instrumentoSeleccionado.fechasReservadas} onDatesSelected={handleDatesSelected} />
             </div>
     <div className = {style.politicas}>
         <h2>Políticas</h2>
