@@ -25,35 +25,9 @@ const Detail = () => {
       };
     
 
-    // Función para verificar la disponibilidad de fechas
-const checkAvailability = () => {
-    // Verifica si las fechas seleccionadas están en los períodos no disponibles
-    const areDatesAvailable = selectedDates.every(date => {
-        // Realiza la lógica de comparación con los períodos no disponibles (unavailablePeriods)
-        // Retorna true si la fecha está disponible y false si no lo está
-        return !instrumentoSeleccionado.fechasReservadas.some(period => {
-            // Lógica de comparación para verificar si la fecha está en un período no disponible
-            return date >= new Date(period.fechaInicio) && date <= new Date(period.fechaFin);
-        });
-    });
 
-    if (areDatesAvailable) {
-        // Las fechas están disponibles para reservar
-        // Puedes proceder con la reserva
-        console.log('Las fechas seleccionadas están disponibles');
-        // Realizar la acción de reserva aquí
-    } else {
-        // Las fechas no están disponibles
-        // Notificar al usuario que las fechas seleccionadas no están disponibles para reserva
-        console.log('Las fechas seleccionadas no están disponibles para reserva');
-    }
-};
-
-    
 
     var fragmentoID = window.location.pathname;
-
-    // console.log(fragmentoID)
 
     function obtenerNumeros(elemento) {
         // Utiliza una expresión regular para encontrar todos los dígitos en el elemento
@@ -80,17 +54,12 @@ if (instrumentoSeleccionado) {
     console.log("No se encontró el elemento con ID:", soloNumeros);
 }
 
-    // console.log(elementoID)
-
-    console.log(instrumentoSeleccionado.categoria)
-
     const handleReserveClick = () => {
         if (state.loggedIn) {
           if (selectedDates.length > 0 && instrumentoSeleccionado) {
             const areDatesAvailable = selectedDates.every((date) => {
               return !instrumentoSeleccionado.fechasReservadas.some(
-                (period) =>
-                  date >= new Date(period.fechaInicio) && date <= new Date(period.fechaFin)
+                (period) => date >= new Date(period.fechaInicio) && date <= new Date(period.fechaFin)
               );
             });
     
@@ -105,7 +74,7 @@ if (instrumentoSeleccionado) {
           }
         } else {
           navigateTo('/login');
-        }
+        }  
       };
 
 console.log("Fechas no habilitadas: " + instrumentoSeleccionado.fechasReservadas.map)
