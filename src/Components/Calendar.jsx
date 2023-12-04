@@ -1,16 +1,28 @@
 import { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
+import { useContextGlobal } from './utils/global.context';
+import { useNavigate } from "react-router-dom";
+
 import 'react-day-picker/dist/style.css';
 
 const Calendar = ({ unavailablePeriods, onDatesSelected }) => {
+  const navigateTo = useNavigate();
   const [selectedRange, setSelectedRange] = useState({ from: null, to: null });
+  const { state } = useContextGlobal();
 
   const handleSelect = (range) => {
     setSelectedRange(range);
     onDatesSelected(range.from, range.to);
+    
   };
 
   const handleReservation = () => {
+
+    if (!state.loggedIn) {
+      navigateTo('/login'); // Redirige al usuario a la página de inicio de sesión si no está logueado
+      return;
+    }
+
     if (selectedRange.from && selectedRange.to) {
       let isValid = true;
   
