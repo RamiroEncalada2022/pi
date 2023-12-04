@@ -16,13 +16,7 @@ import Calendar from './Calendar';
 const Detail = () => {
     const navigateTo = useNavigate();
     const { state } = useContextGlobal();
-    const [selectedDates, setSelectedDates] = useState([]);
 
-    const handleDatesSelected = (startDate, endDate) => {
-        setSelectedDates([startDate, endDate]);
-        console.log('Fecha de inicio seleccionada:', startDate);
-        console.log('Fecha de fin seleccionada:', endDate);
-      };
     
 
 
@@ -48,34 +42,13 @@ let instrumentoSeleccionado = state.instrumentos2.find(instrumento => instrument
 
 if (instrumentoSeleccionado) {
     // Hacer algo con el instrumento seleccionado, por ejemplo, mostrar sus imágenes
-    console.log("Instrumento encontrado:", instrumentoSeleccionado);
-    console.log("Imágenes del instrumento:", instrumentoSeleccionado.imagenes);
+    //console.log("Instrumento encontrado:", instrumentoSeleccionado);
+    //console.log("Imágenes del instrumento:", instrumentoSeleccionado.imagenes);
 } else {
     console.log("No se encontró el elemento con ID:", soloNumeros);
 }
 
-    const handleReserveClick = () => {
-        if (state.loggedIn) {
-          if (selectedDates.length > 0 && instrumentoSeleccionado) {
-            const areDatesAvailable = selectedDates.every((date) => {
-              return !instrumentoSeleccionado.fechasReservadas.some(
-                (period) => date >= new Date(period.fechaInicio) && date <= new Date(period.fechaFin)
-              );
-            });
-    
-            if (areDatesAvailable) {
-              console.log('Las fechas seleccionadas están disponibles para reserva');
-              navigateTo('/reservation');
-            } else {
-              console.log('Las fechas seleccionadas no están disponibles para reserva');
-            }
-          } else {
-            console.log('Por favor, selecciona las fechas y/o un instrumento para la reserva');
-          }
-        } else {
-          navigateTo('/login');
-        }  
-      };
+ 
 
 console.log("Fechas no habilitadas: " + instrumentoSeleccionado.fechasReservadas.map)
 
@@ -133,7 +106,7 @@ console.log("Fechas no habilitadas: " + instrumentoSeleccionado.fechasReservadas
                 </div>
             </div>
             <div>
-                <Calendar unavailablePeriods={instrumentoSeleccionado.fechasReservadas} onDatesSelected={handleDatesSelected} />
+                <Calendar instrumentoSeleccionado={instrumentoSeleccionado} />
             </div>
     <div className = {style.politicas}>
         <h2>Políticas</h2>
@@ -171,7 +144,7 @@ console.log("Fechas no habilitadas: " + instrumentoSeleccionado.fechasReservadas
     
 
             </div>
-            <button onClick={handleReserveClick}>Reservar</button>
+
             </div>
 
         </div >

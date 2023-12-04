@@ -2,13 +2,16 @@ import { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 import { useContextGlobal } from './utils/global.context';
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
 
 import 'react-day-picker/dist/style.css';
 
-const Calendar = ({ unavailablePeriods, onDatesSelected }) => {
+const Calendar = ({ instrumentoSeleccionado }) => {
   const navigateTo = useNavigate();
   const [selectedRange, setSelectedRange] = useState({ from: null, to: null });
   const { state } = useContextGlobal();
+  const unavailablePeriods = instrumentoSeleccionado.fechasReservadas;
 
   const handleSelect = (range) => {
     setSelectedRange(range);
@@ -39,7 +42,33 @@ const Calendar = ({ unavailablePeriods, onDatesSelected }) => {
       });
   
       if (isValid) {
+
+        const formatDate = (date) => {
+          const year = date.getFullYear();
+          let month = date.getMonth() + 1;
+          let day = date.getDate();
+    
+          month = month < 10 ? `0${month}` : month;
+          day = day < 10 ? `0${day}` : day;
+    
+          return `${year}-${month}-${day}`;
+        };
+
+        const reservationData = {
+          fechaReserva: formatDate(new Date()), 
+          fechaInicio: formatDate(selectedRange.from), 
+          fechaFin: formatDate(selectedRange.to), 
+          productos: [{ id: instrumentoSeleccionado.id }],
+          usuario: { id: state.user.email },
+          observaciones: "Entregar después del mediodía"
+        };
+
+        console.log(reservationData)
+
+        navigateTo('/reservation', { state: reservationData });
+
         console.log('Reservado!!');
+        
       } else {
         console.log('La fecha no es válida.');
       }
