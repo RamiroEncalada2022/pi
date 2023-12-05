@@ -77,18 +77,32 @@ const Calendar = ({ instrumentoSeleccionado }) => {
       console.log('Por favor, selecciona un rango de fechas.');
     }
   };
+  const getFormattedCurrentDate = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let day = today.getDate();
 
+    // Agregar ceros a la izquierda si el mes o el día son menores que 10
+    month = month < 10 ? `0${month}` : month;
+    day = day < 10 ? `0${day}` : day;
+
+    return `${year}-${month}-${day}`;
+  };
   return (
     <div>
       <DayPicker
         mode="range"
         selected={selectedRange}
         onSelect={handleSelect}
-        disabled={(day) => unavailablePeriods.some(period => {
-          const fechaInicio = new Date(period.fechaInicio);
-          const fechaFin = new Date(period.fechaFin);
-          return day >= fechaInicio && day <= fechaFin;
-        })}
+        disabled={(day) => {
+          const fechaActual = new Date(getFormattedCurrentDate());
+          return day < fechaActual || unavailablePeriods.some(period => {
+            const fechaInicio = new Date(period.fechaInicio);
+            const fechaFin = new Date(period.fechaFin);
+            return day >= fechaInicio && day <= fechaFin;
+          });
+        }}
         numberOfMonths={2}
       />
       <button onClick={handleReservation}>Reservar</button>
