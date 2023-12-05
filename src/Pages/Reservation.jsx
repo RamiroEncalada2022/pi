@@ -9,7 +9,11 @@ const Reservation = () => {
   const reservationData = location.state;
   const navigateTo = useNavigate();
   const { state } = useContextGlobal();
-
+  window.scrollTo(0, 0)
+  if (!state.loggedIn) {
+    navigateTo('/');
+    return null
+    }
 
   const handleConfirm = () => {
     console.log('Reserva confirmada');
@@ -22,12 +26,12 @@ const Reservation = () => {
   };
 
   const reservationStyle = {
-    padding: '20px',
+    padding: '10px',
     border: '1px solid #ccc',
     borderRadius: '5px',
-    maxWidth: '400px',
+    maxWidth: '600px',
     margin: 'auto',
-    marginTop: '50px',
+    marginTop: '30px',
     textAlign: 'center',
   };
 
@@ -41,31 +45,41 @@ const Reservation = () => {
     color: 'white',
   };
 
-  const getProductNames = () => {
-    return reservationData.productos.map((productoId) => {
-      const instrumento = state.instrumentos2.find((instrumento) => instrumento.id === productoId);
-      return instrumento ? instrumento.nombre : 'Nombre no encontrado';
-    });
+  const getProductData = () => {
+    const productId = reservationData.productos[0].id; // Obtener el primer producto
+    const instrumento = state.instrumentos2.find((instrumento) => instrumento.id === productId);
+    return instrumento ? instrumento : 'Nombre no encontrado';
   };
 
-  const productNames = getProductNames();
+  const getUserInfo = () => {
+    // Verificar si el usuario está logueado
+    if (state.loggedIn) {
+      const userInfo = state.user;
+
+      return userInfo; 
+    } else {
+
+      return null; 
+    }
+  };
+
+  const userInfo = getUserInfo(); // Obtener la información del usuario
+
+
+  const productData = getProductData();
 
 
   return (
     <div style={reservationStyle}>
       <h2>¡Esta es tu reserva!</h2>
-      {productNames.length > 0 ? (
-        <div>
-          <p>Has reservado:</p>
-          <ul>
-            {productNames.map((nombre, index) => (
-              <li key={index}>{nombre}</li>
-            ))}
-          </ul>
-        </div>
-      ) : (
-        <p>No has reservado ningún producto.</p>
-      )}
+      <h3>Detalles del Usuario</h3>
+      <p>Nombre: {userInfo.name}</p>
+      <p>Apellido: {userInfo.surname}</p>
+      <h3>Detalles del producto</h3>
+      <img src={productData.imagenes[1].url} alt="instrumento" width={90} />
+      <p>Nombre: {productData.nombre}</p>
+      <p>Detalle: {productData.descripcion}</p>
+
 
       <p>Desde: {reservationData.fechaInicio}</p>
       <p>Hasta: {reservationData.fechaFin}</p>

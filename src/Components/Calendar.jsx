@@ -9,6 +9,7 @@ import 'react-day-picker/dist/style.css';
 
 const Calendar = ({ instrumentoSeleccionado }) => {
   const navigateTo = useNavigate();
+
   const [selectedRange, setSelectedRange] = useState({ from: null, to: null });
   const { state } = useContextGlobal();
   const unavailablePeriods = instrumentoSeleccionado.fechasReservadas;
