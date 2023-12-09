@@ -52,10 +52,10 @@ a {
 
 @media only screen and (max-width: 900px) {
     .card {
-        margin-left: 5px;
+        margin-left: -24px;
         margin-right: 0;
         font-size: 0.4rem;
-        min-width: 200px;
+        min-width: 170px;
     }
 
     .card img {

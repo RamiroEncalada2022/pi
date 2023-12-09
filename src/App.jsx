@@ -52,7 +52,7 @@ function App() {
 		}
 	}, [dispatch]);
 	return (
-		<>
+		<div className="container-app">
 			<Header />
 
 			<Routes>
@@ -89,7 +89,7 @@ function App() {
 			</Routes>
 
 			<Footer />
-		</>
+		</div>
 	);
 }
 
