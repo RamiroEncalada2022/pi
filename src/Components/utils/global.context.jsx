@@ -134,37 +134,32 @@ export const ContextProvider = ({ children }) => {
 
 	const fetchData = async () => {
 
-		//Fechas simuladas, para dar aleatoriamente a los productos
-		const disponibilidadProductos = [
-			[
-				{ fechaInicio: '2023-11-25', fechaFin: '2023-11-30' },
-				{ fechaInicio: '2023-12-05', fechaFin: '2023-12-10' },
-			],
-			[
-				{ fechaInicio: '2023-12-01', fechaFin: '2023-12-15' },
-				{ fechaInicio: '2023-12-20', fechaFin: '2023-12-25' },
-			],
-			[
-				{ fechaInicio: '2024-01-01', fechaFin: '2024-01-10' },
-				{ fechaInicio: '2024-01-15', fechaFin: '2024-01-20' },
-			],
-		];
-		try {
-		const response2 = await axios.get("http://localhost:8080/api/producto");
-		// DISPONIBILIDA de los productos.
-		const productosConDisponibilidad = response2.data.map((producto, index) => {
-			// Agregar lógica para obtener los períodos de disponibilidad del producto desde tu backend
-			// ...
-			//le asigna un grupo de fechas distinta (3 casos) a los productos
-			const fechasReservadas = disponibilidadProductos[index % disponibilidadProductos.length];
+		 try {
+    const response2 = await axios.get("http://localhost:8080/api/producto");
+    const productos = response2.data;
+	console.log("Productos obtenidos:", productos);
 
-			return { ...producto, fechasReservadas };
-		});
-	
-			dispatch({ type: "GET_INSTRUMENTOS_2", payload: productosConDisponibilidad });
-		} catch (error) {
-		console.error("Se produjo el error:", error);
-		}
+
+    const reservasResponse = await axios.get("http://localhost:8080/api/reservas");
+
+    const instrumentosConReservas = productos.map((producto) => {
+        const reservas = reservasResponse.data.filter(
+			(reserva) => reserva.productos.some((prod) => prod.id === producto.id)
+		  );
+		
+		  const fechasReservadas = reservas.map((reserva) => ({
+			fechaInicio: reserva.fechaInicio,
+			fechaFin: reserva.fechaFin,
+		  }));
+		
+		  return { ...producto, fechasReservadas };
+    });
+    console.log("Instrumentos con fechas reservadas:", instrumentosConReservas);
+
+    dispatch({ type: "GET_INSTRUMENTOS_2", payload: instrumentosConReservas });
+  } catch (error) {
+    console.error("Se produjo un error:", error);
+  }
 	};
 	
 	useEffect(() => {

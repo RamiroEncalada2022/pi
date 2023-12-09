@@ -16,7 +16,9 @@ const Calendar = ({ instrumentoSeleccionado }) => {
 
   const handleSelect = (range) => {
     setSelectedRange(range);
-    onDatesSelected(range.from, range.to);
+    //onDatesSelected(range.from, range.to);
+    console.log("Rango seleccionado:", range);
+    console.log("Fechas reservadas del instrumento:", instrumentoSeleccionado.fechasReservadas);
     
   };
 

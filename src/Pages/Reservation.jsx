@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { useContextGlobal } from '../Components/utils/global.context';
+import axios from 'axios';
 
 
 
@@ -16,10 +17,33 @@ const Reservation = () => {
     return null
     }
 
-  const handleConfirm = () => {
-    console.log('Reserva confirmada');
-    navigateTo('/');
-  };
+    const handleConfirm = async () => {
+      try {
+        const userInfo = getUserInfo(); // Obtener información del usuario
+        const productData = getProductData(); // Obtener detalles del producto
+        const fechaInicio = reservationData.fechaInicio; // Obtener fecha de inicio de la reserva
+        const fechaFin = reservationData.fechaFin; // Obtener fecha de fin de la reserva
+    
+        // Realizar la solicitud POST a la API de reservas
+        const response = await axios.post('http://localhost:8080/api/reservas/registrar', {
+          fechaReserva: new Date().toISOString().split('T')[0], // Fecha de reserva actual
+          fechaInicio,
+          fechaFin,
+          productos: [{ id: productData.id }], // Enviar el ID del producto seleccionado
+          usuario: { id: userInfo.id }, // Enviar el ID del usuario
+          observaciones: "Entregar después del mediodía",
+          // Puedes ajustar las observaciones según sea necesario
+        });
+    
+        if (response.status === 200) {
+          console.log('Reserva confirmada');
+          navigateTo('/');
+        }
+      } catch (error) {
+        console.error('Error al realizar la reserva:', error);
+        // Manejo de errores (mostrar mensajes, redirigir, etc.)
+      }
+    };
 
   const handleCancel = () => {
     console.log('Reserva cancelada');
