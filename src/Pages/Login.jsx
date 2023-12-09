@@ -77,6 +77,7 @@ const Login = () => {
 					email: response.data.email,
 					token: token,
 					rol: userWithId.role,
+					id:userWithId.id,
 				};
 
 				// const user = {

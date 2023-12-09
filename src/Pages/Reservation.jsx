@@ -18,25 +18,32 @@ const Reservation = () => {
     }
 
     const handleConfirm = async () => {
+
       try {
         const userInfo = getUserInfo(); // Obtener información del usuario
         const productData = getProductData(); // Obtener detalles del producto
         const fechaInicio = reservationData.fechaInicio; // Obtener fecha de inicio de la reserva
         const fechaFin = reservationData.fechaFin; // Obtener fecha de fin de la reserva
-    
+        console.log("fecha actual: " + new Date().toISOString().split('T')[0])
+        console.log("fecha inicio " + fechaInicio)
+        console.log("fecha fin " + fechaFin)
+        console.log("user id " + state.user)
+        console.log("Productos " +  [{ id: productData.id }])
+
         // Realizar la solicitud POST a la API de reservas
         const response = await axios.post('http://localhost:8080/api/reservas/registrar', {
-          fechaReserva: new Date().toISOString().split('T')[0], // Fecha de reserva actual
-          fechaInicio,
-          fechaFin,
-          productos: [{ id: productData.id }], // Enviar el ID del producto seleccionado
-          usuario: { id: userInfo.id }, // Enviar el ID del usuario
+          fechaReserva: new Date().toISOString().split('T')[0], 
+          fechaInicio: fechaInicio,
+          fechaFin: fechaFin,
+          productos: [{ id: productData.id }], 
+          usuario: { id: state.user.id }, 
           observaciones: "Entregar después del mediodía",
-          // Puedes ajustar las observaciones según sea necesario
         });
+
     
-        if (response.status === 200) {
+        if (response.status === 201) {
           console.log('Reserva confirmada');
+          console.log(response)
           navigateTo('/');
         }
       } catch (error) {
