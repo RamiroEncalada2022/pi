@@ -78,9 +78,14 @@ console.log("Fechas no habilitadas: " + instrumentoSeleccionado.fechasReservadas
 
                 </div>
 
-                <div className={style.imagenesChicas}>
-                    <img src={instrumentoSeleccionado.imagenes[1].url} alt="instrumento" />
-                    <img src={instrumentoSeleccionado.imagenes[2].url} alt="instrumento" />
+                    <div className={style.imagenesChicas}>
+                        {instrumentoSeleccionado.imagenes[1] && (
+                            <img src={instrumentoSeleccionado.imagenes[1].url} alt="instrumento" />
+                        )}
+                        {instrumentoSeleccionado.imagenes[2] && (
+                            <img src={instrumentoSeleccionado.imagenes[2].url} alt="instrumento" />
+                        )}
+
                 </div>
             </div>
 

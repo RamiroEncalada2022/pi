@@ -9,6 +9,7 @@ const Reservation = () => {
   const reservationData = location.state;
   const navigateTo = useNavigate();
   const { state } = useContextGlobal();
+  
   window.scrollTo(0, 0)
   if (!state.loggedIn) {
     navigateTo('/');
