@@ -9,7 +9,7 @@ const Reservation = () => {
   const location = useLocation();
   const reservationData = location.state;
   const navigateTo = useNavigate();
-  const { state } = useContextGlobal();
+  const { state, dispatch } = useContextGlobal();
   
   window.scrollTo(0, 0)
   if (!state.loggedIn) {
@@ -24,11 +24,11 @@ const Reservation = () => {
         const productData = getProductData(); // Obtener detalles del producto
         const fechaInicio = reservationData.fechaInicio; // Obtener fecha de inicio de la reserva
         const fechaFin = reservationData.fechaFin; // Obtener fecha de fin de la reserva
-        console.log("fecha actual: " + new Date().toISOString().split('T')[0])
-        console.log("fecha inicio " + fechaInicio)
-        console.log("fecha fin " + fechaFin)
-        console.log("user id " + state.user)
-        console.log("Productos " +  [{ id: productData.id }])
+        // console.log("fecha actual: " + new Date().toISOString().split('T')[0])
+        // console.log("fecha inicio " + fechaInicio)
+        // console.log("fecha fin " + fechaFin)
+        // console.log("user id " + state.user)
+        // console.log("Productos " +  [{ id: productData.id }])
 
         // Realizar la solicitud POST a la API de reservas
         const response = await axios.post('http://localhost:8080/api/reservas/registrar', {
@@ -43,7 +43,21 @@ const Reservation = () => {
     
         if (response.status === 201) {
           console.log('Reserva confirmada');
-          console.log(response)
+          
+            // Obtener el ID del producto reservado y las nuevas fechas reservadas
+          const productId = productData.id; // Ajusta esto según tu lógica
+          const fechasReservadas = [
+            { fechaInicio: reservationData.fechaInicio, fechaFin: reservationData.fechaFin },
+            // Puedes ajustar esto según sea necesario
+          ];
+
+            // Disparar el action para actualizar las reservas en el producto
+          dispatch({
+            type: "UPDATE_RESERVAS_EN_PRODUCTO",
+            payload: { productId, fechasReservadas },
+          });
+
+
           navigateTo('/');
         }
       } catch (error) {

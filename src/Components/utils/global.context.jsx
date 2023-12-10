@@ -110,6 +110,17 @@ function reducer(state, action) {
 		}
     case 'SET_SEARCH_TEXT':
       return { ...state, searchText: action.payload };
+	  case "UPDATE_RESERVAS_EN_PRODUCTO": {
+		const { productId, fechasReservadas } = action.payload;
+		const updatedInstrumentos = state.instrumentos2.map((producto) => {
+		  if (producto.id === productId) {
+			return { ...producto, fechasReservadas };
+		  }
+		  return producto;
+		});
+	  
+		return { ...state, instrumentos2: updatedInstrumentos };
+	  }
 	case "UPDATE_INSTRUMENTO": {
 		const updatedInstrumento = action.payload;
 		return {
@@ -119,6 +130,7 @@ function reducer(state, action) {
 			  })
 		  }
 	  }
+	  
 		default:
 			    console.error(`Acción desconocida: ${action.type}`);
           return state; 
