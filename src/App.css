@@ -22,6 +22,13 @@
   }
 }
 
+@media only screen and (max-width: 767px) {
+  .container-app{
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
+
 .card {
   padding: 2em;
 }

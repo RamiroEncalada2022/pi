@@ -4,7 +4,7 @@ import style from './Style/Profile.module.css';
 
 const Profile = () => {
     const { state } = useContextGlobal();
-
+    console.log(state.user.id)
     return (
         <div className={style.container}>
             <h2>Perfil de Usuario</h2>

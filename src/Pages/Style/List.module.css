@@ -33,8 +33,8 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background-color: rgba(218, 178, 70, 0.388);
-    border-bottom: 1px solid black;
+    background-color: rgba(11, 10, 7, 0.388);
+    border-bottom: 1px solid rgb(250, 250, 250);
     margin: 5px 0;;
   }
   
@@ -74,7 +74,7 @@
     padding:10px 20px;
     text-align: center;
     font-size: 1em;
-    background-color: #634509;
+    background-color: #000000;
     color: white;
     border: none;
     border-radius: 5px;
@@ -85,8 +85,7 @@
     width: 80px;
 }
 .backButton:hover{
-  background-color: #9c7d3d;
-}
+  background-color: #9a9999;}
 
 .cabecera{
   display: flex;
@@ -98,9 +97,9 @@
   font-family: 'Didact Gothic', sans-serif;
   font-size: 2.5em;
   font-weight: 600;
-  color: #eeb964;
+  color: #dcdcdb;
   line-height: 1.2;
   text-align: center;
   margin: 20px 0;
-  border-bottom: 1px solid #eeb964;
+  border-bottom: 1px solid #e0dfde;
 }

@@ -77,8 +77,7 @@ const SearchBar = () => {
           onChange={handleInputChange}
         />
         <button onClick={handleSearch}>Buscar</button>
-      </div>
-      {showResults && searchResults.length > 0 && (
+        {showResults && searchResults.length > 0 && (
         <div className={style.searchResults}>
           {searchResults.map((result) => (
             <p key={result.id} onClick={() => handleResultClick(result)}>
@@ -87,6 +86,8 @@ const SearchBar = () => {
           ))}
         </div>
       )}
+      </div>
+      
       <div className={style.datePickers}>
         <div className={style.datePicker}>
           <DatePicker

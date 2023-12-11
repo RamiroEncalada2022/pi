@@ -1,7 +1,17 @@
 .fav {
    position: relative;
    top: 5px;
-   left: 125px;
+   text-align: right;
+   width: 90%;
 	font-size: 2.4rem;
    /* color: red; */
+   max-width: 100%
 }
+
+@media only screen and (max-width: 900px) {
+   .fav {
+      font-size:1.5rem;
+   }
+
+}
+

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useContextGlobal } from './utils/global.context';
 import CardDetail from "./CardDetail"
 import ModalGalery from './ModalGalery';
@@ -8,17 +8,20 @@ import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faShareSquare } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from "react-router-dom";
+
 import Calendar from './Calendar';
 
 
 const Detail = () => {
-
+    const navigateTo = useNavigate();
     const { state } = useContextGlobal();
+
     
 
-var fragmentoID = window.location.pathname;
 
-    // console.log(fragmentoID)
+
+    var fragmentoID = window.location.pathname;
 
     function obtenerNumeros(elemento) {
         // Utiliza una expresión regular para encontrar todos los dígitos en el elemento
@@ -32,23 +35,22 @@ var fragmentoID = window.location.pathname;
     }
 
     var soloNumeros = obtenerNumeros(fragmentoID)
-    console.log(soloNumeros)
+
 
 
 let instrumentoSeleccionado = state.instrumentos2.find(instrumento => instrumento.id === soloNumeros);
 
 if (instrumentoSeleccionado) {
     // Hacer algo con el instrumento seleccionado, por ejemplo, mostrar sus imágenes
-    console.log("Instrumento encontrado:", instrumentoSeleccionado);
-    console.log("Imágenes del instrumento:", instrumentoSeleccionado.imagenes);
+    //console.log("Instrumento encontrado:", instrumentoSeleccionado);
+    //console.log("Imágenes del instrumento:", instrumentoSeleccionado.imagenes);
 } else {
     console.log("No se encontró el elemento con ID:", soloNumeros);
 }
 
-    // console.log(elementoID)
+ 
 
-    console.log(instrumentoSeleccionado.categoria)
-
+console.log("Fechas no habilitadas: " + instrumentoSeleccionado.fechasReservadas.map)
 
     return (
         <div className= {style.contenedorDetail}>
@@ -76,9 +78,14 @@ if (instrumentoSeleccionado) {
 
                 </div>
 
-                <div className={style.imagenesChicas}>
-                    <img src={instrumentoSeleccionado.imagenes[1].url} alt="instrumento" />
-                    <img src={instrumentoSeleccionado.imagenes[2].url} alt="instrumento" />
+                    <div className={style.imagenesChicas}>
+                        {instrumentoSeleccionado.imagenes[1] && (
+                            <img src={instrumentoSeleccionado.imagenes[1].url} alt="instrumento" />
+                        )}
+                        {instrumentoSeleccionado.imagenes[2] && (
+                            <img src={instrumentoSeleccionado.imagenes[2].url} alt="instrumento" />
+                        )}
+
                 </div>
             </div>
 
@@ -104,7 +111,7 @@ if (instrumentoSeleccionado) {
                 </div>
             </div>
             <div>
-                <Calendar unavailablePeriods={instrumentoSeleccionado.fechasReservadas} />
+                <Calendar instrumentoSeleccionado={instrumentoSeleccionado} />
             </div>
     <div className = {style.politicas}>
         <h2>Políticas</h2>
@@ -142,6 +149,7 @@ if (instrumentoSeleccionado) {
     
 
             </div>
+
             </div>
 
         </div >

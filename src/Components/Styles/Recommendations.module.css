@@ -15,7 +15,7 @@
    justify-content: space-around;
    margin: 0 auto;
     width: 90%;
-   padding: 0 40px; /* Ajusta el valor de padding según sea necesario */
+   padding: 0 40px;
    grid-column-gap: 20px;
    
 }
@@ -30,7 +30,7 @@
 
 
 .container img{
-    width: 250px;   
+    width: 200px;   
     
     object-fit: contain;
     margin-top: 20px;

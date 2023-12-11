@@ -33,17 +33,17 @@ const ModalGalery = ({ instrumento }) => {
 					<div className="modal-content">
 						<div className="slider">
 							<img
-								src={instrumento.imagenes[1]}
+								src={instrumento.imagenes[0].url}
 								alt="instrumento"
 								width={"250px"}
 							/>
 							<img
-								src={instrumento.imagenes[2]}
+								src={instrumento.imagenes[1].url}
 								alt="instrumento"
 								width={"250px"}
 							/>
 							<img
-								src={instrumento.imagenes[3]}
+								src={instrumento.imagenes[2].url}
 								alt="instrumento"
 								width={"250px"}
 							/>
