@@ -100,7 +100,7 @@ const AddProduct = () => {
   useEffect(() => {
     // Cargar características al montar el componente
     fetchDataCharacteristics();
-  }, []);
+  }, [state.instrumentos2]);
 
   const fetchDataCharacteristics = async () => {
     try {
