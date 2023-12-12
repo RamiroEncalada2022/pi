@@ -94,20 +94,18 @@ const hasImages = instrumentoSeleccionado && instrumentoSeleccionado.imagenes &&
 
                 </div>
 
-                    <div className={style.imagenesChicas}>
-                        {hasImages ? (
-                            <img src={instrumentoSeleccionado.imagenes[1].url} alt="instrumento" />
-                            ) : (
-                                <img src="https://www.yiwubazaar.com/resources/assets/images/default-product.jpg" alt="imagen por defecto" width={'250px'} />
-                              )}
-                              {hasImages ? (
-                            <img src={instrumentoSeleccionado.imagenes[2].url} alt="instrumento" />
-                            ) : (
-                                <img src="https://www.yiwubazaar.com/resources/assets/images/default-product.jpg" alt="imagen por defecto" width={'250px'} />
-                              )}
+                <div className={style.imagenesChicas}>
+  {hasImages ? (
+    instrumentoSeleccionado.imagenes.map((imagen, index) => (
+      index > 0 && index < 3 ? (
+        <img key={index} src={imagen.url} alt={`imagen ${index}`} />
+      ) : null
+    ))
+  ) : (
+    <img src="https://www.yiwubazaar.com/resources/assets/images/default-product.jpg" alt="imagen por defecto" width={'250px'} />
+  )}
+</div>
 
-
-                </div>
             </div>
 
             </div>
@@ -128,8 +126,8 @@ const hasImages = instrumentoSeleccionado && instrumentoSeleccionado.imagenes &&
         {instrumentoSeleccionado && instrumentoSeleccionado.caracteristicas ? (
           instrumentoSeleccionado.caracteristicas.map((caracteristica) => (
             <div key={caracteristica.id}>
-              <img src={caracteristica.urlIcono} alt={caracteristica.nombre} />
-              <p>{caracteristica.nombre}</p>
+              <img src={caracteristica.urlIcono} alt={caracteristica.nombre} width={50} />
+             
               {console.log("Nombre de caracteristicas: " + caracteristica.nombre)}
             </div>
           ))

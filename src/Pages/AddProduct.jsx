@@ -13,7 +13,7 @@ const AddProduct = () => {
   const [productName, setProductName] = useState('');
   const [productDescription, setProductDescription] = useState('');
   const [productCategory, setProductCategory] = useState('');
-  const [productImages, setProductImages] = useState([]);
+  const [imageUrls, setImageUrls] = useState('');
   const [message, setMessage] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -41,9 +41,8 @@ const AddProduct = () => {
     setSelectedCaracteristicas(selected);
   };
 
-  const handleImageChange = (e) => {
-    const files = Array.from(e.target.files);
-    setProductImages(files);
+  const handleImageUrlsChange = (e) => {
+    setImageUrls(e.target.value);
   };
 
   const handlePost = () => {
@@ -52,6 +51,7 @@ const AddProduct = () => {
       return { id };
     });
     
+    
     console.log("caracteristicas en su formato: ", caracteristicasEnFormatoCorrecto)
     const data = {
       nombre: productName,
@@ -59,8 +59,14 @@ const AddProduct = () => {
       categoria: { id: productCategory },
       caracteristicas: caracteristicasEnFormatoCorrecto,
     };
-    console.log('Data a enviar:', data); // Verificar los datos que se enviarán al servidor
+    const urlsArray = imageUrls.split('\n').filter((url) => url.trim() !== '');
+    console.log('Array de URLs:', urlsArray);
 
+    // Agregar el array de URLs al objeto de datos
+    data.imagenes = urlsArray;
+
+    console.log('Data a enviar:', data); // Verificar los datos que se enviarán al servidor
+    
 
     axios
       .post('http://localhost:8080/api/producto/registrar', data, {
@@ -80,7 +86,7 @@ const AddProduct = () => {
         setProductName('');
         setProductDescription('');
         setProductCategory('');
-        setProductImages([]);
+        //setProductImages([]);
       })
       .catch((error) => {
         console.error('Se produjo el siguiente error:', error);
@@ -130,12 +136,15 @@ const AddProduct = () => {
           onChange={handleCaracteristicasChange}
         />
 
-        <div className={styles.contentFile}>
-          <label htmlFor="archivo" className={styles.label}>
-            Agregar imagen
-          </label>
-          <input type="file" className={styles.archivo} multiple onChange={handleImageChange} id="archivo" />
-        </div>
+<div className={styles.contentFile}>
+      {/* Cambiar el input de archivos por un textarea */}
+      <textarea
+        className={styles.textarea}
+        value={imageUrls}
+        onChange={handleImageUrlsChange}
+        placeholder="Pegue las URLs de las imágenes aquí (una por línea)"
+      ></textarea>
+    </div>
         <div className={styles.containerButtons}>
           <button className={styles.button} onClick={handlePost}>
             Agregar producto
