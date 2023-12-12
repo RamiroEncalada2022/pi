@@ -38,8 +38,7 @@ const [modalImagesOpen, setModalImagesOpen] =useState(false)
  
 
   const handleProductCategoryChange= (e) => {
-    // Your function code here
-    //console.log(e.target.value);
+
     e.target.value === "agregar"? setModalOpen(true) : setProductCategory(e.target.value);
   }
 
@@ -74,7 +73,7 @@ const [modalImagesOpen, setModalImagesOpen] =useState(false)
     nombre: productName,
     descripcion: productDescription, // Ajusta esto por descripción para el backend, en este caso es lo que usamo de la api
     categoria: productCategory,
-    imagenes: productImages,
+    
   };
 
   const handlePut = async () => {
@@ -98,7 +97,7 @@ const [modalImagesOpen, setModalImagesOpen] =useState(false)
        setProductImages([]);
     } catch (error) {
        console.error('Se produjo el siguiente error:', error);
-       // Mensaje en caso de error
+
        setMessage('Error al actualizar el producto');
        setTimeout(() => {
           setMessage('');
@@ -133,7 +132,6 @@ const [modalImagesOpen, setModalImagesOpen] =useState(false)
         <button className={styles.button} onClick={()=>handleProductImagesChange(imagenes)}>Editar Imagenes</button>
         {modalImagesOpen && <UpdateImagesModal setOpenImagesModal={setModalImagesOpen} instrumentoImagenes={instrumentoImagenes} handleImageChange={handleImageChange}/>} 
 
-  
 
   
       
