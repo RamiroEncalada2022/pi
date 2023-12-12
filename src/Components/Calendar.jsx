@@ -12,7 +12,8 @@ const Calendar = ({ instrumentoSeleccionado }) => {
 
   const [selectedRange, setSelectedRange] = useState({ from: null, to: null });
   const { state } = useContextGlobal();
-  const unavailablePeriods = instrumentoSeleccionado.fechasReservadas;
+  const unavailablePeriods = instrumentoSeleccionado?.fechasReservadas || [];
+
 
   const handleSelect = (range) => {
     setSelectedRange(range);

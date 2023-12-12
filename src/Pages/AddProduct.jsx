@@ -36,6 +36,8 @@ const AddProduct = () => {
   };
 
   const handleCaracteristicasChange = (selected) => {
+    console.log('Características seleccionadas:', selected); // Verificar las características seleccionadas
+
     setSelectedCaracteristicas(selected);
   };
 
@@ -45,14 +47,20 @@ const AddProduct = () => {
   };
 
   const handlePost = () => {
-    const caracteristicasEnFormatoCorrecto = selectedCaracteristicas.map((id) => ({ id }));
-
+    const caracteristicasEnFormatoCorrecto = selectedCaracteristicas.map((id) => {
+      console.log('ID:', id);
+      return { id };
+    });
+    
+    console.log("caracteristicas en su formato: ", caracteristicasEnFormatoCorrecto)
     const data = {
       nombre: productName,
       descripcion: productDescription,
       categoria: { id: productCategory },
       caracteristicas: caracteristicasEnFormatoCorrecto,
     };
+    console.log('Data a enviar:', data); // Verificar los datos que se enviarán al servidor
+
 
     axios
       .post('http://localhost:8080/api/producto/registrar', data, {
@@ -62,6 +70,7 @@ const AddProduct = () => {
         },
       })
       .then((response) => {
+        console.log("Respuesta del servidor:", response.data);
         dispatch({ type: 'ADD_INSTRUMENTO', payload: response.data });
         setMessage('Producto agregado exitosamente');
         setTimeout(() => {
@@ -118,7 +127,6 @@ const AddProduct = () => {
         {modalOpen && <CategoryModal setOpenModal={setModalOpen} />}
         {/* Utiliza el componente CaracteristicasSelector y pasa las características del contexto */}
         <CaracteristicasSelector
-          caracteristicas={state.caracteristicas}
           onChange={handleCaracteristicasChange}
         />
 

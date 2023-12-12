@@ -54,9 +54,9 @@ const List = () => {
             <div className={styles.tableColumnId}>{item.id}</div>
             <div className={styles.tableColumnName}>{item.nombre}</div>
             <div className={styles.tableColumnActions}>
-            <button className={styles.deleteButton} onClick={() => handleUpdate(item)}>
+            {/* <button className={styles.deleteButton} onClick={() => handleUpdate(item)}>
                   Editar
-                </button>
+                </button> */}
               <button className={styles.deleteButton} onClick={() => handleDelete(item.id)}>
                 Eliminar
               </button>

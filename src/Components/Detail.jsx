@@ -17,7 +17,10 @@ const Detail = () => {
     const navigateTo = useNavigate();
     const { state } = useContextGlobal();
 
-    
+// Suponiendo que el ID de tu producto sea instrumentoSeleccionado.id y cada característica tenga su ID en instrumentoSeleccionado.caracteristicas
+
+
+
 
 
 
@@ -44,12 +47,24 @@ if (instrumentoSeleccionado) {
     // Hacer algo con el instrumento seleccionado, por ejemplo, mostrar sus imágenes
     //console.log("Instrumento encontrado:", instrumentoSeleccionado);
     //console.log("Imágenes del instrumento:", instrumentoSeleccionado.imagenes);
+    let caracteristicasDelProducto = [];
+
+if (instrumentoSeleccionado && instrumentoSeleccionado.caracteristicas) {
+  // Obtener el ID del producto seleccionado
+  const idProducto = instrumentoSeleccionado.id;
+
+  // Filtrar las características en base al ID del producto
+  caracteristicasDelProducto = state.caracteristicas.filter(caracteristica =>
+    caracteristica.productos.some(producto => producto.id === idProducto)
+  );
+}
+
+console.log("Características del producto:", caracteristicasDelProducto);
 } else {
     console.log("No se encontró el elemento con ID:", soloNumeros);
 }
 
 const hasImages = instrumentoSeleccionado && instrumentoSeleccionado.imagenes && instrumentoSeleccionado.imagenes.length > 0;
-
 
 //console.log("Fechas no habilitadas: " + instrumentoSeleccionado.fechasReservadas.map)
 
@@ -108,14 +123,21 @@ const hasImages = instrumentoSeleccionado && instrumentoSeleccionado.imagenes &&
             </div>
 
             <div className={style.caracteristica}>
-                <h2>Características</h2>
-                <div className={style.imagenesCaracteristicas}>
-                    <img src={"https://img-c9-g2-bucket.s3.amazonaws.com/caracteristicas-nuevo.jpeg"} alt="instrumento" />
-                    <img src={"https://img-c9-g2-bucket.s3.amazonaws.com/caracteristica-oferta.jpeg"} alt="instrumento" />
-                    <img src={"https://img-c9-g2-bucket.s3.amazonaws.com/caracteristica-principiantes.jpeg"} alt="instrumento" />
-                    <img src={"https://img-c9-g2-bucket.s3.amazonaws.com/caracteristicas-recibe-hoy.jpeg"} alt="instrumento" />
-                </div>
+      <h2>Características</h2>
+      <div className={style.imagenesCaracteristicas}>
+        {instrumentoSeleccionado && instrumentoSeleccionado.caracteristicas ? (
+          instrumentoSeleccionado.caracteristicas.map((caracteristica) => (
+            <div key={caracteristica.id}>
+              <img src={caracteristica.urlIcono} alt={caracteristica.nombre} />
+              <p>{caracteristica.nombre}</p>
+              {console.log("Nombre de caracteristicas: " + caracteristica.nombre)}
             </div>
+          ))
+        ) : (
+          <p>No hay características disponibles</p>
+        )}
+      </div>
+    </div>
             <div>
                 <Calendar instrumentoSeleccionado={instrumentoSeleccionado} />
             </div>
@@ -126,6 +148,7 @@ const hasImages = instrumentoSeleccionado && instrumentoSeleccionado.imagenes &&
                 <div>
                     <h3>Política de Privacidad:</h3>
                     <p>En Sinfonía, nos comprometemos a proteger y respetar tu privacidad. Nuestra política de privacidad describe cómo recopilamos, utilizamos y protegemos la información personal que compartes con nosotros. Al utilizar nuestros servicios, aceptas las prácticas descritas en esta política. </p>
+                    <a href="https://faq.whatsapp.com/1148840052398648/?helpref=hc_fnav" target="_blank">Privacidad de whatssap</a>
                 </div>
 
                 <div>
