@@ -126,6 +126,7 @@ const hasImages = instrumentoSeleccionado && instrumentoSeleccionado.imagenes &&
                 <div>
                     <h3>Política de Privacidad:</h3>
                     <p>En Sinfonía, nos comprometemos a proteger y respetar tu privacidad. Nuestra política de privacidad describe cómo recopilamos, utilizamos y protegemos la información personal que compartes con nosotros. Al utilizar nuestros servicios, aceptas las prácticas descritas en esta política. </p>
+                    <a href="https://faq.whatsapp.com/1148840052398648/?helpref=hc_fnav" target="_blank">Privacidad de whatssap</a>
                 </div>
 
                 <div>
