@@ -64,6 +64,7 @@ const Features = () => {
         setEditedFeature({ id: null, nombre: '', urlIcono: '' });
     };
     
+    console.log("Características en el estado en Administrar:", state.caracteristicas);
 
     return (
         <div>

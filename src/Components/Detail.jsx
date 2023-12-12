@@ -51,7 +51,7 @@ if (instrumentoSeleccionado) {
 const hasImages = instrumentoSeleccionado && instrumentoSeleccionado.imagenes && instrumentoSeleccionado.imagenes.length > 0;
 
 
-console.log("Fechas no habilitadas: " + instrumentoSeleccionado.fechasReservadas.map)
+//console.log("Fechas no habilitadas: " + instrumentoSeleccionado.fechasReservadas.map)
 
     return (
         <div className= {style.contenedorDetail}>
