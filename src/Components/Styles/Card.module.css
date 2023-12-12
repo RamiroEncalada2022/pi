@@ -2,6 +2,7 @@
     margin: 10px;
     background-color: var(--color-card-fondo);
     width: 70%;
+    min-width: 350px;
     height: 95%;
     display: flex;
     flex-direction: column;

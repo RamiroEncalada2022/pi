@@ -48,7 +48,8 @@ if (instrumentoSeleccionado) {
     console.log("No se encontró el elemento con ID:", soloNumeros);
 }
 
- 
+const hasImages = instrumentoSeleccionado && instrumentoSeleccionado.imagenes && instrumentoSeleccionado.imagenes.length > 0;
+
 
 console.log("Fechas no habilitadas: " + instrumentoSeleccionado.fechasReservadas.map)
 
@@ -79,12 +80,17 @@ console.log("Fechas no habilitadas: " + instrumentoSeleccionado.fechasReservadas
                 </div>
 
                     <div className={style.imagenesChicas}>
-                        {instrumentoSeleccionado.imagenes[1] && (
+                        {hasImages ? (
                             <img src={instrumentoSeleccionado.imagenes[1].url} alt="instrumento" />
-                        )}
-                        {instrumentoSeleccionado.imagenes[2] && (
+                            ) : (
+                                <img src="https://www.yiwubazaar.com/resources/assets/images/default-product.jpg" alt="imagen por defecto" width={'250px'} />
+                              )}
+                              {hasImages ? (
                             <img src={instrumentoSeleccionado.imagenes[2].url} alt="instrumento" />
-                        )}
+                            ) : (
+                                <img src="https://www.yiwubazaar.com/resources/assets/images/default-product.jpg" alt="imagen por defecto" width={'250px'} />
+                              )}
+
 
                 </div>
             </div>

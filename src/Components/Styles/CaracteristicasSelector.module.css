@@ -1,0 +1,52 @@
+/* Coloca tus estilos CSS aquí */
+.caracteristicasContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    width: 80%;
+    gap: 15px;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    color: black !important;
+  }
+  
+  .title {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000000;
+  }
+  
+  .caracteristicaItem label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+  
+  .caracteristicaItem input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+    color: black !important; 
+  }
+  input[type='checkbox'] {
+    /* Asegura que los checkboxes sean visibles */
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    appearance: checkbox;
+    color: black;
+  }
+  
+  /* Opcional: Estilo para el marcado del checkbox */
+  input[type='checkbox']:checked {
+    background-color: black; /* Cambia el color de fondo cuando está marcado */
+    border-color: black; /* Cambia el color del borde cuando está marcado */
+    color: black; /* Cambia el color del tick cuando está marcado */
+  }
+
+  

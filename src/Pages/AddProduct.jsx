@@ -5,6 +5,7 @@ import { useContextGlobal } from '../Components/utils/global.context';
 import { Link } from 'react-router-dom';
 import CategoriaMenu from "../Components/CategoryMenu"
 import CategoryModal from '../Components/CategoryModal';
+import CaracteristicasSelector from '../Components/CaracteristicasSelector';
 
 
 
@@ -19,6 +20,9 @@ const AddProduct = () => {
 
 
   const [modalOpen, setModalOpen] = useState(false);
+
+  const [selectedCaracteristicas, setSelectedCaracteristicas] = useState([]); // Nuevo estado para las características seleccionadas
+
 
   const handleProductNameChange = (e) => {
     setProductName(e.target.value);
@@ -36,7 +40,9 @@ const AddProduct = () => {
     e.target.value == "agregar"? setModalOpen(true) : setProductCategory(e.target.value);
   }
 
-
+  const handleCaracteristicasChange = (selected) => {
+    setSelectedCaracteristicas(selected);
+  };
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
@@ -44,14 +50,17 @@ const AddProduct = () => {
   };
 
   const handlePost = () => {
+    const caracteristicasEnFormatoCorrecto = selectedCaracteristicas.map((id) => ({ id }));
+
     const data = {
       nombre: productName,
       descripcion: productDescription, // Ajusta esto por descripción para el backend, en este caso es lo que usamo de la api
       categoria: {
         id: productCategory 
       },
-
+      caracteristicas: caracteristicasEnFormatoCorrecto, 
     };
+    console.log("los datos a enviar: " + data.caracteristicas) 
     console.log("Token: " + token)
     axios
       .post('http://localhost:8080/api/producto/registrar', data, {
@@ -95,7 +104,9 @@ const AddProduct = () => {
       <input className={styles.text} type="text" value={productDescription} onChange={handleProductDescriptionChange} placeholder="Descripcion del producto" />
       <CategoriaMenu   handleProductCategoryChange={handleProductCategoryChange}/>
       {modalOpen && <CategoryModal setOpenModal={setModalOpen} />}
-      
+      <CaracteristicasSelector caracteristicas={state.caracteristicas}
+          onChange={handleCaracteristicasChange} />
+
       <div className={styles.contentFile}>
         <label htmlFor="archivo" className={styles.label}>Agregar imagen</label>
         <input type="file" className={styles.archivo} multiple onChange={handleImageChange} id="archivo"/>
