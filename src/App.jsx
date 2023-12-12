@@ -24,6 +24,7 @@ import { useContextGlobal } from './Components/utils/global.context';
 import { useEffect } from "react";
 import Reservation from "./Pages/Reservation";
 import Whatssap from "./Components/Whatssap.jsx";
+import BookingList from "./Pages/BookingList.jsx";
 
 /*FONT AWESOME */
 
@@ -87,6 +88,7 @@ function App() {
 				<Route path="/favoritos" element={<FavList />} />
 				<Route path="/admin/listUsers" element={<ListUsers />} />
 				<Route path="/reservation" element={<Reservation />} />
+				<Route path="/MisReservas" element={<BookingList />} />
 			</Routes>
 			<Whatssap/>
 
